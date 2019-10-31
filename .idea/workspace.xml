@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="919b535e-c92a-43ab-83d2-de4a5354e1a7" name="Default Changelist" comment="new Interface &quot;IPlayer&quot;." />
+    <list default="true" id="919b535e-c92a-43ab-83d2-de4a5354e1a7" name="Default Changelist" comment="new Interface &quot;IPlayer&quot;.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/hdm_stuttgart/mi/interfaces/IGamemode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/hdm_stuttgart/mi/interfaces/IJoker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UML/inquiz.xml" beforeDir="false" afterPath="$PROJECT_DIR$/UML/inquiz.xml" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,11 +38,38 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/de/hdm_stuttgart/mi/interfaces/IPlayer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+            <state relative-caret-position="30">
+              <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/de/hdm_stuttgart/mi/interfaces/IGamemode.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/de/hdm_stuttgart/mi/interfaces/IJoker.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="20" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/UML/inquiz.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" column="266" selection-start-line="1" selection-start-column="266" selection-end-line="1" selection-end-column="266" />
             </state>
           </provider>
         </entry>
@@ -59,6 +91,9 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/de/hdm_stuttgart/mi/interfaces/IPlayer.java" />
+        <option value="$PROJECT_DIR$/UML/inquiz.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/de/hdm_stuttgart/mi/interfaces/IJoker.java" />
+        <option value="$PROJECT_DIR$/src/main/java/de/hdm_stuttgart/mi/interfaces/IGamemode.java" />
       </list>
     </option>
   </component>
@@ -128,6 +163,11 @@
               <item name="mi" type="462c0819:PsiDirectoryNode" />
               <item name="interfaces" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="inquiz" type="b2602c69:ProjectViewProjectNode" />
+              <item name="inquiz" type="462c0819:PsiDirectoryNode" />
+              <item name="UML" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -140,7 +180,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.catalog" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -187,7 +227,9 @@
       <workItem from="1571322053093" duration="968000" />
       <workItem from="1571929415093" duration="255000" />
       <workItem from="1572006843144" duration="20000" />
-      <workItem from="1572534879773" duration="2038000" />
+      <workItem from="1572534879773" duration="2288000" />
+      <workItem from="1572537340161" duration="607000" />
+      <workItem from="1572537991993" duration="1073000" />
     </task>
     <task id="LOCAL-00001" summary="new Interface &quot;IPlayer&quot;.">
       <created>1572536937007</created>
@@ -200,13 +242,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3281000" />
+    <option name="totallyTimeSpent" value="5211000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26037195" />
+      <window_info id="simpleUML" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26752505" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -227,7 +269,7 @@
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.24964234" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Codota" order="4" />
@@ -236,6 +278,7 @@
       <window_info anchor="right" id="Capture Analysis" order="7" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info anchor="right" id="Database" order="9" />
+      <window_info anchor="right" id="PlantUML" order="10" weight="0.3297568" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -244,6 +287,10 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="new Interface &quot;IPlayer&quot;." />
     <option name="LAST_COMMIT_MESSAGE" value="new Interface &quot;IPlayer&quot;." />
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/pom.xml">
@@ -260,10 +307,60 @@
         </state>
       </provider>
     </entry>
+    <entry file="uml://JIGSAW/gui">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JIGSAW</ID>
+          <OriginalElement>gui</OriginalElement>
+          <nodes>
+            <node x="" y="">javafx.graphics</node>
+            <node x="" y="">gui</node>
+            <node x="" y="">javafx.controls</node>
+            <node x="" y="">java.scripting</node>
+            <node x="" y="">java.prefs</node>
+            <node x="" y="">jdk.jfr</node>
+            <node x="" y="">java.desktop</node>
+            <node x="" y="">javafx.fxml</node>
+            <node x="" y="">java.xml</node>
+            <node x="" y="">org.apache.logging.log4j</node>
+            <node x="" y="">java.datatransfer</node>
+            <node x="" y="">jdk.unsupported</node>
+            <node x="" y="">javafx.base</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="313.5" y="246.0" />
+          <SelectedNodes />
+          <Categories />
+          <SCOPE>All</SCOPE>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UML/inquiz.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="266" selection-start-line="1" selection-start-column="266" selection-end-line="1" selection-end-column="266" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/de/hdm_stuttgart/mi/interfaces/IPlayer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        <state relative-caret-position="30">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/de/hdm_stuttgart/mi/interfaces/IJoker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="20" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/de/hdm_stuttgart/mi/interfaces/IGamemode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
