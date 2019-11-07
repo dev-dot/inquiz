@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="919b535e-c92a-43ab-83d2-de4a5354e1a7" name="Default Changelist" comment="new Interface &quot;IPlayer&quot;.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/hdm_stuttgart/mi/interfaces/IGamemode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/hdm_stuttgart/mi/interfaces/IJoker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/content/questions.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UML/inquiz.xml" beforeDir="false" afterPath="$PROJECT_DIR$/UML/inquiz.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inquiz.iml" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -47,11 +46,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/de/hdm_stuttgart/mi/interfaces/IGamemode.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="105">
-              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+              <caret line="7" selection-start-line="7" selection-end-line="7" />
             </state>
           </provider>
         </entry>
@@ -68,8 +67,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/UML/inquiz.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="266" selection-start-line="1" selection-start-column="266" selection-end-line="1" selection-end-column="266" />
+            <state>
+              <caret column="266" selection-start-column="266" selection-end-column="266" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/content/questions.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="452">
+              <caret line="128" column="51" lean-forward="true" selection-start-line="128" selection-start-column="51" selection-end-line="128" selection-end-column="51" />
             </state>
           </provider>
         </entry>
@@ -94,6 +102,7 @@
         <option value="$PROJECT_DIR$/UML/inquiz.xml" />
         <option value="$PROJECT_DIR$/src/main/java/de/hdm_stuttgart/mi/interfaces/IJoker.java" />
         <option value="$PROJECT_DIR$/src/main/java/de/hdm_stuttgart/mi/interfaces/IGamemode.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/content/questions.json" />
       </list>
     </option>
   </component>
@@ -114,8 +123,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -126,11 +133,6 @@
             <path>
               <item name="inquiz" type="b2602c69:ProjectViewProjectNode" />
               <item name="inquiz" type="462c0819:PsiDirectoryNode" />
-              <item name=".idea" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="inquiz" type="b2602c69:ProjectViewProjectNode" />
-              <item name="inquiz" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -144,40 +146,37 @@
               <item name="inquiz" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="inquiz" type="b2602c69:ProjectViewProjectNode" />
               <item name="inquiz" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="mi" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="content" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="inquiz" type="b2602c69:ProjectViewProjectNode" />
               <item name="inquiz" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="mi" type="462c0819:PsiDirectoryNode" />
-              <item name="interfaces" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="inquiz" type="b2602c69:ProjectViewProjectNode" />
-              <item name="inquiz" type="462c0819:PsiDirectoryNode" />
-              <item name="UML" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="styles" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
@@ -230,6 +229,7 @@
       <workItem from="1572534879773" duration="2288000" />
       <workItem from="1572537340161" duration="607000" />
       <workItem from="1572537991993" duration="1073000" />
+      <workItem from="1573141054397" duration="2163000" />
     </task>
     <task id="LOCAL-00001" summary="new Interface &quot;IPlayer&quot;.">
       <created>1572536937007</created>
@@ -242,19 +242,20 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5211000" />
+    <option name="totallyTimeSpent" value="7374000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="simpleUML" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26752505" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27045178" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info id="simpleUML" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32891566" />
@@ -293,20 +294,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/de/hdm_stuttgart/mi/FxmlGuiDriver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding>
-            <element signature="e#545#546#0" expanded="true" />
-            <element signature="e#573#574#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="uml://JIGSAW/gui">
       <provider selected="true" editor-type-id="UmlEditorProvider">
         <state>
@@ -329,17 +316,24 @@
           </nodes>
           <notes />
           <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="313.5" y="246.0" />
+          <settings layout="Hierarchic Group" zoom="1.0" x="314.0" y="246.0" />
           <SelectedNodes />
           <Categories />
           <SCOPE>All</SCOPE>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/UML/inquiz.xml">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/de/hdm_stuttgart/mi/FxmlGuiDriver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="266" selection-start-line="1" selection-start-column="266" selection-end-line="1" selection-end-column="266" />
+        <state relative-caret-position="120">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding>
+            <element signature="e#545#546#0" expanded="true" />
+            <element signature="e#573#574#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -360,7 +354,21 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/de/hdm_stuttgart/mi/interfaces/IGamemode.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UML/inquiz.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="266" selection-start-column="266" selection-end-column="266" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/content/questions.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="452">
+          <caret line="128" column="51" lean-forward="true" selection-start-line="128" selection-start-column="51" selection-end-line="128" selection-end-column="51" />
         </state>
       </provider>
     </entry>
