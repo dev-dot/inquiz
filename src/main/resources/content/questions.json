@@ -126,7 +126,7 @@
         "answer": "Maine"
       },
       "q3": {
-        "question": "Whats the square root of -1?",
+        "question": "What US state is famous for their juicy peaches?",
         "options": [
           "3",
           "i",
@@ -148,44 +148,54 @@
     },
     "food": {
       "q1": {
-        "question": "5 + 7 = ?",
+        "question": "What US state is famous for their juicy peaches?",
         "options": [
-          "10",
-          "11",
-          "12",
-          "13"
+          "Georgia",
+          "California",
+          "Hawaii",
+          "Ohio"
         ],
-        "answer": "12"
+        "answer": "Georgia"
       },
       "q2": {
-        "question": "12 - 8 = ?",
+        "question": "Which beverage is advertised as being Sports Fuel?",
         "options": [
-          "1",
-          "2",
-          "3",
-          "4"
+          "Coca Cola",
+          "Pepsi",
+          "Gatorade",
+          "Mountain Dew"
         ],
-        "answer": "4"
+        "answer": "Gatorade"
       },
       "q3": {
-        "question": "Whats the square root of -1?",
+        "question": "A buffalo burger is made of which type of meat?",
         "options": [
-          "3",
-          "i",
-          "15",
-          "doesnt exist"
+          "Beef",
+          "Bison",
+          "Chicken",
+          "Pork"
         ],
-        "answer": "i"
+        "answer": "Bison"
       },
       "q4": {
-        "question": "3 + 2 * 3",
+        "question": "What nut is traditionally on the Waldorf salad?",
         "options": [
-          "15",
-          "18",
-          "20",
-          "-3"
+          "Hazelnuts",
+          "Walnuts",
+          "Peanuts",
+          "Pecans"
         ],
-        "answer": "18"
+        "answer": "Walnuts"
+      },
+      "q5": {
+        "question": "Which cocktail was made famous by rapper Snoop Doggy Dogg in the 1990’s?",
+        "options": [
+          "Vodka Tonic",
+          "Green Mentis",
+          "Gin & Juice",
+          "Long Island Ice Tea"
+        ],
+        "answer": "Gin & Juice"
       }
     }
   }
