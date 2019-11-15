@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <questionelement>
+        <question>What US state is famous for their juicy peaches?</question>
+        <answer>Georgia</answer>
+        <options>
+            <element>Georgia</element>
+            <element>California</element>
+            <element>Hawaii</element>
+            <element>Ohio</element>
+        </options>
+        <category>food</category>
+    </questionelement>
+
+    <questionelement>
+        <question>Which beverage is advertised as being Sports Fuel?</question>
+        <answer>Gatorade</answer>
+        <options>
+            <element>Coca Cola</element>
+            <element>Pepsi</element>
+            <element>Gatorade</element>
+            <element>Mountain Dew</element>
+            <category>food</category>
+        </options>
+    </questionelement>
+
+    <questionelement>
+        <question>A buffalo burger is made of which type of meat?</question>
+        <answer>Bison</answer>
+        <options>
+            <element>Beef</element>
+            <element>Bison</element>
+            <element>Chicken</element>
+            <element>Pork</element>
+        </options>
+        <category>food</category>
+    </questionelement>
+
+    <questionelement>
+        <question>What nut is traditionally on the Waldorf salad?</question>
+        <answer>Walnuts</answer>
+        <options>
+            <element>Hazelnuts</element>
+            <element>Walnuts</element>
+            <element>Peanuts</element>
+            <element>Pecans</element>
+        </options>
+        <category>food</category>
+    </questionelement>
+
+    <questionelement>
+        <question>Which cocktail was made famous by rapper Snoop Doggy Dogg in the 1990’s?</question>
+        <answer>Gin &amp; Juice</answer>
+        <options>
+            <element>Vodka Tonic</element>
+            <element>Green Mentis</element>
+            <element>Gin &amp; Juice</element>
+            <element>Long Island Ice Tea</element>
+        </options>
+        <category>food</category>
+    </questionelement>
+
+    <questionelement>
+        <question>On which continent is the country of Bahrain located?</question>
+        <answer>Asia</answer>
+        <options>
+            <element>Africa</element>
+            <element>Asia</element>
+            <element>South America</element>
+            <element>Europe</element>
+        </options>
+        <category>geo</category>
+    </questionelement>
+
+    <questionelement>
+        <question>Which U.S. state only borders with one other state?</question>
+        <answer>Maine</answer>
+        <options>
+            <element>Alaska</element>
+            <element>Maine</element>
+            <element>Texas</element>
+            <element>Hawaii</element>
+        </options>
+        <category>geo</category>
+    </questionelement>
+
+    <questionelement>
+        <question>What US state is famous for their juicy peaches?</question>
+        <answer>Georgia</answer>
+        <options>
+            <element>Florida</element>
+            <element>Georgia</element>
+            <element>New York</element>
+            <element>California</element>
+        </options>
+        <category>geo</category>
+    </questionelement>
+
+    <questionelement>
+        <question>3 + 2 * 3</question>
+        <answer>9</answer>
+        <options>
+            <element>15</element>
+            <element>9</element>
+            <element>20</element>
+            <element>-3</element>
+        </options>
+
+    </questionelement>
+
+    <questionelement>
+        <question>5 + 7 = ?</question>
+        <answer>12</answer>
+        <options>
+            <element>10</element>
+            <element>11</element>
+            <element>12</element>
+            <element>13</element>
+        </options>
+        <category>maths</category>
+    </questionelement>
+
+
+    <questionelement>
+        <question>12 - 8 = ?</question>
+        <answer>4</answer>
+        <options>
+            <element>1</element>
+            <element>2</element>
+            <element>3</element>
+            <element>4</element>
+        </options>
+        <category>maths</category>
+    </questionelement>
+
+    <questionelement>
+        <question>Whats the square root of -1?</question>
+        <answer>i</answer>
+        <options>
+            <element>3</element>
+            <element>i</element>
+            <element>15</element>
+            <element>doesnt exist</element>
+        </options>
+        <category>maths</category>
+    </questionelement>
+
+    <questionelement>
+        <question>Which one is correct team name in NBA?</question>
+        <answer>Huston Rocket</answer>
+        <options>
+            <element>New York Bulls</element>
+            <element>Los Angeles Kings</element>
+            <element>Golden State Warriros</element>
+            <element>Huston Rocket</element>
+        </options>
+        <category>sport</category>
+    </questionelement>
+
+    <questionelement>
+        <question>Frankie Fredericks represented which African country in athletics?</question>
+        <answer>Namibia</answer>
+        <options>
+            <element>South Africa</element>
+            <element>Namibia</element>
+            <element>Ghana</element>
+            <element>Nigeria</element>
+        </options>
+        <category>sport</category>
+    </questionelement>
+
+    <questionelement>
+        <question>What is the national sport in Japan?</question>
+        <answer>Sumo Wrestling</answer>
+        <options>
+            <element>Kendo</element>
+            <element>Table Tennis</element>
+            <element>Sumo Wrestling</element>
+            <element>Archery</element>
+        </options>
+        <category>sport</category>
+    </questionelement>
+
+    <questionelement>
+        <question>In which province of Indonesia is the city of Palembang, which co-hosted the games located?</question>
+        <answer>South Sumatra</answer>
+        <options>
+            <element>South Sumatra</element>
+            <element>West Sumatra</element>
+            <element>East Java</element>
+            <element>Central Java</element>
+        </options>
+        <category>sport</category>
+    </questionelement>
+
+    <questionelement>
+        <question>How many matches did Mohammed Ali loose in his carrer?</question>
+        <answer>1</answer>
+        <options>
+            <element>0</element>
+            <element>1</element>
+            <element>2</element>
+            <element>3</element>
+        </options>
+        <category>sport</category>
+    </questionelement>
+
+    <questionelement>
+        <question>How many players has a hockey team on the ice?</question>
+        <answer>6</answer>
+        <options>
+            <element>8</element>
+            <element>11</element>
+            <element>7</element>
+            <element>6</element>
+        </options>
+    </questionelement>
+
+</root>
