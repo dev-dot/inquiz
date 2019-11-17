@@ -20,8 +20,8 @@
             <element>Pepsi</element>
             <element>Gatorade</element>
             <element>Mountain Dew</element>
-            <category>food</category>
         </options>
+        <category>food</category>
     </questionelement>
 
     <questionelement>
@@ -105,7 +105,7 @@
             <element>20</element>
             <element>-3</element>
         </options>
-
+        <category>maths</category>
     </questionelement>
 
     <questionelement>
@@ -214,6 +214,7 @@
             <element>7</element>
             <element>6</element>
         </options>
+        <category>sport</category>
     </questionelement>
 
 </root>
