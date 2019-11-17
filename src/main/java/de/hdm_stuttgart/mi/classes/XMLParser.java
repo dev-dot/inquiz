@@ -1,5 +1,6 @@
 package de.hdm_stuttgart.mi.classes;
 
+/*
 import java.io.File;
 import java.io.IOException;
 import javax.xml.parsers.DocumentBuilder;
@@ -27,7 +28,6 @@ public class XMLParser {
         for (int i = 0; i < nList.getLength(); i++)
         {
             Node node = nList.item(i);
-            System.out.println("");
             if (node.getNodeType() == Node.ELEMENT_NODE)
             {
                 Element eElement = (Element) node;
@@ -39,3 +39,4 @@ public class XMLParser {
         }
     }
 }
+*/
