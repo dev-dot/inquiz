@@ -20,7 +20,7 @@ public class XMLParser {
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
         Document xml = dBuilder.parse(xmlfile);
-        NodeList nList = xml.getElementsByTagName("questionelement");
+        NodeList nList = xml.getElementsByTagName("questionElement");
         int numberOfQuestions = nList.getLength();
         int questionIndex = 5;
         String selectedQuestion = "";
@@ -30,32 +30,41 @@ public class XMLParser {
 
         if(questionIndex < numberOfQuestions){
 
-            ArrayList<String> inneroptions = new ArrayList<>();
             ArrayList<String> questions = new ArrayList<>();
             ArrayList<String> answers = new ArrayList<>();
-            ArrayList<String> options = new ArrayList<>();
+            ArrayList<String> optionsA = new ArrayList<>();
+            ArrayList<String> optionsB = new ArrayList<>();
+            ArrayList<String> optionsC = new ArrayList<>();
+            ArrayList<String> optionsD = new ArrayList<>();
             ArrayList<String> category = new ArrayList<>();
 
             for (int i = 0; i < nList.getLength(); i++)
             {
-                inneroptions.clear();
                 Node node = nList.item(i);
                 if (node.getNodeType() == Node.ELEMENT_NODE)
                 {
                     Element eElement = (Element) node;
                     questions.add(eElement.getElementsByTagName("question").item(0).getTextContent());
                     answers.add(eElement.getElementsByTagName("answer").item(0).getTextContent());
-                    inneroptions.add(eElement.getElementsByTagName("options").item(0).getTextContent());
-                    options.addAll(inneroptions);
+                    optionsA.add(eElement.getElementsByTagName("optionA").item(0).getTextContent());
+                    optionsB.add(eElement.getElementsByTagName("optionB").item(0).getTextContent());
+                    optionsC.add(eElement.getElementsByTagName("optionC").item(0).getTextContent());
+                    optionsD.add(eElement.getElementsByTagName("optionD").item(0).getTextContent());
                     category.add(eElement.getElementsByTagName("category").item(0).getTextContent());
                 }
             }
 
-            System.out.println(questions.get(questionIndex));
-            System.out.println(answers.get(questionIndex));
-            System.out.println(options.get(questionIndex));
-            System.out.println(category.get(questionIndex));
+            selectedQuestion = questions.get(questionIndex);
+            selectedAnswer = answers.get(questionIndex);
+            selectedOptions.add(optionsA.get(questionIndex));
+            selectedOptions.add(optionsB.get(questionIndex));
+            selectedOptions.add(optionsC.get(questionIndex));
+            selectedOptions.add(optionsD.get(questionIndex));
+            selectedCategory = category.get(questionIndex);
+            System.out.println(selectedQuestion);
+            System.out.println(selectedAnswer);
+            System.out.println(selectedOptions);
+            System.out.println(selectedCategory);
         }
-
     }
 }
