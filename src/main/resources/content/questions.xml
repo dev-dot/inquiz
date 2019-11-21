@@ -1,219 +1,221 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<root>
-    <questionElement>
-        <question>What US state is famous for their juicy peaches?</question>
+<quiz>
+
+    <questions>
+        <questionname>What US state is famous for their juicy peaches?</questionname>
         <answer>Georgia</answer>
+        <category>food</category>
         
             <optionA>Georgia</optionA>
             <optionB>California</optionB>
             <optionC>Hawaii</optionC>
             <optionD>Ohio</optionD>
-        
-        <category>food</category>
-    </questionElement>
 
-    <questionElement>
-        <question>Which beverage is advertised as being Sports Fuel?</question>
+    </questions>
+
+    <questions>
+        <questionname>Which beverage is advertised as being Sports Fuel?</questionname>
         <answer>Gatorade</answer>
+        <category>food</category>
         
             <optionA>Coca Cola</optionA>
             <optionB>Pepsi</optionB>
             <optionC>Gatorade</optionC>
             <optionD>Mountain Dew</optionD>
-        
-        <category>food</category>
-    </questionElement>
 
-    <questionElement>
-        <question>A buffalo burger is made of which type of meat?</question>
+    </questions>
+
+    <questions>
+        <questionname>A buffalo burger is made of which type of meat?</questionname>
         <answer>Bison</answer>
+        <category>food</category>
         
             <optionA>Beef</optionA>
             <optionB>Bison</optionB>
             <optionC>Chicken</optionC>
             <optionD>Pork</optionD>
-        
-        <category>food</category>
-    </questionElement>
 
-    <questionElement>
-        <question>What nut is traditionally on the Waldorf salad?</question>
+    </questions>
+
+    <questions>
+        <questionname>What nut is traditionally on the Waldorf salad?</questionname>
         <answer>Walnuts</answer>
+        <category>food</category>
         
             <optionA>Hazelnuts</optionA>
             <optionB>Walnuts</optionB>
             <optionC>Peanuts</optionC>
             <optionD>Pecans</optionD>
-        
-        <category>food</category>
-    </questionElement>
 
-    <questionElement>
-        <question>Which cocktail was made famous by rapper Snoop Doggy Dogg in the 1990’s?</question>
+    </questions>
+
+    <questions>
+        <questionname>Which cocktail was made famous by rapper Snoop Doggy Dogg in the 1990’s?</questionname>
         <answer>Gin &amp; Juice</answer>
+        <category>food</category>
         
             <optionA>Vodka Tonic</optionA>
             <optionB>Green Mentis</optionB>
             <optionC>Gin &amp; Juice</optionC>
             <optionD>Long Island Ice Tea</optionD>
-        
-        <category>food</category>
-    </questionElement>
 
-    <questionElement>
-        <question>On which continent is the country of Bahrain located?</question>
+    </questions>
+
+    <questions>
+        <questionname>On which continent is the country of Bahrain located?</questionname>
         <answer>Asia</answer>
+        <category>geo</category>
         
             <optionA>Africa</optionA>
             <optionB>Asia</optionB>
             <optionC>South America</optionC>
             <optionD>Europe</optionD>
-        
-        <category>geo</category>
-    </questionElement>
 
-    <questionElement>
-        <question>Which U.S. state only borders with one other state?</question>
+    </questions>
+
+    <questions>
+        <questionname>Which U.S. state only borders with one other state?</questionname>
         <answer>Maine</answer>
-        
+        <category>geo</category>
+
             <optionA>Alaska</optionA>
             <optionB>Maine</optionB>
             <optionC>Texas</optionC>
             <optionD>Hawaii</optionD>
-        
-        <category>geo</category>
-    </questionElement>
 
-    <questionElement>
-        <question>What US state is famous for their juicy peaches?</question>
+    </questions>
+
+    <questions>
+        <questionname>What US state is famous for their juicy peaches?</questionname>
         <answer>Georgia</answer>
+        <category>geo</category>
         
             <optionA>Florida</optionA>
             <optionB>Georgia</optionB>
             <optionC>New York</optionC>
             <optionD>California</optionD>
-        
-        <category>geo</category>
-    </questionElement>
 
-    <questionElement>
-        <question>3 + 2 * 3</question>
+    </questions>
+
+    <questions>
+        <questionname>3 + 2 * 3</questionname>
         <answer>9</answer>
+        <category>maths</category>
         
             <optionA>15</optionA>
             <optionB>9</optionB>
             <optionC>20</optionC>
             <optionD>-3</optionD>
-        
-        <category>maths</category>
-    </questionElement>
 
-    <questionElement>
-        <question>5 + 7 = ?</question>
+    </questions>
+
+    <questions>
+        <questionname>5 + 7 = ?</questionname>
         <answer>12</answer>
+        <category>maths</category>
         
             <optionA>10</optionA>
             <optionB>11</optionB>
             <optionC>12</optionC>
             <optionD>13</optionD>
-        
-        <category>maths</category>
-    </questionElement>
+
+    </questions>
     
-    <questionElement>
-        <question>12 - 8 = ?</question>
+    <questions>
+        <questionname>12 - 8 = ?</questionname>
         <answer>4</answer>
+        <category>maths</category>
         
             <optionA>1</optionA>
             <optionB>2</optionB>
             <optionC>3</optionC>
             <optionD>4</optionD>
-        
-        <category>maths</category>
-    </questionElement>
 
-    <questionElement>
-        <question>Whats the square root of -1?</question>
+    </questions>
+
+    <questions>
+        <questionname>Whats the square root of -1?</questionname>
         <answer>i</answer>
+        <category>maths</category>
         
             <optionA>3</optionA>
             <optionB>i</optionB>
             <optionC>15</optionC>
             <optionD>doesnt exist</optionD>
-        
-        <category>maths</category>
-    </questionElement>
 
-    <questionElement>
-        <question>Which one is correct team name in NBA?</question>
+    </questions>
+
+    <questions>
+        <questionname>Which one is correct team name in NBA?</questionname>
         <answer>Huston Rocket</answer>
+        <category>sport</category>
         
             <optionA>New York Bulls</optionA>
             <optionB>Los Angeles Kings</optionB>
             <optionC>Golden State Warriros</optionC>
             <optionD>Huston Rocket</optionD>
         
-        <category>sport</category>
-    </questionElement>
 
-    <questionElement>
-        <question>Frankie Fredericks represented which African country in athletics?</question>
+    </questions>
+
+    <questions>
+        <questionname>Frankie Fredericks represented which African country in athletics?</questionname>
         <answer>Namibia</answer>
+        <category>sport</category>
         
             <optionA>South Africa</optionA>
             <optionB>Namibia</optionB>
             <optionC>Ghana</optionC>
             <optionD>Nigeria</optionD>
-        
-        <category>sport</category>
-    </questionElement>
 
-    <questionElement>
-        <question>What is the national sport in Japan?</question>
+    </questions>
+
+    <questions>
+        <questionname>What is the national sport in Japan?</questionname>
         <answer>Sumo Wrestling</answer>
+        <category>sport</category>
         
             <optionA>Kendo</optionA>
             <optionB>Table Tennis</optionB>
             <optionC>Sumo Wrestling</optionC>
             <optionD>Archery</optionD>
-        
-        <category>sport</category>
-    </questionElement>
 
-    <questionElement>
-        <question>In which province of Indonesia is the city of Palembang, which co-hosted the games located?</question>
+    </questions>
+
+    <questions>
+        <questionname>In which province of Indonesia is the city of Palembang, which co-hosted the games located?</questionname>
         <answer>South Sumatra</answer>
+        <category>sport</category>
         
             <optionA>South Sumatra</optionA>
             <optionB>West Sumatra</optionB>
             <optionC>East Java</optionC>
             <optionD>Central Java</optionD>
-        
-        <category>sport</category>
-    </questionElement>
 
-    <questionElement>
-        <question>How many matches did Mohammed Ali loose in his carrer?</question>
+    </questions>
+
+    <questions>
+        <questionname>How many matches did Mohammed Ali loose in his carrer?</questionname>
         <answer>1</answer>
+        <category>sport</category>
         
             <optionA>0</optionA>
             <optionB>1</optionB>
             <optionC>2</optionC>
             <optionD>3</optionD>
-        
-        <category>sport</category>
-    </questionElement>
 
-    <questionElement>
-        <question>How many players has a hockey team on the ice?</question>
+    </questions>
+
+    <questions>
+        <questionname>How many players has a hockey team on the ice?</questionname>
         <answer>6</answer>
+        <category>sport</category>
         
             <optionA>8</optionA>
             <optionB>11</optionB>
             <optionC>7</optionC>
             <optionD>6</optionD>
-        
-        <category>sport</category>
-    </questionElement>
 
-</root>
+    </questions>
+
+</quiz>

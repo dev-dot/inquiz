@@ -4,7 +4,7 @@ module gui {
     requires org.apache.logging.log4j;
     requires java.xml;
     /*requires java.xml.bind;*/
-
-    opens de.hdm_stuttgart.mi to javafx.fxml;
+    requires jaxb.api;
+    requires jaxb.impl;
     exports de.hdm_stuttgart.mi;
 }

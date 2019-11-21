@@ -1,3 +1,4 @@
+/*
 package de.hdm_stuttgart.mi.classes;
 
 import java.io.File;
@@ -11,6 +12,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.Element;
 import org.xml.sax.SAXException;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class XMLParser {
 
@@ -67,4 +69,4 @@ public class XMLParser {
             System.out.println(selectedCategory);
         }
     }
-}
+}*/
