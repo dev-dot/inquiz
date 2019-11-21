@@ -1,7 +1,14 @@
 package de.hdm_stuttgart.mi.interfaces;
 
 public interface IGamemode {
-    void standardMode();
-    void speedMode();
-    void expertMode();
+
+     enum Gamemodes{
+      LEICHT, MITTEL, SCHWER
+
+     Gamemodes(){}
+
+    }
+    int getJokerCounter();
+    int getRemainingTime();
+
 }
