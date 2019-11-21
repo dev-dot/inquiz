@@ -2,8 +2,9 @@ package de.hdm_stuttgart.mi.interfaces;
 
 public interface IGamemode {
 
-     enum Gamemodes{
-      LEICHT, MITTEL, SCHWER
+    enum Gamemodes {
+        LEICHT, MITTEL, SCHWER;
+
 
      Gamemodes(){}
 
