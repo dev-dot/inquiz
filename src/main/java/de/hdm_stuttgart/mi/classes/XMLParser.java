@@ -9,29 +9,26 @@ import static javax.xml.bind.JAXBContext.newInstance;
 
 public class XMLParser {
 
-    void createQuestions() {
+    Quiz createQuestions() {
         Quiz quiz;
 
 
         File file = new File("src/main/resources/content/questions.xml");
 
 
-
-        {
-            try {
-                JAXBContext jaxbContext = newInstance(Quiz.class);
-                Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
-                quiz = (Quiz) unmarshaller.unmarshal(file);
-                System.out.println(quiz.getQuestions().get(0).getAnswer());
+        try {
+            JAXBContext jaxbContext = newInstance(Quiz.class);
+            Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
+            quiz = (Quiz) unmarshaller.unmarshal(file);
+            return quiz;
 
 
-            } catch (JAXBException e) {
-                e.printStackTrace();
-            }
-
+        } catch (JAXBException e) {
+            e.printStackTrace();
         }
 
 
+        return null;
     }
 
 }

@@ -34,24 +34,6 @@ public class Game implements IGamemode {
 
     void setGamemode(int gamemode) {
 
-        switch (gamemode) {
-            case 0:
-                standardMode();
-                log.info("gamemode was set to standard; " + timeToAnswer + ":Time to answer," + remainingJoker + ":Remaining Joker");
-                break;
-            case 1:
-                speedMode();
-                log.info("gamemode was set to speed");
-                break;
-            case 2:
-                expertMode();
-                log.info("gamemode was set to expert");
-                break;
-
-            default:
-
-        }
-
     }
 
     public int getRoundCount() {
@@ -78,30 +60,24 @@ public class Game implements IGamemode {
         this.timeToAnswer = timeToAnswer;
     }
 
-    void setNewPlayer(String nickname) {
+    Player createNewPlayer(String nickname) {
 
         Player player = new Player(nickname);
         log.info("player: " + player.getId() + " was created");
+        return player;
     }
 
 
     /* Interface methods */
 
     @Override
-    public void standardMode() {
-        setRemainingJoker(3);
-        setTimeToAnswer(1000);
+    public int getJokerCounter() {
+        return 0;
     }
 
     @Override
-    public void speedMode() {
-        setRemainingJoker(2);
-        setTimeToAnswer(750);
-    }
-
-    @Override
-    public void expertMode() {
-        setRemainingJoker(1);
-        setTimeToAnswer(500);
+    public int getRemainingTime() {
+        return 0;
     }
 }
+
