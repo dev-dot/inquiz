@@ -19,7 +19,8 @@ public class App {
 
         System.out.println("Choose your Nickname?");
         String nickname = input.nextLine();
-        game.setNewPlayer(nickname);
+        Player player = game.createNewPlayer(nickname);
+
 
         System.out.println("Choose your Level? \n 0 = Standard Mode \n 1 = Speed Mode \n 2 = Expert Mode");
         int gamemode=input.nextInt();
