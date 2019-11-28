@@ -207,15 +207,39 @@
     </questions>
 
     <questions>
-        <questionname>How many players has a hockey team on the ice?</questionname>
-        <answer>6</answer>
-        <category>sport</category>
-        
-            <optionA>8</optionA>
-            <optionB>11</optionB>
-            <optionC>7</optionC>
-            <optionD>6</optionD>
+    <questionname>How many players has a hockey team on the ice?</questionname>
+    <answer>6</answer>
+    <category>sport</category>
 
-    </questions>
+    <optionA>8</optionA>
+    <optionB>11</optionB>
+    <optionC>7</optionC>
+    <optionD>6</optionD>
+
+</questions>
+
+<questions>
+    <questionname>What color is the French wine Beaujolais?</questionname>
+    <answer>Red</answer>
+    <category>food</category>
+
+    <optionA>White</optionA>
+    <optionB>Rosé</optionB>
+    <optionC>Red</optionC>
+    <optionD>Black</optionD>
+
+</questions>
+
+<questions>
+    <questionname>What is Japanese sake made from?</questionname>
+    <answer>Rice</answer>
+    <category>food</category>
+
+    <optionA>Rice</optionA>
+    <optionB>Wheat</optionB>
+    <optionC>Potatoes</optionC>
+    <optionD>Carrots</optionD>
+
+</questions>
 
 </quiz>
