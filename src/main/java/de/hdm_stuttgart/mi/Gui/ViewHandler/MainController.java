@@ -8,12 +8,16 @@ import javafx.stage.Stage;
 
 public class MainController extends Application {
 
-
+    @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("PFAD ZUR XML-DATEI"));
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/StartWindow.fxml"));
         Scene scene = new Scene(root);
-        primaryStage.setTitle("FXML Welcome");
+        primaryStage.setTitle("inquiz");
         primaryStage.setScene(scene);
         primaryStage.show();
+    }
+
+    public static void main(String[] args) {
+        launch(args);
     }
 }
