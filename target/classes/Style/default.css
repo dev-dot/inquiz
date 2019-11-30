@@ -1,0 +1,47 @@
+@font-face {
+    font-family: 'Source Code Pro ExtraLight';
+    src: url("fonts/Source_Code_Pro/SourceCodePro-ExtraLight.ttf") format("truetype");
+}
+
+.root{
+    -fx-font-family: "Source Code Pro ExtraLight";
+}
+
+.defaultButton{
+    -fx-background-color: #f1f1f1;
+    -fx-text-fill: #000000;
+    -fx-border-radius: 10px;
+}
+
+.defaultLabel{
+    -fx-font-family: "Source Code Pro ExtraLight";
+}
+
+.defaultBackground{
+    -fx-opacity: 0.15;
+
+}
+
+.userContainer{
+    -fx-padding: 5 10 0 0;
+}
+
+.userLabel{
+    -fx-padding: 1.5 0 0 0;
+}
+
+#logo{
+    -fx-font-size: 50px;
+    -fx-text-fill: #3535D3;
+}
+
+#startMenuButtons{
+    -fx-padding: 15 0 0 0;
+}
+
+#userNameTextField {
+    -fx-background-color: #a9a9a9, white, white;
+    -fx-background-insets: 0 0 -1 0, 0 0 0 0, 0 0 0 0;
+    -fx-border-radius: 10px;
+
+}
