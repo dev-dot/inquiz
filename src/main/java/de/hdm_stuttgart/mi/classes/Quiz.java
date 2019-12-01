@@ -23,5 +23,9 @@ public class Quiz {
     public void setQuestions(ArrayList<Question> questions) {
         this.questions = questions;
     }
+
+    public int getLength(){
+        return questions.size();
+    }
 }
 

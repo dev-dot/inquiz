@@ -12,6 +12,10 @@
     -fx-text-fill: #000000;
     -fx-border-radius: 10px;
 }
+.defaultButton:hover{
+    -fx-background-color: #3535D3;
+    -fx-opacity: 0.7;
+}
 
 .defaultLabel{
     -fx-font-family: "Source Code Pro ExtraLight";
@@ -40,8 +44,13 @@
 }
 
 #userNameTextField {
-    -fx-background-color: #a9a9a9, white, white;
+    /*-fx-background-color: #a9a9a9, white, white;*/
     -fx-background-insets: 0 0 -1 0, 0 0 0 0, 0 0 0 0;
     -fx-border-radius: 10px;
+    -fx-background-color: #f1f1f1;
+    -fx-text-fill: #000000;
+}
 
+#usernameHint{
+    -fx-font-size: 7pt;
 }

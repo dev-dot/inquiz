@@ -78,4 +78,19 @@ public class Question {
     public void setOptionD(String optionD) {
         this.optionD = optionD;
     }
+
+    public void checkQuestion(String selectedOption, String answer){
+        if (selectedOption.equals(answer)){
+            System.out.println("You are right!");
+        }
+        else System.out.println("Sorry Wrong Answer. Right Answer: " + getAnswer());
+    }
+
+    public void getAllOptions(){
+        System.out.println("A: " + getOptionA());
+        System.out.println("B: " + getOptionB());
+        System.out.println("C: " + getOptionC());
+        System.out.println("D: " + getOptionD());
+    }
+
 }

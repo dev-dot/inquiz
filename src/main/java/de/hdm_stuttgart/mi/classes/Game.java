@@ -1,9 +1,11 @@
 package de.hdm_stuttgart.mi.classes;
 
+
+import de.hdm_stuttgart.mi.exceptions.IllegalFactoryArgument;
 import de.hdm_stuttgart.mi.interfaces.IGamemode;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
+import de.hdm_stuttgart.mi.GameModeFactory.*;
 
 public class Game implements IGamemode {
 
@@ -33,7 +35,18 @@ public class Game implements IGamemode {
     /* Getter and Setter methods */
 
     void setGamemode(int gamemode) {
-
+        try {
+            switch (gamemode){
+                case 0: Factory.createGameMode(Gamemodes.LEICHT);
+                    break;
+                case 1: Factory.createGameMode(Gamemodes.MITTEL);
+                    break;
+                case 2: Factory.createGameMode(Gamemodes.SCHWER);
+                    break;
+            }
+        } catch (IllegalFactoryArgument illegalFactoryArgument) {
+            illegalFactoryArgument.printStackTrace();
+        }
     }
 
     public int getRoundCount() {
