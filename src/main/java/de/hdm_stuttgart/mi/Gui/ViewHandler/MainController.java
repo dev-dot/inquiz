@@ -5,8 +5,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class MainController extends Application {
+
+    private static final Logger log = LogManager.getLogger(MainController.class);
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -14,8 +18,8 @@ public class MainController extends Application {
         Scene scene = new Scene(root);
         javafx.scene.text.Font.loadFont("fonts/Source_Code_Pro/SourceCodePro-ExtraLight.ttf", 200);
         scene.getStylesheets().add(getClass().getResource("/Style/default.css").toExternalForm());
-        scene.widthProperty().addListener((observableValue, oldSceneWidth, newSceneWidth) -> System.out.println("Width: " + newSceneWidth));
-        scene.heightProperty().addListener((observableValue, oldSceneHeight, newSceneHeight) -> System.out.println("Height: " + newSceneHeight));
+        scene.widthProperty().addListener((observableValue, oldSceneWidth, newSceneWidth) -> log.info("Width: " + newSceneWidth));
+        scene.heightProperty().addListener((observableValue, oldSceneHeight, newSceneHeight) -> log.info("Height: " + newSceneHeight));
         primaryStage.setTitle("inquiz");
         primaryStage.setMinWidth(340);
         primaryStage.setMinHeight(300);
