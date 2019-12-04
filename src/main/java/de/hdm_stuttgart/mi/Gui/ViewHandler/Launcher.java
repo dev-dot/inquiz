@@ -1,7 +1,9 @@
 package de.hdm_stuttgart.mi.Gui.ViewHandler;
 
+import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
 import javafx.application.Application;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
@@ -26,12 +28,19 @@ public class Launcher extends Application {
         label.setLayoutX(430);
         label.setText("inquiz");
         label.setTextFill(Color.BLUE);
-        label.setFont(Font.loadFont(getClass().getResourceAsStream("/Style/fonts/Source_Code_Pro/SourceCodePro-ExtraLight.ttf"), 100));
         label.setOpacity(50);
+        label.setFont(Font.loadFont(getClass().getResourceAsStream("/Style/fonts/Source_Code_Pro/SourceCodePro-ExtraLight.ttf"), 100));
+
+
+        FadeTransition fade = new FadeTransition(Duration.millis(3000), label);
+        fade.setFromValue(0);
+        fade.setToValue(100);
+        fade.play();
 
 
         TranslateTransition transition = new TranslateTransition();
-        transition.setDuration(Duration.millis(700));
+        transition.setDelay(Duration.millis(1500));
+        transition.setDuration(Duration.millis(300));
         transition.setToY(250);
         transition.setNode(label);
         transition.setAutoReverse(true);
