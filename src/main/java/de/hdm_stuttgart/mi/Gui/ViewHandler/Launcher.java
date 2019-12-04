@@ -1,6 +1,7 @@
 package de.hdm_stuttgart.mi.Gui.ViewHandler;
 
 import javafx.animation.FadeTransition;
+import javafx.animation.RotateTransition;
 import javafx.animation.TranslateTransition;
 import javafx.application.Application;
 import javafx.scene.Node;
@@ -37,6 +38,12 @@ public class Launcher extends Application {
         fade.setToValue(100);
         fade.play();
 
+        RotateTransition rotateTransition = new RotateTransition();
+        rotateTransition.setDelay(Duration.millis(1500));
+        rotateTransition.setDuration(Duration.millis(900));
+        rotateTransition.setByAngle(720);
+        rotateTransition.setNode(label);
+        rotateTransition.play();
 
         TranslateTransition transition = new TranslateTransition();
         transition.setDelay(Duration.millis(1500));
