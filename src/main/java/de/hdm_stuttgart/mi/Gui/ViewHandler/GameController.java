@@ -18,13 +18,7 @@ public class GameController extends Application {
         Scene scene = new Scene(root);
         javafx.scene.text.Font.loadFont(getClass().getResourceAsStream("/Style/fonts/Source_Code_Pro/SourceCodePro-ExtraLight.ttf"), 10);
         scene.getStylesheets().add(getClass().getResource("/Style/ingame.css").toExternalForm());
-        scene.widthProperty().addListener((observableValue, oldSceneWidth, newSceneWidth) -> log.info("Width: " + newSceneWidth));
-        scene.heightProperty().addListener((observableValue, oldSceneHeight, newSceneHeight) -> log.info("Height: " + newSceneHeight));
-        primaryStage.setTitle("inquiz");
-        primaryStage.setMinWidth(650);
-        primaryStage.setMinHeight(650);
-        primaryStage.setScene(scene);
-        primaryStage.show();
+        MainController.setWindow(primaryStage, scene, log);
     }
 
     public static void main(String[] args) {
