@@ -84,7 +84,7 @@
                 </Button>
                 <Button styleClass="jokerButton">
                     <graphic>
-                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@../media/icons/joker/nextquestion/Group 2.png" />
                             </image>
@@ -93,9 +93,9 @@
                 </Button>
                 <Button styleClass="jokerButton">
                     <graphic>
-                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../media/icons/joker/5050/Group.png" />
+                                <Image url="@../media/icons/joker/time/Group 3@3x.png" />
                             </image>
                         </ImageView>
                     </graphic>

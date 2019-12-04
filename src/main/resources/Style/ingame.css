@@ -83,6 +83,7 @@
 
 .jokerLabel{
     -fx-background-color: none;
+    -fx-font-size: 16px;
 }
 
 .jokerButton{
