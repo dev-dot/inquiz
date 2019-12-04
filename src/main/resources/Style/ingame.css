@@ -48,7 +48,6 @@
     -fx-text-box-border: #3535D3 ;
     -fx-border-color: #3535D3;
     -fx-border-width: 0 0 0.5 0;
-    -fx-focus-traversable: false;
 }
 
 #usernameHint{
@@ -64,4 +63,12 @@
     -fx-border-color: #3535D3;
     -fx-border-width: 0.5 0.5 0.5 0.5;
     -fx-background-radius: 10px;
+}
+
+
+/*---INGAME STYLE---INGAME STYLE---INGAME STYLE---INGAME STYLE---INGAME STYLE---INGAME STYLE---INGAME STYLE---*/
+
+.label{
+    -fx-background-color: #f0f0f0;
+    -fx-background-insets: 10 10 10 10;
 }
