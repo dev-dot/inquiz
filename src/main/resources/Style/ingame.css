@@ -74,11 +74,30 @@
 }
 
 .button{
+    -fx-font-size: 16px;
+}
+
+.userLabel{
+    -fx-background-color: none;
+}
+
+.progressBar{
+    -fx-accent: #3535D3;
+}
+
+.answerButton{
     -fx-font-size: 18px;
+    -fx-border-color: #3535D3;
+    -fx-border-width: 0.5 0.5 0.5 0.5;
+    -fx-background-radius: 10px;
+}
+
+#questionLabel{
+    -fx-border-color: #3535D3;
+    -fx-border-width: 0.5 0.5 0.5 0.5;
+    -fx-background-radius: 10px;
 }
 
 #logo{
     -fx-background-color: none;
 }
-
-
