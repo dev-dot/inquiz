@@ -45,7 +45,7 @@
                     </HBox.margin>
                 </Label>
                 <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                    <Image url="@../media/icons/user.png" />
+                    <Image url="@../media/icons/user2.png" />
                     <HBox.margin>
                         <Insets left="10.0" right="10.0" top="10.0" />
                     </HBox.margin>
@@ -66,24 +66,56 @@
                     <VBox.margin>
                         <Insets left="10.0" right="10.0" />
                     </VBox.margin>
-            <padding>
-               <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-            </padding>
+                    <padding>
+                       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                    </padding>
                 </Label>
+            <VBox alignment="CENTER">
+                <Label styleClass="jokerLabel" text="Available Jokers" />
+            <HBox alignment="CENTER">
+                <Button styleClass="jokerButton">
+                    <graphic>
+                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../media/icons/joker/5050/Group.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button styleClass="jokerButton">
+                    <graphic>
+                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../media/icons/joker/nextquestion/Group 2.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button styleClass="jokerButton">
+                    <graphic>
+                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../media/icons/joker/5050/Group.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+            </HBox>
+            </VBox>
             <GridPane alignment="CENTER" vgap="30.0" GridPane.fillWidth="true">
-                <Button styleClass="answerButton" maxWidth="1.7976931348623157E308" text="This is answer one" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                <Button maxWidth="1.7976931348623157E308" styleClass="answerButton" text="This is answer one" GridPane.columnIndex="0" GridPane.rowIndex="0">
                <GridPane.margin>
                   <Insets left="15.0" right="15.0" />
                </GridPane.margin></Button>
-                <Button styleClass="answerButton" maxWidth="1.7976931348623157E308" text="This is answer two" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                <Button maxWidth="1.7976931348623157E308" styleClass="answerButton" text="This is answer two" GridPane.columnIndex="1" GridPane.rowIndex="0">
                <GridPane.margin>
                   <Insets left="15.0" right="15.0" />
                </GridPane.margin></Button>
-                <Button styleClass="answerButton" maxWidth="1.7976931348623157E308" text="This is answer three" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                <Button maxWidth="1.7976931348623157E308" styleClass="answerButton" text="This is answer three" GridPane.columnIndex="0" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets left="15.0" right="15.0" />
                </GridPane.margin></Button>
-                <Button styleClass="answerButton" maxWidth="1.7976931348623157E308" text="This is answer four" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                <Button maxWidth="1.7976931348623157E308" styleClass="answerButton" text="This is answer four" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets left="15.0" right="15.0" />
                </GridPane.margin></Button>
@@ -104,6 +136,6 @@
         <URL value="@../Style/ingame.css" />
     </stylesheets>
    <bottom>
-      <ProgressBar styleClass="progressBar" prefWidth="1920.0" progress="0.3" BorderPane.alignment="CENTER" />
+      <ProgressBar prefWidth="1920.0" progress="0.3" styleClass="progressBar" BorderPane.alignment="CENTER" />
    </bottom>
 </BorderPane>

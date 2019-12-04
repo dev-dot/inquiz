@@ -23,8 +23,8 @@ public class MainController extends Application {
         scene.widthProperty().addListener((observableValue, oldSceneWidth, newSceneWidth) -> log.info("Width: " + newSceneWidth));
         scene.heightProperty().addListener((observableValue, oldSceneHeight, newSceneHeight) -> log.info("Height: " + newSceneHeight));
         primaryStage.setTitle("inquiz");
-        primaryStage.setMinWidth(340);
-        primaryStage.setMinHeight(300);
+        primaryStage.setMinWidth(650);
+        primaryStage.setMinHeight(650);
         primaryStage.setScene(scene);
         primaryStage.show();
     }

@@ -21,8 +21,8 @@ public class GameController extends Application {
         scene.widthProperty().addListener((observableValue, oldSceneWidth, newSceneWidth) -> log.info("Width: " + newSceneWidth));
         scene.heightProperty().addListener((observableValue, oldSceneHeight, newSceneHeight) -> log.info("Height: " + newSceneHeight));
         primaryStage.setTitle("inquiz");
-        primaryStage.setMinWidth(600);
-        primaryStage.setMinHeight(575);
+        primaryStage.setMinWidth(650);
+        primaryStage.setMinHeight(650);
         primaryStage.setScene(scene);
         primaryStage.show();
     }

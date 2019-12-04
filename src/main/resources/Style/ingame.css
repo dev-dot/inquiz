@@ -17,7 +17,7 @@
 }
 
 .defaultBackground{
-    -fx-opacity: 0.15;
+    -fx-opacity: 0.10;
     -fx-min-height: 1050;
     -fx-min-width: 1680;
 }
@@ -78,6 +78,14 @@
 }
 
 .userLabel{
+    -fx-background-color: none;
+}
+
+.jokerLabel{
+    -fx-background-color: none;
+}
+
+.jokerButton{
     -fx-background-color: none;
 }
 
