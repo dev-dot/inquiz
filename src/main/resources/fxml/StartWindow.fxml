@@ -45,9 +45,7 @@
                 <TextField id="userNameTextField" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="35.0" prefWidth="300.0" promptText="username" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                 <Label id="usernameHint" text="enter your username to start a quiz" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                 <HBox id="buttonContainer" alignment="CENTER" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="4">
-                    <Button mnemonicParsing="false" text="show stats" />
                     <Button id="startButton" mnemonicParsing="false" text="start game" />
-                    <Button mnemonicParsing="false" text="quit game" />
                     <opaqueInsets>
                         <Insets />
                     </opaqueInsets>
@@ -65,6 +63,47 @@
          </rowConstraints>
         </GridPane>
     </center>
+    <bottom>
+        <GridPane>
+            <HBox alignment="CENTER_LEFT" GridPane.columnIndex="0">
+                <Button styleClass="menuButton">
+                    <graphic>
+                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                            <Image url="@../media/icons/menus/stats/Group 4@3x.png" />
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <opaqueInsets>
+                    <Insets />
+                </opaqueInsets>
+                <GridPane.margin>
+                    <Insets bottom="5.0" left="5.0" />
+                </GridPane.margin>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" GridPane.columnIndex="1">
+                <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" styleClass="menuButton">
+                    <graphic>
+                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                            <Image url="@../media/icons/menus/exit/Group 5@3x.png" />
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <opaqueInsets>
+                    <Insets />
+                </opaqueInsets>
+                <GridPane.margin>
+                    <Insets bottom="5.0" right="5.0" />
+                </GridPane.margin>
+            </HBox>
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="50.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="50.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints />
+            </rowConstraints>
+        </GridPane>
+    </bottom>
     <stylesheets>
         <URL value="@../Style/default.css" />
     </stylesheets>
