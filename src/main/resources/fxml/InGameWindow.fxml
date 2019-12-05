@@ -110,11 +110,10 @@
                <GridPane.margin>
                   <Insets left="15.0" right="15.0" />
                </GridPane.margin></Button>
-            <columnConstraints>
-               <ColumnConstraints />
-               <ColumnConstraints />
-               <ColumnConstraints />
-            </columnConstraints>
+                <columnConstraints>
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="30.0" prefWidth="50.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="30.0" prefWidth="50.0" />
+                </columnConstraints>
             <rowConstraints>
                <RowConstraints />
                <RowConstraints />
