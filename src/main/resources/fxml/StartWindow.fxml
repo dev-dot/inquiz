@@ -24,17 +24,7 @@
     </ImageView>
     <top>
         <HBox alignment="TOP_RIGHT" prefHeight="30.0" prefWidth="2000.0" BorderPane.alignment="CENTER">
-            <Label text="user" fx:id="userID">
-                <HBox.margin>
-                    <Insets top="12.5" />
-                </HBox.margin>
-            </Label>
-            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                <Image url="@../media/icons/user2.png" />
-                <HBox.margin>
-                    <Insets left="10.0" right="10.0" top="10.0" />
-                </HBox.margin>
-            </ImageView>
+            <fx:include source="UserData.fxml"/>
         </HBox>
     </top>
     <center>
@@ -42,7 +32,7 @@
             <VBox alignment="CENTER" minWidth="200.0" spacing="10" GridPane.columnIndex="1">
                 <Label text="Welcome to" GridPane.columnIndex="1" GridPane.rowIndex="0" />
                 <Label id="logo" text="inquiz" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                <TextField fx:id="mainUserNameTextField" id="userNameTextField" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="35.0" prefWidth="300.0" promptText="username" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <TextField fx:id="mainUserNameTextField" onAction="#mainEnterStartAction" id="userNameTextField" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="35.0" prefWidth="300.0" promptText="username" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                 <Label fx:id="mainUserNameHintLabel" id="usernameHint" text="enter your username to start a quiz" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                 <HBox id="buttonContainer" alignment="CENTER" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="4">
                     <Button fx:id="mainStartButton" onAction="#mainStartAction" id="startButton" mnemonicParsing="false" text="start game" />
