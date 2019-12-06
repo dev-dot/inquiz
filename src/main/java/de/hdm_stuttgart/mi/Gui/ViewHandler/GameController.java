@@ -1,12 +1,16 @@
 package de.hdm_stuttgart.mi.Gui.ViewHandler;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import java.io.IOException;
 
 public class GameController extends Application {
 
@@ -24,4 +28,21 @@ public class GameController extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+
+    public void gameExitAction(ActionEvent actionEvent) throws IOException {
+        Parent gameView = FXMLLoader.load(getClass().getResource("/fxml/StartWindow.fxml"));
+        Scene gameViewScene = new Scene(gameView);
+        Stage gameStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        gameStage.setScene(gameViewScene);
+        gameStage.show();
+    }
+
+    public void gameStatsAction(ActionEvent actionEvent) throws IOException {
+        Parent gameView = FXMLLoader.load(getClass().getResource("/fxml/Statistics.fxml"));
+        Scene gameViewScene = new Scene(gameView);
+        Stage gameStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        gameStage.setScene(gameViewScene);
+        gameStage.show();
+    }
+
 }
