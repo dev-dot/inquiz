@@ -36,7 +36,7 @@
                 </VBox>
                 </HBox>
             <HBox alignment="TOP_RIGHT" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1">
-                <fx:include source="UserData.fxml"/>
+                <fx:include source="UserData.fxml" />
             </HBox>
                 <columnConstraints>
                     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="80.0" prefWidth="100.0" />
@@ -49,7 +49,7 @@
     </top>
     <center>
         <VBox alignment="CENTER" spacing="30.0" BorderPane.alignment="CENTER">
-                <Label id="questionLabel" alignment="CENTER" contentDisplay="CENTER" text="This is a really cool long question to show how a question would look in here" textAlignment="CENTER" wrapText="true">
+                <Label id="questionLabel" alignment="CENTER" contentDisplay="CENTER" prefWidth="800.0" text="This is a really cool long question to show how a question would look in here" textAlignment="CENTER" wrapText="true">
                     <VBox.margin>
                         <Insets left="10.0" right="10.0" top="20.0" />
                     </VBox.margin>
@@ -57,46 +57,20 @@
                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                     </padding>
                 </Label>
-            <VBox alignment="CENTER">
-                <Label styleClass="jokerLabel" text="Available Jokers" />
-            <HBox alignment="CENTER">
-                <Button styleClass="jokerButton">
-                    <graphic>
-                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                                <Image url="@../media/icons/joker/5050/Group.png" />
-                        </ImageView>
-                    </graphic>
-                </Button>
-                <Button styleClass="jokerButton">
-                    <graphic>
-                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                            <Image url="@../media/icons/joker/time/Group 3@3x.png" />
-                        </ImageView>
-                    </graphic>
-                </Button>
-                <Button styleClass="jokerButton">
-                    <graphic>
-                        <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
-                                <Image url="@../media/icons/joker/nextquestion/Group 2.png" />
-                        </ImageView>
-                    </graphic>
-                </Button>
-            </HBox>
-            </VBox>
             <GridPane alignment="CENTER" vgap="30.0" GridPane.fillWidth="true">
-                <Button maxWidth="1.7976931348623157E308" styleClass="answerButton" text="This is answer one" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                <Button maxWidth="1.7976931348623157E308" prefHeight="50.0" styleClass="answerButton" text="This is answer one" GridPane.columnIndex="0" GridPane.rowIndex="0">
                <GridPane.margin>
                   <Insets left="15.0" right="15.0" />
                </GridPane.margin></Button>
-                <Button maxWidth="1.7976931348623157E308" styleClass="answerButton" text="This is answer two" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                <Button maxWidth="1.7976931348623157E308" prefHeight="50.0" styleClass="answerButton" text="This is answer two" GridPane.columnIndex="1" GridPane.rowIndex="0">
                <GridPane.margin>
                   <Insets left="15.0" right="15.0" />
                </GridPane.margin></Button>
-                <Button maxWidth="1.7976931348623157E308" styleClass="answerButton" text="This is answer three" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                <Button maxWidth="1.7976931348623157E308" prefHeight="50.0" styleClass="answerButton" text="This is answer three" GridPane.columnIndex="0" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets left="15.0" right="15.0" />
                </GridPane.margin></Button>
-                <Button maxWidth="1.7976931348623157E308" styleClass="answerButton" text="This is answer four" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                <Button maxWidth="1.7976931348623157E308" prefHeight="50.0" styleClass="answerButton" text="This is answer four" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets left="15.0" right="15.0" />
                </GridPane.margin></Button>
@@ -109,7 +83,39 @@
                <RowConstraints />
                <RowConstraints />
             </rowConstraints>
+            <VBox.margin>
+               <Insets top="30.0" />
+            </VBox.margin>
             </GridPane>
+            <VBox alignment="CENTER">
+                <Label styleClass="jokerLabel" text="Available Jokers" />
+                <HBox alignment="CENTER">
+                    <Button styleClass="jokerButton">
+                        <graphic>
+                            <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                <Image url="@../media/icons/joker/5050/Group.png" />
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                    <Button styleClass="jokerButton">
+                        <graphic>
+                            <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                <Image url="@../media/icons/joker/time/Group 3@3x.png" />
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                    <Button styleClass="jokerButton">
+                        <graphic>
+                            <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                                <Image url="@../media/icons/joker/nextquestion/Group 2.png" />
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                </HBox>
+            </VBox>
+         <BorderPane.margin>
+            <Insets top="30.0" />
+         </BorderPane.margin>
         </VBox>
     </center>
     <stylesheets>
@@ -139,7 +145,7 @@
                </GridPane.margin>
                </HBox>
                <HBox alignment="CENTER_RIGHT" GridPane.columnIndex="1">
-               <Button onAction="#gameExitAction" alignment="CENTER_RIGHT" contentDisplay="RIGHT" styleClass="menuButton">
+               <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" onAction="#gameExitAction" styleClass="menuButton">
                    <graphic>
                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                            <Image url="@../media/icons/menus/exit/Group 5@3x.png" />

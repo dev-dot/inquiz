@@ -9,7 +9,7 @@
 }
 .button:hover{
     -fx-text-fill: #000000;
-    -fx-background-color: rgba(53, 53, 211, 0.5);
+    -fx-background-color: rgba(53, 53, 211, 0.9);
 }
 
 .label{
@@ -109,6 +109,7 @@
     -fx-background-radius: 10px;
     -fx-font-family: "Helvetica Neue";
     -fx-font-weight: lighter;
+    -fx-background-color: rgba(53, 53, 211, 0.7);
 }
 
 #questionLabel{
@@ -118,6 +119,7 @@
     -fx-border-radius: 10px;
     -fx-font-family: "Helvetica Neue";
     -fx-font-weight: lighter;
+    -fx-background-color: rgba(53, 53, 211, 0.7);
 }
 
 #logo{
