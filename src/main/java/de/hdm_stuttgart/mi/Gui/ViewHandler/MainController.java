@@ -74,11 +74,7 @@ public class MainController extends Application {
 
     @FXML
     public void mainStatsAction(ActionEvent actionEvent) throws IOException {
-        Parent gameView = FXMLLoader.load(getClass().getResource("/fxml/Statistics.fxml"));
-        Scene gameViewScene = new Scene(gameView);
-        Stage gameStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        gameStage.setScene(gameViewScene);
-        gameStage.show();
+        sceneChanger("/fxml/Statistics.fxml", actionEvent);
     }
 
     @FXML
@@ -92,6 +88,14 @@ public class MainController extends Application {
     }
 
     //Other outsourced Functions
+    private void sceneChanger(String xmlFIlePath, ActionEvent actionEvent) throws IOException {
+        Parent gameView = FXMLLoader.load(getClass().getResource(xmlFIlePath));
+        Scene gameViewScene = new Scene(gameView);
+        Stage gameStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        gameStage.setScene(gameViewScene);
+        gameStage.show();
+    }
+
     private void validateUserName(ActionEvent actionEvent) throws IOException {
         if (mainUserNameTextField.getText().length() > 0) {
             //USER ID STILL NEEDS TO NE CHANGED !!!
@@ -102,11 +106,7 @@ public class MainController extends Application {
             rotateTransition.setByAngle(720);
             rotateTransition.setNode(gameUserID);
             rotateTransition.play();
-            Parent gameView = FXMLLoader.load(getClass().getResource("/fxml/InGameWindow.fxml"));
-            Scene gameViewScene = new Scene(gameView);
-            Stage gameStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-            gameStage.setScene(gameViewScene);
-            gameStage.show();
+            sceneChanger("/fxml/InGameWindow.fxml", actionEvent);
         } else {
             mainUserNameHintLabel.setText("please enter a username");
             mainUserNameHintLabel.setTextFill(Color.web("#FF0000"));

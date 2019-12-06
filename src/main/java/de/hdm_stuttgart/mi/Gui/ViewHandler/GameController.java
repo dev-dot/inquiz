@@ -30,19 +30,19 @@ public class GameController extends Application {
     }
 
     public void gameExitAction(ActionEvent actionEvent) throws IOException {
-        Parent gameView = FXMLLoader.load(getClass().getResource("/fxml/StartWindow.fxml"));
-        Scene gameViewScene = new Scene(gameView);
-        Stage gameStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        gameStage.setScene(gameViewScene);
-        gameStage.show();
+        sceneChanger("/fxml/StartWindow.fxml", actionEvent);
     }
 
     public void gameStatsAction(ActionEvent actionEvent) throws IOException {
-        Parent gameView = FXMLLoader.load(getClass().getResource("/fxml/Statistics.fxml"));
+        sceneChanger("/fxml/Statistics.fxml", actionEvent);
+    }
+
+    //Other outsourced Functions
+    private void sceneChanger(String xmlFIlePath, ActionEvent actionEvent) throws IOException {
+        Parent gameView = FXMLLoader.load(getClass().getResource(xmlFIlePath));
         Scene gameViewScene = new Scene(gameView);
         Stage gameStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         gameStage.setScene(gameViewScene);
         gameStage.show();
     }
-
 }
