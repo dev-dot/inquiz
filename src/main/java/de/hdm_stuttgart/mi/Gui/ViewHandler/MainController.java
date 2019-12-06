@@ -1,5 +1,6 @@
 package de.hdm_stuttgart.mi.Gui.ViewHandler;
 
+import javafx.animation.RotateTransition;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,6 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -28,6 +30,8 @@ public class MainController extends Application {
     public Button mainExitButton;
     @FXML
     public Label mainUserNameHintLabel;
+    @FXML
+    public Label userID;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -60,6 +64,13 @@ public class MainController extends Application {
     }
     public void mainStartAction(ActionEvent actionEvent) {
         if (mainUserNameTextField.getText().length() > 0){
+            userID.setText(mainUserNameTextField.getText());
+            RotateTransition rotateTransition = new RotateTransition();
+            rotateTransition.setDelay(Duration.millis(1500));
+            rotateTransition.setDuration(Duration.millis(900));
+            rotateTransition.setByAngle(720);
+            rotateTransition.setNode(userID);
+            rotateTransition.play();
             mainStartButton.setText("success");
         }
         else{

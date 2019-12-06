@@ -24,7 +24,7 @@
     </ImageView>
     <top>
         <HBox alignment="TOP_RIGHT" prefHeight="30.0" prefWidth="2000.0" BorderPane.alignment="CENTER">
-            <Label text="user">
+            <Label text="user" fx:id="userID">
                 <HBox.margin>
                     <Insets top="12.5" />
                 </HBox.margin>
