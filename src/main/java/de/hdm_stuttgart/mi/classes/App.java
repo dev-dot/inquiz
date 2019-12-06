@@ -1,5 +1,8 @@
 package de.hdm_stuttgart.mi.classes;
 
+import de.hdm_stuttgart.mi.JokerFactory.JokerFactory;
+import de.hdm_stuttgart.mi.exceptions.IllegalFactoryArgument;
+import de.hdm_stuttgart.mi.interfaces.IJoker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -15,6 +18,8 @@ public class App {
     private static XMLParser parser = new XMLParser();
     private static Quiz quiz;
     private static boolean validAnswer=false;
+    private static int randomNumber;
+
 
     public static void main(String[] args) {
 
@@ -22,6 +27,8 @@ public class App {
 
         Game game = new Game();
         Random random = new Random();
+        JokerFactory jokerFactory = new JokerFactory();
+        IJoker joker = null;
 
         System.out.println("Choose your Nickname?");
         String nickname = input.nextLine();
@@ -32,17 +39,23 @@ public class App {
         int gamemode=input.nextInt();
 
         game.setGamemode(gamemode);
+        try {
+            joker = jokerFactory.createJoker(IJoker.AvailableJoker.FIFTYFIFTY);
+        } catch (IllegalFactoryArgument illegalFactoryArgument) {
+            illegalFactoryArgument.printStackTrace();
+        }
         game.start();
 
         quiz = parser.createQuestions();
         input.nextLine();
 
         while (roundCounter>0) {
-            int randomNumber = random.nextInt(quiz.getLength() + 1);
+            randomNumber = random.nextInt(quiz.getLength() + 1);
             do {
                 System.out.println();
                 System.out.println(quiz.getQuestions().get(randomNumber).getQuestionname());
                 quiz.getQuestions().get(randomNumber).getAllOptions();
+                System.out.println("5: FiftyFiftyJoker");
 
                 String answer = input.nextLine();
 
@@ -63,6 +76,10 @@ public class App {
                         quiz.getQuestions().get(randomNumber).checkQuestion(quiz.getQuestions().get(randomNumber).getOptionD(), quiz.getQuestions().get(randomNumber).getAnswer());
                         validAnswer=true;
                         break;
+                    case "5":
+                        joker.useJoker();
+
+                        break;
                     default:
                         System.out.println("Please enter an valid Answer");
 
@@ -74,5 +91,13 @@ public class App {
 
 
 
+    }
+
+    public int getRandomNumber(){
+        return randomNumber;
+    }
+
+    public Quiz getQuiz(){
+        return quiz;
     }
 }

@@ -1,6 +1,7 @@
 module inquiz {
     requires java.xml.bind;
     opens de.hdm_stuttgart.mi.classes to java.xml.bind;
+    exports de.hdm_stuttgart.mi.classes;
 
     requires javafx.controls;
     requires javafx.graphics;
