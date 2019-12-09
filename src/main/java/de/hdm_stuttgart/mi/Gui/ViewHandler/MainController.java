@@ -1,5 +1,8 @@
 package de.hdm_stuttgart.mi.Gui.ViewHandler;
 
+import de.hdm_stuttgart.mi.classes.Game;
+import de.hdm_stuttgart.mi.classes.Quiz;
+import de.hdm_stuttgart.mi.classes.XMLParser;
 import javafx.animation.RotateTransition;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -17,8 +20,12 @@ import javafx.util.Duration;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import java.io.IOException;
+import java.util.Stack;
 
 public class MainController extends Application {
+
+    static XMLParser parser = new XMLParser();
+    static Quiz quiz;
 
     //Logger
     private static final Logger log = LogManager.getLogger(MainController.class);
@@ -38,6 +45,14 @@ public class MainController extends Application {
     public Label userID;
     @FXML
     public Label gameUserID;
+
+    public Label getGameUserID() {
+        return gameUserID;
+    }
+
+    public void setGameUserID(Label gameUserID) {
+        this.gameUserID = gameUserID;
+    }
 
     //Setting Scene
     @Override
@@ -78,13 +93,13 @@ public class MainController extends Application {
     }
 
     @FXML
-    public void mainEnterStartAction(ActionEvent actionEvent) throws IOException {
-        validateUserName(actionEvent);
+    public void mainEnterStartAction(ActionEvent actionEvent) {
+        launchGameWindow(actionEvent);
     }
 
     @FXML
-    public void mainStartAction(ActionEvent actionEvent) throws IOException {
-        validateUserName(actionEvent);
+    public void mainStartAction(ActionEvent actionEvent) {
+        launchGameWindow(actionEvent);
     }
 
     //Other outsourced Functions
@@ -110,6 +125,22 @@ public class MainController extends Application {
         } else {
             mainUserNameHintLabel.setText("please enter a username");
             mainUserNameHintLabel.setTextFill(Color.web("#FF0000"));
+        }
+    }
+
+    @FXML
+    private void launchGameWindow(ActionEvent event) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/InGameWindow.fxml"));
+        try {
+            Parent root = loader.load();
+            GameController gameController = loader.getController();
+            gameController.setGameWindow(mainUserNameTextField);
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

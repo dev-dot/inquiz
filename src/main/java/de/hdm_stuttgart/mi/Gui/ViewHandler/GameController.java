@@ -1,33 +1,52 @@
 package de.hdm_stuttgart.mi.Gui.ViewHandler;
 
+import de.hdm_stuttgart.mi.classes.Game;
+import de.hdm_stuttgart.mi.classes.Quiz;
+import de.hdm_stuttgart.mi.classes.XMLParser;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.Queue;
+import java.util.ResourceBundle;
 
-public class GameController extends Application {
+import static de.hdm_stuttgart.mi.Gui.ViewHandler.MainController.parser;
+import static de.hdm_stuttgart.mi.Gui.ViewHandler.MainController.quiz;
+
+public class GameController implements Initializable {
 
     private static final Logger log = LogManager.getLogger(MainController.class);
 
-    @Override
-    public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/InGameWindow.fxml"));
-        Scene scene = new Scene(root);
-        javafx.scene.text.Font.loadFont(getClass().getResourceAsStream("/Style/fonts/Source_Code_Pro/SourceCodePro-ExtraLight.ttf"), 10);
-        scene.getStylesheets().add(getClass().getResource("/Style/ingame.css").toExternalForm());
-        MainController.setWindow(primaryStage, scene, log);
-    }
+    @FXML
+    public Label userID;
 
-    public static void main(String[] args) {
-        launch(args);
-    }
+    @FXML
+    public Label questionLabel;
+    @FXML
+    public Button buttonA;
+    @FXML
+    public Button buttonB;
+    @FXML
+    public Button buttonC;
+    @FXML
+    public Button buttonD;
+
+
+
+
 
     public void gameExitAction(ActionEvent actionEvent) throws IOException {
         sceneChanger("/fxml/StartWindow.fxml", actionEvent);
@@ -44,5 +63,28 @@ public class GameController extends Application {
         Stage gameStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         gameStage.setScene(gameViewScene);
         gameStage.show();
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+    }
+
+    void setGameWindow(TextField label) {
+        userID.setText(label.getText().toUpperCase());
+        quiz = parser.createQuestions();
+
+
+        questionLabel.setText(quiz.getQuestions().get(0).getQuestionname());
+        buttonA.setText(quiz.getQuestions().get(0).getOptionA());
+        buttonB.setText(quiz.getQuestions().get(0).getOptionB());
+        buttonC.setText(quiz.getQuestions().get(0).getOptionC());
+        buttonD.setText(quiz.getQuestions().get(0).getOptionD());
+    }
+
+
+    public void fifty(ActionEvent event) {
+        buttonB.setVisible(false);
+        buttonC.setVisible(false);
     }
 }

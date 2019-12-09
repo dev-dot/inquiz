@@ -37,6 +37,11 @@
     -fx-text-fill: #3535D3;
 }
 
+#logoLauncher {
+    -fx-font-size: 100px;
+    -fx-text-fill: #3535D3;
+}
+
 #startMenuButtons{
     -fx-padding: 15 0 0 0;
 }

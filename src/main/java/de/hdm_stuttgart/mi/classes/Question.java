@@ -1,6 +1,12 @@
 package de.hdm_stuttgart.mi.classes;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class Question {
+
+    private static final Logger log = LogManager.getLogger(Question.class);
+
     private String questionname;
     private String answer;
     private String category;
@@ -9,7 +15,7 @@ public class Question {
     private String optionC;
     private String optionD;
 
-    public Question(){
+    public Question() {
 
     }
 
@@ -79,14 +85,13 @@ public class Question {
         this.optionD = optionD;
     }
 
-    public void checkQuestion(String selectedOption, String answer){
-        if (selectedOption.equals(answer)){
-            System.out.println("You are right!");
-        }
-        else System.out.println("Sorry Wrong Answer. Right Answer: " + getAnswer());
+    void checkQuestion(String selectedOption, String answer) {
+        if (selectedOption.equals(answer)) {
+            log.info("You are right");
+        } else log.info("Sorry Wrong Answer. Right Answer: " + getAnswer());
     }
 
-    public void getAllOptions(){
+    void getAllOptions() {
         System.out.println("A: " + getOptionA());
         System.out.println("B: " + getOptionB());
         System.out.println("C: " + getOptionC());

@@ -9,7 +9,6 @@ public class Quiz {
     private ArrayList<Question>questions;
 
     public Quiz(){
-
     }
 
     public Quiz(ArrayList<Question> questions) {
@@ -24,7 +23,7 @@ public class Quiz {
         this.questions = questions;
     }
 
-    public int getLength(){
+    int getLength() {
         return questions.size();
     }
 }

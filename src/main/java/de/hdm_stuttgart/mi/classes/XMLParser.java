@@ -9,7 +9,7 @@ import static javax.xml.bind.JAXBContext.newInstance;
 
 public class XMLParser {
 
-    Quiz createQuestions() {
+    public Quiz createQuestions() {
         Quiz quiz;
 
 
