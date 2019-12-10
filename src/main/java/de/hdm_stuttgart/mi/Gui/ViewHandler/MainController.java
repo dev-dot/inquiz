@@ -21,6 +21,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import java.io.IOException;
 import java.util.Stack;
+import com.github.rage28.log4j2.slack.message.SlackLogMessage;
+import com.github.rage28.log4j2.slack.model.SlackLog.SlackLogBuilder;
 
 public class MainController extends Application {
 
@@ -66,9 +68,13 @@ public class MainController extends Application {
 
     //Setting Stage
     static void setWindow(Stage primaryStage, Scene scene, Logger log) {
-
-        scene.widthProperty().addListener((observableValue, oldSceneWidth, newSceneWidth) -> log.debug("Width: " + newSceneWidth));
-        scene.heightProperty().addListener((observableValue, oldSceneHeight, newSceneHeight) -> log.debug("Height: " + newSceneHeight));
+        log.error(new SlackLogMessage(SlackLogBuilder.builder()
+                .withTitle("MainController")
+                .withColor("red")
+                .withText("Main Scene initialized")
+                .build()));
+        scene.widthProperty().addListener((observableValue, oldSceneWidth, newSceneWidth) -> System.out.println(newSceneWidth));//log.info("Width: " + newSceneWidth));
+        scene.heightProperty().addListener((observableValue, oldSceneHeight, newSceneHeight) -> System.out.println(newSceneHeight));//log.info("Height: " + newSceneHeight));
         primaryStage.setTitle("inquiz");
         primaryStage.setMinWidth(650);
         primaryStage.setMinHeight(650);
@@ -93,12 +99,14 @@ public class MainController extends Application {
     }
 
     @FXML
-    public void mainEnterStartAction(ActionEvent actionEvent) {
+    public void mainEnterStartAction(ActionEvent actionEvent) throws IOException {
+        validateUserName(actionEvent);
         launchGameWindow(actionEvent);
     }
 
     @FXML
-    public void mainStartAction(ActionEvent actionEvent) {
+    public void mainStartAction(ActionEvent actionEvent) throws IOException {
+        validateUserName(actionEvent);
         launchGameWindow(actionEvent);
     }
 
@@ -113,15 +121,12 @@ public class MainController extends Application {
 
     private void validateUserName(ActionEvent actionEvent) throws IOException {
         if (mainUserNameTextField.getText().length() > 0) {
-            //USER ID STILL NEEDS TO NE CHANGED !!!
-            //String userIDString = mainUserNameTextField.getText();
             RotateTransition rotateTransition = new RotateTransition();
             rotateTransition.setDelay(Duration.millis(1500));
             rotateTransition.setDuration(Duration.millis(900));
             rotateTransition.setByAngle(720);
             rotateTransition.setNode(gameUserID);
             rotateTransition.play();
-            sceneChanger("/fxml/InGameWindow.fxml", actionEvent);
         } else {
             mainUserNameHintLabel.setText("please enter a username");
             mainUserNameHintLabel.setTextFill(Color.web("#FF0000"));
@@ -135,7 +140,7 @@ public class MainController extends Application {
             Parent root = loader.load();
             GameController gameController = loader.getController();
             gameController.setGameWindow(mainUserNameTextField);
-            Stage stage = new Stage();
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.show();
 

@@ -71,4 +71,38 @@
     -fx-border-color: #3535D3;
     -fx-border-width: 0.5 0.5 0.5 0.5;
     -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+}
+
+.list-cell, .table-column, .combo-box{
+    /*-fx-alignment: center;*/
+}
+
+.list-cell:selected{
+    -fx-text-fill: #3535D3;
+}
+
+.cell:selected{
+    -fx-background-color: #f0f0f0;
+}
+
+.list-cell:hover{
+    -fx-background-color: rgba(53, 53, 211, 0.5);
+}
+
+#modeSelector{
+    -fx-focus-color: transparent;
+    -fx-border-color: #3535D3;
+    -fx-background-color: #f0f0f0!important;
+    -fx-border-width: 0 0 0 0;
+    -fx-background-insets: -1.4, 0, 1, 2;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-prompt-text-fill: #3535D3;
+    -fx-alignment: center;
+}
+
+#modeSelector:focused {
+    -fx-focus-color: transparent;
+    -fx-background-insets: -1.4, 0, 1, 2;
 }
