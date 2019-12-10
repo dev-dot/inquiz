@@ -1,6 +1,5 @@
-package de.hdm_stuttgart.mi.Gui.ViewHandler;
+package de.hdm_stuttgart.mi.guiHandler;
 
-import de.hdm_stuttgart.mi.classes.Game;
 import de.hdm_stuttgart.mi.classes.Quiz;
 import de.hdm_stuttgart.mi.classes.Statistic;
 import de.hdm_stuttgart.mi.classes.XMLParser;
@@ -21,9 +20,6 @@ import javafx.util.Duration;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import java.io.IOException;
-import java.util.Stack;
-import com.github.rage28.log4j2.slack.message.SlackLogMessage;
-import com.github.rage28.log4j2.slack.model.SlackLog.SlackLogBuilder;
 
 public class MainController extends Application {
 
@@ -62,8 +58,8 @@ public class MainController extends Application {
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/StartWindow.fxml"));
         Scene scene = new Scene(root);
-        javafx.scene.text.Font.loadFont(getClass().getResourceAsStream("/Style/fonts/Source_Code_Pro/SourceCodePro-ExtraLight.ttf"), 14);
-        scene.getStylesheets().add(getClass().getResource("/Style/default.css").toExternalForm());
+        javafx.scene.text.Font.loadFont(getClass().getResourceAsStream("/style/fonts/Source_Code_Pro/SourceCodePro-ExtraLight.ttf"), 14);
+        scene.getStylesheets().add(getClass().getResource("/style/default.css").toExternalForm());
         setWindow(primaryStage, scene, log);
     }
 
