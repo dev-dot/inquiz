@@ -136,7 +136,8 @@ public class MainController extends Application {
             statistic.writeStatistic(statistic);
             Parent root = loader.load();
             GameController gameController = loader.getController();
-            gameController.setGameWindow(mainUserNameTextField);
+            gameController.setUserID(mainUserNameTextField);
+            gameController.setQuestionWindow(6);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.show();
