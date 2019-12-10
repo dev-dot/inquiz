@@ -22,7 +22,7 @@ public class Statistic {
 
     private double averageQuota;
 
-    Statistic(String userGameID) {
+    public Statistic(String userGameID) {
         this.userGameID = userGameID;
     }
 
@@ -35,7 +35,7 @@ public class Statistic {
         this.wrongAnswerCounter = wrongAnswerCounter;
     }
 
-    void writeStatistic(Statistic customer) {
+    public void writeStatistic(Statistic customer) {
         try {
 
             File file = new File("src/main/resources/content/statistic.xml");

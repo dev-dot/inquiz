@@ -2,6 +2,7 @@ package de.hdm_stuttgart.mi.Gui.ViewHandler;
 
 import de.hdm_stuttgart.mi.classes.Game;
 import de.hdm_stuttgart.mi.classes.Quiz;
+import de.hdm_stuttgart.mi.classes.Statistic;
 import de.hdm_stuttgart.mi.classes.XMLParser;
 import javafx.animation.RotateTransition;
 import javafx.application.Application;
@@ -137,12 +138,15 @@ public class MainController extends Application {
     private void launchGameWindow(ActionEvent event) {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/InGameWindow.fxml"));
         try {
+            Statistic statistic = new Statistic(mainUserNameTextField.getText());
+            statistic.writeStatistic(statistic);
             Parent root = loader.load();
             GameController gameController = loader.getController();
             gameController.setGameWindow(mainUserNameTextField);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.show();
+
 
         } catch (IOException e) {
             e.printStackTrace();
