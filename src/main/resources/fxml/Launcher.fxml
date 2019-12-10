@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.BoxBlur?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Circle?>
+<?import java.net.URL?>
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="de.hdm_stuttgart.mi.guiHandler.LauncherFXML">
+    <center>
+        <VBox alignment="CENTER" prefHeight="750.0" prefWidth="1200.0">
+            <stylesheets>
+                <URL value="@../style/default.css"/>
+            </stylesheets>
+            <Label id="logoLauncher" fx:id="label" alignment="CENTER" contentDisplay="TOP" text="inquiz">
+                <effect>
+                    <BoxBlur height="0.0" width="0.0"/>
+                </effect>
+            </Label>
+        </VBox>
+    </center>
+    <bottom>
+        <GridPane alignment="CENTER" BorderPane.alignment="CENTER">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            </rowConstraints>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
+                <Circle id=" " fx:id="circle1" fill="#ffffff00" radius="15.0" stroke="#3535d3"
+                        strokeType="INSIDE" strokeWidth="2.0">
+                    <HBox.margin>
+                        <Insets left="10.0" right="10.0"/>
+                    </HBox.margin>
+                </Circle>
+                <Circle id=" " fx:id="circle2" fill="#ffffff00" radius="15.0" stroke="#3535d3"
+                        strokeType="INSIDE" strokeWidth="2.0">
+                    <HBox.margin>
+                        <Insets left="10.0" right="10.0"/>
+                    </HBox.margin>
+                </Circle>
+                <Circle id=" " fx:id="circle3" fill="#ffffff00" radius="15.0" stroke="#3535d3"
+                        strokeType="INSIDE" strokeWidth="2.0">
+                    <HBox.margin>
+                        <Insets left="10.0" right="10.0"/>
+                    </HBox.margin>
+                </Circle>
+            </HBox>
+        </GridPane>
+    </bottom>
+</BorderPane>

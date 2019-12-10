@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.image.Image?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-
-<HBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.hdm_stuttgart.mi.Gui.ViewHandler.MainController">
+<?import javafx.scene.layout.HBox?>
+<HBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.hdm_stuttgart.mi.guiHandler.MainController">
     <Label fx:id="gameUserID" styleClass="userLabel" text="user">
         <HBox.margin>
             <Insets top="12.5" />

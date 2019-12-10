@@ -131,7 +131,7 @@
                 <version>0.0.2</version>
                 <configuration>
                     <launcher>inquizdriver</launcher>
-                    <mainClass>de.hdm_stuttgart.mi.Gui.ViewHandler.MainController</mainClass>
+                    <mainClass>de.hdm_stuttgart.mi.guiHandler.MainController</mainClass>
                 </configuration>
             </plugin>
 

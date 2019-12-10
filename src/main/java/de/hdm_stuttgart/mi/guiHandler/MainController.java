@@ -69,15 +69,9 @@ public class MainController extends Application {
 
     //Setting Stage
     static void setWindow(Stage primaryStage, Scene scene, Logger log) {
-        //Slack Logging Example
-        log.error(new SlackLogMessage(SlackLogBuilder.builder()
-                .withTitle("MainController")
-                .withColor("red")
-                .withText("Main Scene initialized")
-                .build()));
-        //Sys Out because two Logging types currently dont work together for some reason
-        scene.widthProperty().addListener((observableValue, oldSceneWidth, newSceneWidth) -> System.out.println(newSceneWidth));//log.info("Width: " + newSceneWidth));
-        scene.heightProperty().addListener((observableValue, oldSceneHeight, newSceneHeight) -> System.out.println(newSceneHeight));//log.info("Height: " + newSceneHeight));
+
+        scene.widthProperty().addListener((observableValue, oldSceneWidth, newSceneWidth) -> log.debug("Width: " + newSceneWidth));
+        scene.heightProperty().addListener((observableValue, oldSceneHeight, newSceneHeight) -> log.debug("Height: " + newSceneHeight));
         primaryStage.setTitle("inquiz");
         primaryStage.setMinWidth(650);
         primaryStage.setMinHeight(650);
@@ -102,14 +96,12 @@ public class MainController extends Application {
     }
 
     @FXML
-    public void mainEnterStartAction(ActionEvent actionEvent) throws IOException {
-        validateUserName(actionEvent);
+    public void mainEnterStartAction(ActionEvent actionEvent) {
         launchGameWindow(actionEvent);
     }
 
     @FXML
-    public void mainStartAction(ActionEvent actionEvent) throws IOException {
-        validateUserName(actionEvent);
+    public void mainStartAction(ActionEvent actionEvent) {
         launchGameWindow(actionEvent);
     }
 
@@ -124,12 +116,15 @@ public class MainController extends Application {
 
     private void validateUserName(ActionEvent actionEvent) throws IOException {
         if (mainUserNameTextField.getText().length() > 0) {
+            //USER ID STILL NEEDS TO NE CHANGED !!!
+            //String userIDString = mainUserNameTextField.getText();
             RotateTransition rotateTransition = new RotateTransition();
             rotateTransition.setDelay(Duration.millis(1500));
             rotateTransition.setDuration(Duration.millis(900));
             rotateTransition.setByAngle(720);
             rotateTransition.setNode(gameUserID);
             rotateTransition.play();
+            sceneChanger("/fxml/InGameWindow.fxml", actionEvent);
         } else {
             mainUserNameHintLabel.setText("please enter a username");
             mainUserNameHintLabel.setTextFill(Color.web("#FF0000"));

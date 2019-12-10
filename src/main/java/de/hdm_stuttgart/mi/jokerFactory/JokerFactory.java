@@ -1,6 +1,5 @@
-package de.hdm_stuttgart.mi.JokerFactory;
+package de.hdm_stuttgart.mi.jokerFactory;
 
-import de.hdm_stuttgart.mi.GameModeFactory.GamemodeFactory;
 import de.hdm_stuttgart.mi.exceptions.IllegalFactoryArgument;
 import de.hdm_stuttgart.mi.interfaces.IJoker;
 import org.apache.logging.log4j.LogManager;

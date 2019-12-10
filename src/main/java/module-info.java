@@ -10,6 +10,6 @@ module inquiz {
     requires java.sql;
     requires log4j2.slack;
 
-    opens de.hdm_stuttgart.mi.Gui.ViewHandler to javafx.graphics, javafx.fxml;
-    exports de.hdm_stuttgart.mi.Gui.ViewHandler;
+    opens de.hdm_stuttgart.mi.guiHandler to javafx.graphics, javafx.fxml;
+    exports de.hdm_stuttgart.mi.guiHandler;
 }

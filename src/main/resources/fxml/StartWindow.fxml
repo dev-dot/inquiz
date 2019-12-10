@@ -8,6 +8,8 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.effect.GaussianBlur?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -30,13 +32,13 @@
             <HBox>
                 <Label id="gameUserID" fx:id="gameUserID" styleClass="userLabel" text="user">
                     <HBox.margin>
-                        <Insets top="12.5" />
+                        <Insets top="12.5"/>
                     </HBox.margin>
                 </Label>
                 <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                    <Image url="@../media/icons/user2.png" />
+                    <Image url="@../media/icons/user2.png"/>
                     <HBox.margin>
-                        <Insets left="10.0" right="10.0" top="10.0" />
+                        <Insets left="10.0" right="10.0" top="10.0"/>
                     </HBox.margin>
                 </ImageView>
             </HBox>
@@ -45,24 +47,12 @@
     <center>
         <GridPane alignment="CENTER">
             <VBox alignment="CENTER" minWidth="200.0" spacing="10" GridPane.columnIndex="1">
-                <Label text="welcome to" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                <Label text="Welcome to" GridPane.columnIndex="1" GridPane.rowIndex="0" />
                 <Label id="logo" text="inquiz" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                <TextField id="userNameTextField" fx:id="mainUserNameTextField" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" onAction="#mainEnterStartAction" prefHeight="35.0" prefWidth="300.0" promptText="username" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                <Label id="usernameHint" fx:id="mainUserNameHintLabel" text="enter your username to start a quiz" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                <ComboBox id="modeSelector" prefWidth="175.0" promptText="choose game mode">
-                    <items>
-                        <FXCollections fx:factory="observableArrayList">
-                            <String fx:value="standard" />
-                            <String fx:value="speed" />
-                            <String fx:value="expert" />
-                        </FXCollections>
-                    </items>
-               <VBox.margin>
-                  <Insets top="20.0" />
-               </VBox.margin>
-                </ComboBox>
+                <TextField fx:id="mainUserNameTextField" onAction="#mainEnterStartAction" id="userNameTextField" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="35.0" prefWidth="300.0" promptText="username" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <Label fx:id="mainUserNameHintLabel" id="usernameHint" text="enter your username to start a quiz" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                 <HBox id="buttonContainer" alignment="CENTER" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="4">
-                    <Button id="startButton" fx:id="mainStartButton" mnemonicParsing="false" onAction="#mainStartAction" text="start game" />
+                    <Button fx:id="mainStartButton" onAction="#mainStartAction" id="startButton" mnemonicParsing="false" text="start game" />
                     <opaqueInsets>
                         <Insets />
                     </opaqueInsets>

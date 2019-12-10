@@ -1,4 +1,4 @@
-package de.hdm_stuttgart.mi.JokerFactory;
+package de.hdm_stuttgart.mi.jokerFactory;
 
 import de.hdm_stuttgart.mi.interfaces.IJoker;
 

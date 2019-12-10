@@ -1,4 +1,4 @@
-package de.hdm_stuttgart.mi.GameModeFactory;
+package de.hdm_stuttgart.mi.gameModeFactory;
 
 import de.hdm_stuttgart.mi.exceptions.IllegalFactoryArgument;
 import de.hdm_stuttgart.mi.interfaces.IGamemode;
