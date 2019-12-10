@@ -65,16 +65,18 @@ public class GameController implements Initializable {
 
     }
 
-    void setGameWindow(TextField label) {
+    void setUserID(TextField label) {
         userID.setText(label.getText().toUpperCase());
         quiz = parser.createQuestions();
 
+    }
 
-        questionLabel.setText(quiz.getQuestions().get(0).getQuestionname());
-        buttonA.setText(quiz.getQuestions().get(0).getOptionA());
-        buttonB.setText(quiz.getQuestions().get(0).getOptionB());
-        buttonC.setText(quiz.getQuestions().get(0).getOptionC());
-        buttonD.setText(quiz.getQuestions().get(0).getOptionD());
+    void setQuestionWindow(int random) {
+        questionLabel.setText(quiz.getQuestions().get(random).getQuestionname());
+        buttonA.setText(quiz.getQuestions().get(random).getOptionA());
+        buttonB.setText(quiz.getQuestions().get(random).getOptionB());
+        buttonC.setText(quiz.getQuestions().get(random).getOptionC());
+        buttonD.setText(quiz.getQuestions().get(random).getOptionD());
     }
 
 
