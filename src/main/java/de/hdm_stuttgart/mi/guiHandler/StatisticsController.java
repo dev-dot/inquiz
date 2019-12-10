@@ -1,4 +1,4 @@
-package de.hdm_stuttgart.mi.Gui.ViewHandler;
+package de.hdm_stuttgart.mi.guiHandler;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -20,8 +20,8 @@ public class StatisticsController extends Application {
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/Statistics.fxml"));
         Scene scene = new Scene(root);
-        javafx.scene.text.Font.loadFont(getClass().getResourceAsStream("/Style/fonts/Source_Code_Pro/SourceCodePro-ExtraLight.ttf"), 10);
-        scene.getStylesheets().add(getClass().getResource("/Style/ingame.css").toExternalForm());
+        javafx.scene.text.Font.loadFont(getClass().getResourceAsStream("/style/fonts/Source_Code_Pro/SourceCodePro-ExtraLight.ttf"), 10);
+        scene.getStylesheets().add(getClass().getResource("/style/ingame.css").toExternalForm());
         MainController.setWindow(primaryStage, scene, log);
     }
 

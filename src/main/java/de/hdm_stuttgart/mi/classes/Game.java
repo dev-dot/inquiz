@@ -2,10 +2,10 @@ package de.hdm_stuttgart.mi.classes;
 
 
 import de.hdm_stuttgart.mi.exceptions.IllegalFactoryArgument;
+import de.hdm_stuttgart.mi.gameModeFactory.GamemodeFactory;
 import de.hdm_stuttgart.mi.interfaces.IGamemode;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import de.hdm_stuttgart.mi.GameModeFactory.*;
 
 public class Game implements IGamemode {
 

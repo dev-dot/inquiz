@@ -1,25 +1,27 @@
-@font-face {
-    font-family: 'Source Code Pro ExtraLight';
-    src: url("fonts/Source_Code_Pro/SourceCodePro-ExtraLight.ttf") format("truetype");
-}
-
 .root{
     -fx-font-family: "Source Code Pro ExtraLight";
 }
 
-.defaultButton{
+.button{
     -fx-background-color: #f1f1f1;
     -fx-text-fill: #000000;
     -fx-border-radius: 10px;
+    -fx-font-size: 16px;
+}
+.button:hover{
+    -fx-text-fill: #000000;
+    -fx-background-color: rgba(53, 53, 211, 0.5);
 }
 
-.defaultLabel{
+.label{
     -fx-font-family: "Source Code Pro ExtraLight";
+    -fx-font-size: 18px;
 }
 
 .defaultBackground{
-    -fx-opacity: 0.15;
-
+    -fx-opacity: 0.10;
+    -fx-min-height: 1050;
+    -fx-min-width: 1680;
 }
 
 .userContainer{
@@ -31,7 +33,12 @@
 }
 
 #logo{
-    -fx-font-size: 50px;
+    -fx-font-size: 55px;
+    -fx-text-fill: #3535D3;
+}
+
+#logoLauncher {
+    -fx-font-size: 100px;
     -fx-text-fill: #3535D3;
 }
 
@@ -40,8 +47,28 @@
 }
 
 #userNameTextField {
-    -fx-background-color: #a9a9a9, white, white;
+    /*-fx-background-color: #a9a9a9, white, white;*/
     -fx-background-insets: 0 0 -1 0, 0 0 0 0, 0 0 0 0;
-    -fx-border-radius: 10px;
+    -fx-background-color: #f0f0f0;
+    -fx-text-fill: #000000;
+    /* -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 3, 0, 0, 0); */
+    -fx-text-box-border: #3535D3 ;
+    -fx-border-color: #3535D3;
+    -fx-border-width: 0 0 0.5 0;
+    -fx-focus-traversable: false;
+}
 
+#usernameHint{
+    -fx-font-size: 12px;
+    -fx-padding: 10 0 0 0;
+}
+
+#buttonContainer{
+    -fx-padding: 20;
+}
+
+#startButton{
+    -fx-border-color: #3535D3;
+    -fx-border-width: 0.5 0.5 0.5 0.5;
+    -fx-background-radius: 10px;
 }

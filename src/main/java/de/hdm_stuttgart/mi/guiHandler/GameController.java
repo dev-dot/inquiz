@@ -1,9 +1,5 @@
-package de.hdm_stuttgart.mi.Gui.ViewHandler;
+package de.hdm_stuttgart.mi.guiHandler;
 
-import de.hdm_stuttgart.mi.classes.Game;
-import de.hdm_stuttgart.mi.classes.Quiz;
-import de.hdm_stuttgart.mi.classes.XMLParser;
-import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,11 +16,10 @@ import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.Queue;
 import java.util.ResourceBundle;
 
-import static de.hdm_stuttgart.mi.Gui.ViewHandler.MainController.parser;
-import static de.hdm_stuttgart.mi.Gui.ViewHandler.MainController.quiz;
+import static de.hdm_stuttgart.mi.guiHandler.MainController.parser;
+import static de.hdm_stuttgart.mi.guiHandler.MainController.quiz;
 
 public class GameController implements Initializable {
 

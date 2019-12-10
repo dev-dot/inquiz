@@ -1,8 +1,8 @@
 package de.hdm_stuttgart.mi.classes;
 
-import de.hdm_stuttgart.mi.JokerFactory.JokerFactory;
 import de.hdm_stuttgart.mi.exceptions.IllegalFactoryArgument;
 import de.hdm_stuttgart.mi.interfaces.IJoker;
+import de.hdm_stuttgart.mi.jokerFactory.JokerFactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -40,7 +40,7 @@ public class App {
 
         game.setGamemode(gamemode);
         try {
-            joker = jokerFactory.createJoker(IJoker.AvailableJoker.FIFTYFIFTY);
+            joker = JokerFactory.createJoker(IJoker.AvailableJoker.FIFTYFIFTY);
         } catch (IllegalFactoryArgument illegalFactoryArgument) {
             illegalFactoryArgument.printStackTrace();
         }
