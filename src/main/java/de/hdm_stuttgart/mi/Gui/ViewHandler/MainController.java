@@ -69,11 +69,13 @@ public class MainController extends Application {
 
     //Setting Stage
     static void setWindow(Stage primaryStage, Scene scene, Logger log) {
+        //Slack Logging Example
         log.error(new SlackLogMessage(SlackLogBuilder.builder()
                 .withTitle("MainController")
                 .withColor("red")
                 .withText("Main Scene initialized")
                 .build()));
+        //Sys Out because two Logging types currently dont work together for some reason
         scene.widthProperty().addListener((observableValue, oldSceneWidth, newSceneWidth) -> System.out.println(newSceneWidth));//log.info("Width: " + newSceneWidth));
         scene.heightProperty().addListener((observableValue, oldSceneHeight, newSceneHeight) -> System.out.println(newSceneHeight));//log.info("Height: " + newSceneHeight));
         primaryStage.setTitle("inquiz");
