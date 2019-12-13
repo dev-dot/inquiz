@@ -1,5 +1,6 @@
 package de.hdm_stuttgart.mi.guiHandler;
 
+import de.hdm_stuttgart.mi.classes.AppTest;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -38,6 +39,11 @@ public class GameController implements Initializable {
     public Button buttonC;
     @FXML
     public Button buttonD;
+
+    private int roundCounter = 1;
+
+    private AppTest appTest = new AppTest();
+
 
 
 
@@ -83,5 +89,55 @@ public class GameController implements Initializable {
     public void fifty(ActionEvent event) {
         buttonB.setVisible(false);
         buttonC.setVisible(false);
+    }
+
+    public void clickButtonA(ActionEvent event) {
+
+        if (quiz.getQuestions().get(roundCounter).getOptionA().equals(quiz.getQuestions().get(roundCounter).getAnswer())) {
+            setQuestionWindow(appTest.questionsIndices[roundCounter]);
+
+            resetButtons();
+            roundCounter++;
+        } else {
+            setButtonRed(buttonA);
+            log.info("wrong Answer");
+        }
+    }
+
+    public void clickButtonB(ActionEvent event) {
+        setButtonRed(buttonB);
+        setQuestionWindow(appTest.questionsIndices[roundCounter]);
+        resetButtons();
+        roundCounter++;
+    }
+
+    public void clickButtonC(ActionEvent event) {
+        setQuestionWindow(appTest.questionsIndices[roundCounter]);
+        resetButtons();
+        roundCounter++;
+    }
+
+    public void clickButtonD(ActionEvent event) {
+
+        setQuestionWindow(MainController.appTest.questionsIndices[roundCounter]);
+        resetButtons();
+        roundCounter++;
+    }
+
+    private void setButtonRed(Button button) {
+        button.setStyle("-fx-background-color: #ff0000");
+    }
+
+    void setButtonGreen(Button button) {
+        button.setStyle("-fx-background-color: #00FF00");
+    }
+
+    private void resetButtons() {
+        buttonA.setVisible(true);
+        buttonB.setVisible(true);
+        buttonC.setVisible(true);
+        buttonD.setVisible(true);
+
+
     }
 }

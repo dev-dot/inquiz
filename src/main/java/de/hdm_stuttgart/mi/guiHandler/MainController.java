@@ -1,5 +1,6 @@
 package de.hdm_stuttgart.mi.guiHandler;
 
+import de.hdm_stuttgart.mi.classes.AppTest;
 import de.hdm_stuttgart.mi.classes.Quiz;
 import de.hdm_stuttgart.mi.classes.Statistic;
 import de.hdm_stuttgart.mi.classes.XMLParser;
@@ -19,12 +20,18 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
 import java.io.IOException;
 
 public class MainController extends Application {
 
     static XMLParser parser = new XMLParser();
     static Quiz quiz;
+
+
+    public MainController() {
+
+    }
 
     //Logger
     private static final Logger log = LogManager.getLogger(MainController.class);
@@ -52,6 +59,8 @@ public class MainController extends Application {
     public void setGameUserID(Label gameUserID) {
         this.gameUserID = gameUserID;
     }
+
+    static AppTest appTest = new AppTest();
 
     //Setting Scene
     @Override
@@ -118,7 +127,7 @@ public class MainController extends Application {
             rotateTransition.setDelay(Duration.millis(1500));
             rotateTransition.setDuration(Duration.millis(900));
             rotateTransition.setByAngle(720);
-            rotateTransition.setNode(gameUserID);
+            rotateTransition.setNode(mainUserNameTextField);
             rotateTransition.play();
             sceneChanger("/fxml/InGameWindow.fxml", actionEvent);
         } else {
@@ -136,11 +145,11 @@ public class MainController extends Application {
             Parent root = loader.load();
             GameController gameController = loader.getController();
             gameController.setUserID(mainUserNameTextField);
-            gameController.setQuestionWindow(6);
+
+            gameController.setQuestionWindow(appTest.questionsIndices[0]);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.show();
-
 
         } catch (IOException e) {
             e.printStackTrace();
