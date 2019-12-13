@@ -66,22 +66,26 @@
                 </Label>
             <GridPane alignment="CENTER" vgap="30.0" GridPane.fillWidth="true">
                 <Button fx:id="buttonA" maxWidth="1.7976931348623157E308" prefHeight="50.0" styleClass="answerButton"
-                        text="This is answer one" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                        text="This is answer one" GridPane.columnIndex="0" GridPane.rowIndex="0"
+                        onAction="#clickButtonA">
                <GridPane.margin>
                   <Insets left="15.0" right="15.0" />
                </GridPane.margin></Button>
                 <Button fx:id="buttonB" maxWidth="1.7976931348623157E308" prefHeight="50.0" styleClass="answerButton"
-                        text="This is answer two" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                        text="This is answer two" GridPane.columnIndex="1" GridPane.rowIndex="0"
+                        onAction="#clickButtonB">
                <GridPane.margin>
                   <Insets left="15.0" right="15.0" />
                </GridPane.margin></Button>
                 <Button fx:id="buttonC" maxWidth="1.7976931348623157E308" prefHeight="50.0" styleClass="answerButton"
-                        text="This is answer three" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                        text="This is answer three" GridPane.columnIndex="0" GridPane.rowIndex="1"
+                        onAction="#clickButtonC">
                <GridPane.margin>
                   <Insets left="15.0" right="15.0" />
                </GridPane.margin></Button>
                 <Button fx:id="buttonD" maxWidth="1.7976931348623157E308" prefHeight="50.0" styleClass="answerButton"
-                        text="This is answer four" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        text="This is answer four" GridPane.columnIndex="1" GridPane.rowIndex="1"
+                        onAction="#clickButtonD">
                <GridPane.margin>
                   <Insets left="15.0" right="15.0" />
                </GridPane.margin></Button>
