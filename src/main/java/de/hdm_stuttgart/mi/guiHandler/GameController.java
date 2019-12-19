@@ -1,8 +1,7 @@
 package de.hdm_stuttgart.mi.guiHandler;
 
-import de.hdm_stuttgart.mi.classes.AppTest;
-import de.hdm_stuttgart.mi.classes.Quiz;
-import javafx.animation.*;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,14 +20,12 @@ import org.apache.logging.log4j.Logger;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.concurrent.TimeUnit;
 
-import static de.hdm_stuttgart.mi.guiHandler.MainController.parser;
-import static de.hdm_stuttgart.mi.guiHandler.MainController.quiz;
+import static de.hdm_stuttgart.mi.guiHandler.MainController.*;
 
 public class GameController implements Initializable {
 
-    private static final Logger log = LogManager.getLogger(MainController.class);
+    private final Logger log = LogManager.getLogger(GameController.class);
 
     @FXML
     public Label userID;
@@ -43,14 +40,8 @@ public class GameController implements Initializable {
     public Button buttonC;
     @FXML
     public Button buttonD;
-
-    private int roundCounter = 0;
-
-    private AppTest appTest = new AppTest();
-
-
-
-
+    @FXML
+    public Label roundCounterLabel;
 
 
     public void gameExitAction(ActionEvent actionEvent) throws IOException {
@@ -81,12 +72,12 @@ public class GameController implements Initializable {
 
     }
 
-    void setQuestionWindow(int random) {
-        questionLabel.setText(quiz.getQuestions().get(random).getQuestionname());
-        buttonA.setText(quiz.getQuestions().get(random).getOptionA());
-        buttonB.setText(quiz.getQuestions().get(random).getOptionB());
-        buttonC.setText(quiz.getQuestions().get(random).getOptionC());
-        buttonD.setText(quiz.getQuestions().get(random).getOptionD());
+    void setQuestionWindow(int index) {
+        questionLabel.setText(quiz.getQuestions().get(index).getQuestionname());
+        buttonA.setText(quiz.getQuestions().get(index).getOptionA());
+        buttonB.setText(quiz.getQuestions().get(index).getOptionB());
+        buttonC.setText(quiz.getQuestions().get(index).getOptionC());
+        buttonD.setText(quiz.getQuestions().get(index).getOptionD());
     }
 
 
@@ -95,20 +86,28 @@ public class GameController implements Initializable {
         buttonC.setVisible(false);
     }
 
-    public void clickButtonA(ActionEvent event) throws InterruptedException {
+    public void clickButtonA(ActionEvent event) {
         validateAnswer(buttonA);
+        roundCounterLabel.setText(setRoundCounter());
+        log.info(game.getRoundCount());
     }
 
-    public void clickButtonB(ActionEvent event) throws InterruptedException {
+    public void clickButtonB(ActionEvent event) {
         validateAnswer(buttonB);
+        roundCounterLabel.setText(setRoundCounter());
+        log.info(game.getRoundCount());
     }
 
-    public void clickButtonC(ActionEvent event) throws InterruptedException {
+    public void clickButtonC(ActionEvent event) {
         validateAnswer(buttonC);
+        roundCounterLabel.setText(setRoundCounter());
+        log.info(game.getRoundCount());
     }
 
-    public void clickButtonD(ActionEvent event) throws InterruptedException {
+    public void clickButtonD(ActionEvent event) {
         validateAnswer(buttonD);
+        roundCounterLabel.setText(setRoundCounter());
+        log.info(game.getRoundCount());
     }
 
     private void setButtonRed(Button button) {
@@ -132,52 +131,56 @@ public class GameController implements Initializable {
 
     private void fadeTransition(Button button) {
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.1), evt -> button.setVisible(false)),
-                new KeyFrame(Duration.seconds( 0.25), evt -> button.setVisible(true)));
+                new KeyFrame(Duration.seconds(0.25), evt -> button.setVisible(true)));
         timeline.setCycleCount(3);
         timeline.play();
     }
 
-    private void validateAnswer(Button button) throws InterruptedException {
-        String buttonString = button.toString().substring(10,17);
+    private void validateAnswer(Button button) {
+        String buttonString = button.toString().substring(10, 17);
         switch (buttonString) {
             case "buttonA":
-                log.info(quiz.getQuestions().get(appTest.questionsIndices[roundCounter]).getOptionA());
-                log.info(quiz.getQuestions().get(appTest.questionsIndices[roundCounter]).getAnswer());
-                if (quiz.getQuestions().get(appTest.questionsIndices[roundCounter]).getOptionA().equals(quiz.getQuestions().get(appTest.questionsIndices[roundCounter]).getAnswer())) {
+                log.info("selected answer: " + quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getOptionA());
+                log.info("right answer: " + quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getAnswer());
+                if (quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getOptionA().equals(quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getAnswer())) {
                     rightAnswer(buttonA);
                 } else {
                     wrongAnswer(buttonA);
                 }
+
                 //resetButtons();
                 break;
             case "buttonB":
-                log.info(quiz.getQuestions().get(appTest.questionsIndices[roundCounter]).getOptionB());
-                log.info(quiz.getQuestions().get(appTest.questionsIndices[roundCounter]).getAnswer());
-                if (quiz.getQuestions().get(appTest.questionsIndices[roundCounter]).getOptionB().equals(quiz.getQuestions().get(appTest.questionsIndices[roundCounter]).getAnswer())) {
+                log.info("selected answer: " + quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getOptionB());
+                log.info("right answer: " + quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getAnswer());
+                if (quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getOptionB().equals(quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getAnswer())) {
                     rightAnswer(buttonB);
                 } else {
                     wrongAnswer(buttonB);
                 }
+
                 //resetButtons();
                 break;
             case "buttonC":
-                log.info(quiz.getQuestions().get(appTest.questionsIndices[roundCounter]).getOptionC());
-                log.info(quiz.getQuestions().get(appTest.questionsIndices[roundCounter]).getAnswer());
-                if (quiz.getQuestions().get(appTest.questionsIndices[roundCounter]).getOptionC().equals(quiz.getQuestions().get(appTest.questionsIndices[roundCounter]).getAnswer())) {
+                log.info("selected answer: " + quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getOptionC());
+                log.info("right answer: " + quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getAnswer());
+                if (quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getOptionC().equals(quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getAnswer())) {
                     rightAnswer(buttonC);
                 } else {
                     wrongAnswer(buttonC);
                 }
+
                 //resetButtons();
                 break;
             case "buttonD":
-                log.info(quiz.getQuestions().get(appTest.questionsIndices[roundCounter]).getOptionD());
-                log.info(quiz.getQuestions().get(appTest.questionsIndices[roundCounter]).getAnswer());
-                if (quiz.getQuestions().get(appTest.questionsIndices[roundCounter]).getOptionD().equals(quiz.getQuestions().get(appTest.questionsIndices[roundCounter]).getAnswer())) {
+                log.info("selected answer: " + quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getOptionD());
+                log.info("right answer: " + quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getAnswer());
+                if (quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getOptionD().equals(quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getAnswer())) {
                     rightAnswer(buttonD);
                 } else {
                     wrongAnswer(buttonD);
                 }
+
                 //resetButtons();
                 break;
             default:
@@ -189,24 +192,38 @@ public class GameController implements Initializable {
     private void rightAnswer(Button button) {
         setButtonGreen(button);
         fadeTransition(button);
-        log.info(roundCounter);
+        game.setNextRound();
         log.info("right");
-        roundCounter++;
-        log.info(roundCounter);
-        if (roundCounter < 10){
-            setQuestionWindow(appTest.questionsIndices[roundCounter]);
+        if (game.getRoundCount() < 10) {
+            setQuestionWindow(game.getQuestionIndex(game.getRoundCount()));
+        } else {
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.exit(0);
         }
     }
 
     private void wrongAnswer(Button button) {
         setButtonRed(button);
         fadeTransition(button);
-        log.info(roundCounter);
+        game.setNextRound();
         log.info("wrong");
-        roundCounter++;
-        log.info(roundCounter);
-        if (roundCounter < 10){
-            setQuestionWindow(appTest.questionsIndices[roundCounter]);
+        if (game.getRoundCount() < 10) {
+            setQuestionWindow(game.getQuestionIndex(game.getRoundCount()));
+        } else {
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.exit(0);
         }
+    }
+
+    private String setRoundCounter() {
+        return String.format("%d/10", game.getRoundCount());
     }
 }
