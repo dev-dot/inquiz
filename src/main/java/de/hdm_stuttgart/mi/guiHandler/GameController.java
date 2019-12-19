@@ -52,6 +52,8 @@ public class GameController implements Initializable {
     @FXML
     public ProgressBar timeBar;
 
+    Button noButton = new Button();
+
     private int roundCounter = 0;
 
     private AppTest appTest = new AppTest();
@@ -100,9 +102,7 @@ public class GameController implements Initializable {
 
 
     private void setTimer(){
-        Game game = new Game();
-        int time = 3000; //TODO get Time
-
+        int time = 30000; //TODO get Time
         Timeline timer = new Timeline(
                 new KeyFrame(
                         Duration.ZERO,
@@ -113,12 +113,10 @@ public class GameController implements Initializable {
                         new KeyValue(timeBar.progressProperty(), 1)
                 )
         );
+        timer.stop();
         timer.playFromStart();
-        timer.setOnFinished(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-               wrongAnswer(buttonA);
-            }
+        timer.setOnFinished(event -> {
+           timeElapsed();
         });
     }
 
@@ -174,6 +172,24 @@ public class GameController implements Initializable {
     private void fadeTransition(Button button) {
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.1), evt -> button.setVisible(false)),
                 new KeyFrame(Duration.seconds(0.25), evt -> button.setVisible(true)));
+        timeline.setCycleCount(3);
+        timeline.play();
+        timeline.setOnFinished(event -> {
+            nextRound(button);
+        });
+    }
+
+    private void labelTransition(Label label) {
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.1), evt -> label.setVisible(false)),
+                new KeyFrame(Duration.seconds(0.25), evt -> label.setVisible(true)));
+        timeline.setCycleCount(3);
+        timeline.play();
+    }
+
+    private void timeBarTransition(ProgressBar bar) {
+        bar.setProgress(1);
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.1), evt -> bar.setVisible(false)),
+                new KeyFrame(Duration.seconds(0.4), evt -> bar.setVisible(true)));
         timeline.setCycleCount(3);
         timeline.play();
     }
@@ -233,28 +249,32 @@ public class GameController implements Initializable {
 
     private void rightAnswer(Button button) {
         setButtonGreen(button);
-        fadeTransition(button);
-        game.setNextRound();
         log.info("right");
-        if (game.getRoundCount() < 10) {
-            setQuestionWindow(game.getQuestionIndex(game.getRoundCount()));
-        } else {
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            System.exit(0);
-        }
+        fadeTransition(button);
     }
 
     private void wrongAnswer(Button button) {
         setButtonRed(button);
-        fadeTransition(button);
-        game.setNextRound();
         log.info("wrong");
+        fadeTransition(button);
+    }
+
+    private void timeElapsed(){
+        log.info("time elapsed");
+        roundCounterLabel.setText(setRoundCounter());
+        timeBarTransition(timeBar);
+        nextRound(noButton);
+    }
+
+    private String setRoundCounter() {
+        return String.format("%d/10", game.getRoundCount());
+    }
+
+    private void nextRound(Button button){
+        game.setNextRound();
         if (game.getRoundCount() < 10) {
             setQuestionWindow(game.getQuestionIndex(game.getRoundCount()));
+            resetButtons();
         } else {
             try {
                 Thread.sleep(1000);
@@ -263,9 +283,5 @@ public class GameController implements Initializable {
             }
             System.exit(0);
         }
-    }
-
-    private String setRoundCounter() {
-        return String.format("%d/10", game.getRoundCount());
     }
 }
