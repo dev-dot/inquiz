@@ -49,7 +49,7 @@
                 <Label id="logo" text="inquiz" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                 <TextField id="userNameTextField" fx:id="mainUserNameTextField" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" onAction="#mainEnterStartAction" prefHeight="35.0" prefWidth="300.0" promptText="username" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                 <Label id="usernameHint" fx:id="mainUserNameHintLabel" text="enter your username to start a quiz" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                <ComboBox id="modeSelector" prefWidth="175.0" promptText="choose game mode">
+                <ComboBox fx:id="gameModeSelector" id="modeSelector" prefWidth="175.0" promptText="choose game mode" value="standard">
                     <items>
                         <FXCollections fx:factory="observableArrayList">
                             <String fx:value="standard" />

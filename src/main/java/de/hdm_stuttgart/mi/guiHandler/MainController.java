@@ -1,10 +1,7 @@
 package de.hdm_stuttgart.mi.guiHandler;
 
-
-import de.hdm_stuttgart.mi.classes.Game;
-import de.hdm_stuttgart.mi.classes.Quiz;
-import de.hdm_stuttgart.mi.classes.Statistic;
-import de.hdm_stuttgart.mi.classes.XMLParser;
+import de.hdm_stuttgart.mi.classes.*;
+import de.hdm_stuttgart.mi.gameModeFactory.Gamemode;
 import javafx.animation.RotateTransition;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -14,6 +11,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
@@ -42,6 +40,8 @@ public class MainController extends Application {
     public Button mainStartButton;
     @FXML
     public TextField mainUserNameTextField;
+    @FXML
+    public ComboBox gameModeSelector;
     @FXML
     public Button mainStatsButton;
     @FXML
@@ -105,11 +105,13 @@ public class MainController extends Application {
     @FXML
     public void mainEnterStartAction(ActionEvent actionEvent) {
         launchGameWindow(actionEvent);
+        selectGameMode();
     }
 
     @FXML
     public void mainStartAction(ActionEvent actionEvent) {
         launchGameWindow(actionEvent);
+        selectGameMode();
     }
 
     //Other outsourced Functions
@@ -138,6 +140,25 @@ public class MainController extends Application {
         }
     }
 
+    private void selectGameMode(){
+        Game game = new Game();
+        String mode = gameModeSelector.getValue().toString();
+        switch (mode){
+            case "standard":
+                game.setGamemode(0);
+                break;
+            case "speed":
+                game.setGamemode(1);
+                break;
+            case "expert":
+                game.setGamemode(2);
+                break;
+            default:
+                log.info("Invalid GameMode");
+        }
+        log.info("GameMode set to " + mode);
+    }
+
     @FXML
     private void launchGameWindow(ActionEvent event) {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/InGameWindow.fxml"));
@@ -157,5 +178,4 @@ public class MainController extends Application {
             e.printStackTrace();
         }
     }
-
 }

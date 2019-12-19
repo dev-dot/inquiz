@@ -95,7 +95,7 @@
 }
 
 .timeBar{
-    -fx-accent: #3535D3;
+    -fx-accent: rgba(53, 53, 211, 0.7);
 }
 
 .menuButton{

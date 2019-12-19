@@ -1,8 +1,13 @@
 package de.hdm_stuttgart.mi.guiHandler;
 
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
+import de.hdm_stuttgart.mi.classes.AppTest;
+import de.hdm_stuttgart.mi.classes.Game;
+import de.hdm_stuttgart.mi.classes.Quiz;
+import de.hdm_stuttgart.mi.gameModeFactory.Gamemode;
+import de.hdm_stuttgart.mi.interfaces.IGamemode;
+import javafx.animation.*;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -11,6 +16,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -20,6 +26,7 @@ import org.apache.logging.log4j.Logger;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.concurrent.TimeUnit;
 
 import static de.hdm_stuttgart.mi.guiHandler.MainController.*;
 
@@ -42,6 +49,16 @@ public class GameController implements Initializable {
     public Button buttonD;
     @FXML
     public Label roundCounterLabel;
+    @FXML
+    public ProgressBar timeBar;
+
+    private int roundCounter = 0;
+
+    private AppTest appTest = new AppTest();
+
+
+
+
 
 
     public void gameExitAction(ActionEvent actionEvent) throws IOException {
@@ -72,12 +89,37 @@ public class GameController implements Initializable {
 
     }
 
-    void setQuestionWindow(int index) {
-        questionLabel.setText(quiz.getQuestions().get(index).getQuestionname());
-        buttonA.setText(quiz.getQuestions().get(index).getOptionA());
-        buttonB.setText(quiz.getQuestions().get(index).getOptionB());
-        buttonC.setText(quiz.getQuestions().get(index).getOptionC());
-        buttonD.setText(quiz.getQuestions().get(index).getOptionD());
+    void setQuestionWindow(int random) {
+        questionLabel.setText(quiz.getQuestions().get(random).getQuestionname());
+        buttonA.setText(quiz.getQuestions().get(random).getOptionA());
+        buttonB.setText(quiz.getQuestions().get(random).getOptionB());
+        buttonC.setText(quiz.getQuestions().get(random).getOptionC());
+        buttonD.setText(quiz.getQuestions().get(random).getOptionD());
+        setTimer();
+    }
+
+
+    private void setTimer(){
+        Game game = new Game();
+        int time = 3000; //TODO get Time
+
+        Timeline timer = new Timeline(
+                new KeyFrame(
+                        Duration.ZERO,
+                        new KeyValue(timeBar.progressProperty(), 0)
+                ),
+                new KeyFrame(
+                        Duration.millis(time),
+                        new KeyValue(timeBar.progressProperty(), 1)
+                )
+        );
+        timer.playFromStart();
+        timer.setOnFinished(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+               wrongAnswer(buttonA);
+            }
+        });
     }
 
 

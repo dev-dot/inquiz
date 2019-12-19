@@ -39,7 +39,7 @@ public class Game implements IGamemode {
 
     /* Getter and Setter methods */
 
-    void setGamemode(int gamemode) {
+    public void setGamemode(int gamemode) {
         try {
             switch (gamemode){
                 case 0: GamemodeFactory.createGameMode(Gamemodes.LEICHT);
