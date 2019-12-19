@@ -1,6 +1,7 @@
 package de.hdm_stuttgart.mi.guiHandler;
 
-import de.hdm_stuttgart.mi.classes.AppTest;
+
+import de.hdm_stuttgart.mi.classes.Game;
 import de.hdm_stuttgart.mi.classes.Quiz;
 import de.hdm_stuttgart.mi.classes.Statistic;
 import de.hdm_stuttgart.mi.classes.XMLParser;
@@ -60,7 +61,8 @@ public class MainController extends Application {
         this.gameUserID = gameUserID;
     }
 
-    static AppTest appTest = new AppTest();
+    static Game game = new Game();
+
 
     //Setting Scene
     @Override
@@ -146,13 +148,18 @@ public class MainController extends Application {
             GameController gameController = loader.getController();
             gameController.setUserID(mainUserNameTextField);
 
-            gameController.setQuestionWindow(appTest.questionsIndices[0]);
+            gameController.setQuestionWindow(game.getQuestionIndex(game.getRoundCount()));
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.show();
-
+            log.info("Setting UserId: " + mainUserNameTextField.getText());
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void chooseGameMode(ActionEvent event) {
+        //Todo
+        //implement combobox
     }
 }
