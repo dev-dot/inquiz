@@ -158,8 +158,4 @@ public class MainController extends Application {
         }
     }
 
-    public void chooseGameMode(ActionEvent event) {
-        //Todo
-        //implement combobox
-    }
 }
