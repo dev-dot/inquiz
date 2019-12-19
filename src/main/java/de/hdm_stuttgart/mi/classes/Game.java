@@ -8,9 +8,14 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class Game implements IGamemode {
+    private final Logger log = LogManager.getLogger(Game.class);
+    private int[] questionsIndices;
 
     /* Constructor */
-    Game() {
+    public Game() {
+        XMLParser parser = new XMLParser();
+        Quiz quiz = parser.createQuestions();
+        questionsIndices = quiz.getQuestionIndices();
     }
 
     //Class var
@@ -19,7 +24,7 @@ public class Game implements IGamemode {
     private int remainingJoker;
 
     /* Logger */
-    private static final Logger log = LogManager.getLogger(Game.class);
+
 
 
     /* Game methods */
@@ -55,6 +60,15 @@ public class Game implements IGamemode {
 
     public void setRoundCount(int roundCount) {
         this.roundCount = roundCount;
+    }
+
+    public void setNextRound() {
+        roundCount++;
+
+    }
+
+    public int getQuestionIndex(int index) {
+        return questionsIndices[index];
     }
 
     public int getRemainingJoker() {
