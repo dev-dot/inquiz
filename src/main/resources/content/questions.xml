@@ -421,4 +421,247 @@
         <optionD>F-150</optionD>
 
     </questions>
+
+
+    <questions>
+        <questionname>Which German Count invented the zeppelin?</questionname>
+        <answer>Ferdinand von Zeppelin</answer>
+        <category>history</category>
+
+        <optionA>Gottlieb Daimler</optionA>
+        <optionB>Carl Benz</optionB>
+        <optionC>Otto von Bismarck</optionC>
+        <optionD>Ferdinand von Zeppelin</optionD>
+
+    </questions>
+
+    <questions>
+        <questionname>Who was the first president of the USA?</questionname>
+        <answer>George Washington</answer>
+        <category>history</category>
+
+        <optionA>George Washington</optionA>
+        <optionB>Barack Obama</optionB>
+        <optionC>John Adams</optionC>
+        <optionD>George W. Bush</optionD>
+
+    </questions>
+
+    <questions>
+    <questionname>Which city became capital of West-Germany in 1949?</questionname>
+    <answer>Bonn</answer>
+    <category>history</category>
+
+    <optionA>Stuttgart</optionA>
+    <optionB>Berlin</optionB>
+    <optionC>Bonn</optionC>
+    <optionD>Frankfurt</optionD>
+
+    </questions>
+
+    <questions>
+        <questionname>On which island was Napoleon born?</questionname>
+        <answer>Corsica</answer>
+        <category>history</category>
+
+        <optionA>Sicily</optionA>
+        <optionB>Ouessant</optionB>
+        <optionC>Île de Bréhat</optionC>
+        <optionD>Corsica</optionD>
+
+    </questions>
+
+    <questions>
+        <questionname>Which city was the capital of Australia from 1901 to 1927?</questionname>
+        <answer>Melbourne</answer>
+        <category>history</category>
+
+        <optionA>Melbourne</optionA>
+        <optionB>Sydney</optionB>
+        <optionC>Perth</optionC>
+        <optionD>Adelaide</optionD>
+
+    </questions>
+
+    <questions>
+    <questionname>What color is cobalt?</questionname>
+    <answer>Blue</answer>
+    <category>science</category>
+
+    <optionA>Blue</optionA>
+    <optionB>Black</optionB>
+    <optionC>Grey</optionC>
+    <optionD>Red</optionD>
+
+    </questions>
+
+    <questions>
+        <questionname>What is the organ that is affected when one is suffering from hepatitis?</questionname>
+        <answer>Liver</answer>
+        <category>science</category>
+
+        <optionA>Kidney</optionA>
+        <optionB>Heart</optionB>
+        <optionC>Liver</optionC>
+        <optionD>Brain</optionD>
+
+    </questions>
+
+        <questions>
+        <questionname>Who was the first American in space?</questionname>
+        <answer>Alan Shepard</answer>
+        <category>science</category>
+
+        <optionA>Neil Armstrong</optionA>
+        <optionB>Buzz Aldrin</optionB>
+        <optionC>Michael Collins</optionC>
+        <optionD>Alan Shepard</optionD>
+
+    </questions>
+
+<questions>
+        <questionname>What is the substance known by the chemical formula NH3?</questionname>
+        <answer>Ammonia</answer>
+        <category>science</category>
+
+        <optionA>Hydrogen</optionA>
+        <optionB>Ammonia</optionB>
+        <optionC>Phosphorus</optionC>
+        <optionD>Quicksilver</optionD>
+
+    </questions>
+
+    <questions>
+        <questionname>What are the three primary colors?</questionname>
+        <answer>Blue, yellow and red</answer>
+        <category>science</category>
+
+        <optionA>Blue, yellow and green</optionA>
+        <optionB>Green, yellow and red</optionB>
+        <optionC>Blue, pink and red</optionC>
+        <optionD>Blue, yellow and red</optionD>
+
+    </questions>
+
+    <questions>
+        <questionname>How many eyes does a honeybee have?</questionname>
+        <answer>5</answer>
+        <category>science</category>
+
+        <optionA>5</optionA>
+        <optionB>2</optionB>
+        <optionC>7</optionC>
+        <optionD>4</optionD>
+
+    </questions>
+
+    <questions>
+        <questionname>What used to be the currency of Italy?</questionname>
+        <answer>Lira</answer>
+        <category>economy</category>
+
+        <optionA>Lira</optionA>
+        <optionB>Pound</optionB>
+        <optionC>Dollar</optionC>
+        <optionD>Euro</optionD>
+
+    </questions>
+
+    <questions>
+        <questionname>In which military camp is the US gold reserve stored?</questionname>
+        <answer>Fort Knox</answer>
+        <category>economy</category>
+
+        <optionA>Area 51</optionA>
+        <optionB>Guantanamo</optionB>
+        <optionC>Camp Navajo</optionC>
+        <optionD>Fort Knox</optionD>
+
+    </questions>
+
+    <questions>
+        <questionname>Which country is the origin of the car brands Daewoo and Kia?</questionname>
+        <answer>South Korea</answer>
+        <category>economy</category>
+
+        <optionA>North Korea</optionA>
+        <optionB>South Korea</optionB>
+        <optionC>Japan</optionC>
+        <optionD>China</optionD>
+
+    </questions>
+
+    <questions>
+        <questionname>How many digits does an IBAN number consist of?</questionname>
+        <answer>14</answer>
+        <category>economy</category>
+
+        <optionA>14</optionA>
+        <optionB>13</optionB>
+        <optionC>6</optionC>
+        <optionD>20</optionD>
+
+    </questions>
+
+    <questions>
+        <questionname>What is the national animal of Canada?</questionname>
+        <answer>Beaver</answer>
+        <category>nature</category>
+
+        <optionA>Beaver</optionA>
+        <optionB>Moose</optionB>
+        <optionC>Fox</optionC>
+        <optionD>Squirrel</optionD>
+
+    </questions>
+
+    <questions>
+        <questionname>What is the largest animal to have ever lived?</questionname>
+        <answer>Blue whale</answer>
+        <category>nature</category>
+
+        <optionA>Elephant</optionA>
+        <optionB>T-Rex</optionB>
+        <optionC>Blue whale</optionC>
+        <optionD>Argentinosaurus</optionD>
+
+    </questions>
+
+    <questions>
+        <questionname>Which bird can swim but cannot fly?</questionname>
+        <answer>Penguin</answer>
+        <category>nature</category>
+
+        <optionA>Penguin</optionA>
+        <optionB>Goose</optionB>
+        <optionC>Duck</optionC>
+        <optionD>Sparrow</optionD>
+
+    </questions>
+
+    <questions>
+        <questionname>RAM stands for?</questionname>
+        <answer>Random Access Memory</answer>
+        <category>informatics</category>
+
+        <optionA>Read Access Memory</optionA>
+        <optionB>Random Access Mouse click</optionB>
+        <optionC>Random Access Memory</optionC>
+        <optionD>Random Allocated Memory</optionD>
+
+    </questions>
+
+    <questions>
+        <questionname>What does "FTP" stand for in the computer and internet world?</questionname>
+        <answer>File Transfer Protocol</answer>
+        <category>informatics</category>
+
+        <optionA>File Transfer Protocol</optionA>
+        <optionB>File Transfer Postman</optionB>
+        <optionC>File Transfer Problem</optionC>
+        <optionD>For The Pope!</optionD>
+
+    </questions>
+
+
 </quiz>
