@@ -11,9 +11,12 @@ public class GamemodeFactory {
     public static IGamemode createGameMode(de.hdm_stuttgart.mi.interfaces.IGamemode.Gamemodes gamemodes) throws IllegalFactoryArgument {
 
         switch (gamemodes){
-            case LEICHT: return new Gamemode(3,60000);
-            case MITTEL: return new Gamemode(2,45000);
-            case SCHWER: return new Gamemode(1,30000);
+            case LEICHT:
+                return new Gamemode(3, 30000);
+            case MITTEL:
+                return new Gamemode(2, 20000);
+            case SCHWER:
+                return new Gamemode(1, 10000);
             default:
                 log.error("wrong Gamemode!");
                 throw new IllegalFactoryArgument(
