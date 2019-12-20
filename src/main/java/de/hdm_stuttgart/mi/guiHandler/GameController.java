@@ -109,25 +109,25 @@ public class GameController implements Initializable {
     public void clickButtonA() {
         validateAnswer(buttonA);
         roundCounterLabel.setText(setRoundCounter());
-        log.info(game.getRoundCount());
+
     }
 
     public void clickButtonB() {
         validateAnswer(buttonB);
         roundCounterLabel.setText(setRoundCounter());
-        log.info(game.getRoundCount());
+
     }
 
     public void clickButtonC() {
         validateAnswer(buttonC);
         roundCounterLabel.setText(setRoundCounter());
-        log.info(game.getRoundCount());
+
     }
 
     public void clickButtonD() {
         validateAnswer(buttonD);
         roundCounterLabel.setText(setRoundCounter());
-        log.info(game.getRoundCount());
+
     }
 
     private void setButtonRed(Button button) {
