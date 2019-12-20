@@ -207,39 +207,230 @@
     </questions>
 
     <questions>
-    <questionname>How many players has a hockey team on the ice?</questionname>
-    <answer>6</answer>
-    <category>sport</category>
+        <questionname>How many players has a hockey team on the ice?</questionname>
+        <answer>6</answer>
+        <category>sport</category>
 
-    <optionA>8</optionA>
-    <optionB>11</optionB>
-    <optionC>7</optionC>
-    <optionD>6</optionD>
+            <optionA>8</optionA>
+            <optionB>11</optionB>
+            <optionC>7</optionC>
+            <optionD>6</optionD>
 
-</questions>
+    </questions>
 
-<questions>
-    <questionname>What color is the French wine Beaujolais?</questionname>
-    <answer>Red</answer>
-    <category>food</category>
+    <questions>
+        <questionname>What color is the French wine Beaujolais?</questionname>
+        <answer>Red</answer>
+        <category>food</category>
 
-    <optionA>White</optionA>
-    <optionB>Rosé</optionB>
-    <optionC>Red</optionC>
-    <optionD>Black</optionD>
+            <optionA>White</optionA>
+            <optionB>Rosé</optionB>
+            <optionC>Red</optionC>
+            <optionD>Black</optionD>
 
-</questions>
+    </questions>
 
-<questions>
-    <questionname>What is Japanese sake made from?</questionname>
-    <answer>Rice</answer>
-    <category>food</category>
+    <questions>
+        <questionname>What is Japanese sake made from?</questionname>
+        <answer>Rice</answer>
+        <category>food</category>
 
-    <optionA>Rice</optionA>
-    <optionB>Wheat</optionB>
-    <optionC>Potatoes</optionC>
-    <optionD>Carrots</optionD>
+            <optionA>Rice</optionA>
+            <optionB>Wheat</optionB>
+            <optionC>Potatoes</optionC>
+            <optionD>Carrots</optionD>
 
-</questions>
+    </questions>
 
+    <questions>
+        <questionname>What is the longest that an elephant has lived? (That we know of)</questionname>
+        <answer>86 years</answer>
+        <category>animals</category>
+
+        <optionA>17 years</optionA>
+        <optionB>142 years</optionB>
+        <optionC>49 years</optionC>
+        <optionD>86 years</optionD>
+
+    </questions>
+
+    <questions>
+        <questionname>How many rings are on the Olympic flag?</questionname>
+        <answer>5</answer>
+        <category>sport</category>
+
+        <optionA>7</optionA>
+        <optionB>4</optionB>
+        <optionC>none</optionC>
+        <optionD>5</optionD>
+
+    </questions>
+
+    <questions>
+        <questionname>What is a tarsier?</questionname>
+        <answer>A primate</answer>
+        <category>animals</category>
+
+        <optionA>A primate</optionA>
+        <optionB>A rodent</optionB>
+        <optionC>A lizard</optionC>
+        <optionD>A bird</optionD>
+
+    </questions>
+
+    <questions>
+        <questionname>How did Spider-Man get his powers?</questionname>
+        <answer>Bitten by a radioactive spider</answer>
+        <category>movies</category>
+
+        <optionA>Military experiment gone awry</optionA>
+        <optionB>Born with them</optionB>
+        <optionC>Woke up with them after a strange dream</optionC>
+        <optionD>Bitten by a radioactive spider</optionD>
+
+    </questions>
+
+    <questions>
+        <questionname>In darts, what's the most points you can score with a single throw?</questionname>
+        <answer>60</answer>
+        <category>sport</category>
+
+        <optionA>60</optionA>
+        <optionB>20</optionB>
+        <optionC>50</optionC>
+        <optionD>100</optionD>
+
+    </questions>
+
+    <questions>
+        <questionname>Which of these animals does NOT appear in the Chinese zodiac?</questionname>
+        <answer>Bear</answer>
+        <category>geo</category>
+
+        <optionA>Bear</optionA>
+        <optionB>Rabbit</optionB>
+        <optionC>Dragon</optionC>
+        <optionD>Dog</optionD>
+
+    </questions>
+
+    <questions>
+        <questionname>Who are known as Brahmins?</questionname>
+        <answer>Members of India's highest caste</answer>
+        <category>geo</category>
+
+        <optionA>It's a totally made up word</optionA>
+        <optionB>Nepali soldiers in the British army</optionB>
+        <optionC>Surfers in California</optionC>
+        <optionD>Members of India's highest caste</optionD>
+
+    </questions>
+
+    <questions>
+        <questionname>How many holes are on a standard bowling ball?</questionname>
+        <answer>3</answer>
+        <category>sport</category>
+
+        <optionA>3</optionA>
+        <optionB>2</optionB>
+        <optionC>5</optionC>
+        <optionD>10</optionD>
+
+    </questions>
+
+    <questions>
+        <questionname>What are the main colors on the flag of Spain?</questionname>
+        <answer>Red and yellow</answer>
+        <category>geo</category>
+
+        <optionA>Black and yellow</optionA>
+        <optionB>Green and white</optionB>
+        <optionC>Blue and white</optionC>
+        <optionD>Red and yellow</optionD>
+
+    </questions>
+
+    <questions>
+        <questionname>What is the name of this symbol: ¶</questionname>
+        <answer>Pilcrow</answer>
+        <category>grammar</category>
+
+        <optionA>Pilcrow</optionA>
+        <optionB>Interrobang</optionB>
+        <optionC>Fermata</optionC>
+        <optionD>Biltong</optionD>
+
+    </questions>
+
+    <questions>
+        <questionname>What is a pomelo?</questionname>
+        <answer>The largest citrus fruit</answer>
+        <category>food</category>
+
+        <optionA>An old-fashioned punching bag</optionA>
+        <optionB>A breed of dog</optionB>
+        <optionC>Something that cheerleaders hold</optionC>
+        <optionD>The largest citrus fruit</optionD>
+
+    </questions>
+
+    <questions>
+        <questionname>Who killed Greedo?</questionname>
+        <answer>Han Solo</answer>
+        <category>movies</category>
+
+        <optionA>Hannibal Lecter</optionA>
+        <optionB>Han Solo</optionB>
+        <optionC>Hermione Granger</optionC>
+        <optionD>Hercules</optionD>
+
+    </questions>
+
+    <questions>
+        <questionname>What is the largest planet in our Solar System?</questionname>
+        <answer>Jupiter</answer>
+        <category>geo</category>
+
+        <optionA>Jupiter</optionA>
+        <optionB>Saturn</optionB>
+        <optionC>Pluto</optionC>
+        <optionD>Earth</optionD>
+
+    </questions>
+
+    <questions>
+        <questionname>Adele performed the theme song to which James Bond film?</questionname>
+        <answer>Skyfall</answer>
+        <category>movies</category>
+
+        <optionA>Skyfall</optionA>
+        <optionB>From Russia with love</optionB>
+        <optionC>Quantum of Solace</optionC>
+        <optionD>Casino Royale</optionD>
+
+    </questions>
+
+    <questions>
+        <questionname>What is the color of Donald Duck's bowtie?</questionname>
+        <answer>Red</answer>
+        <category>comics</category>
+
+        <optionA>Blue</optionA>
+        <optionB>Red</optionB>
+        <optionC>Yellow</optionC>
+        <optionD>Green</optionD>
+
+    </questions>
+
+    <questions>
+        <questionname>Which truck is produced by the Ford Motor Company?</questionname>
+        <answer>F-150</answer>
+        <category>science</category>
+
+        <optionA>RAV4</optionA>
+        <optionB>Silverado 1500</optionB>
+        <optionC>CR-V</optionC>
+        <optionD>F-150</optionD>
+
+    </questions>
 </quiz>
