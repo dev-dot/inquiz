@@ -1,7 +1,11 @@
 package de.hdm_stuttgart.mi.guiHandler;
 
-import de.hdm_stuttgart.mi.classes.*;
-import de.hdm_stuttgart.mi.gameModeFactory.Gamemode;
+import de.hdm_stuttgart.mi.classes.Game;
+import de.hdm_stuttgart.mi.classes.Quiz;
+import de.hdm_stuttgart.mi.classes.Statistic;
+import de.hdm_stuttgart.mi.classes.XMLParser;
+import de.hdm_stuttgart.mi.exceptions.IllegalFactoryArgument;
+import de.hdm_stuttgart.mi.interfaces.IGamemode;
 import javafx.animation.RotateTransition;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -22,10 +26,13 @@ import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 
+import static de.hdm_stuttgart.mi.gameModeFactory.GamemodeFactory.createGameMode;
+
 public class MainController extends Application {
+    static de.hdm_stuttgart.mi.interfaces.IGamemode selectedGameMode;
 
     static XMLParser parser = new XMLParser();
-    static Quiz quiz;
+    public static Quiz quiz;
 
 
     public MainController() {
@@ -61,7 +68,9 @@ public class MainController extends Application {
         this.gameUserID = gameUserID;
     }
 
-    static Game game = new Game();
+    public static Game game = new Game();
+
+
 
 
     //Setting Scene
@@ -104,14 +113,14 @@ public class MainController extends Application {
 
     @FXML
     public void mainEnterStartAction(ActionEvent actionEvent) {
-        launchGameWindow(actionEvent);
         selectGameMode();
+        launchGameWindow(actionEvent);
     }
 
     @FXML
     public void mainStartAction(ActionEvent actionEvent) {
-        launchGameWindow(actionEvent);
         selectGameMode();
+        launchGameWindow(actionEvent);
     }
 
     //Other outsourced Functions
@@ -141,17 +150,32 @@ public class MainController extends Application {
     }
 
     private void selectGameMode(){
-        Game game = new Game();
+
         String mode = gameModeSelector.getValue().toString();
         switch (mode){
             case "standard":
                 game.setGamemode(0);
+                try {
+                    selectedGameMode = createGameMode(IGamemode.Gamemodes.LEICHT);
+                } catch (IllegalFactoryArgument illegalFactoryArgument) {
+                    illegalFactoryArgument.printStackTrace();
+                }
                 break;
             case "speed":
                 game.setGamemode(1);
+                try {
+                    selectedGameMode = createGameMode(IGamemode.Gamemodes.MITTEL);
+                } catch (IllegalFactoryArgument illegalFactoryArgument) {
+                    illegalFactoryArgument.printStackTrace();
+                }
                 break;
             case "expert":
                 game.setGamemode(2);
+                try {
+                    selectedGameMode = createGameMode(IGamemode.Gamemodes.SCHWER);
+                } catch (IllegalFactoryArgument illegalFactoryArgument) {
+                    illegalFactoryArgument.printStackTrace();
+                }
                 break;
             default:
                 log.info("Invalid GameMode");
@@ -168,7 +192,7 @@ public class MainController extends Application {
             Parent root = loader.load();
             GameController gameController = loader.getController();
             gameController.setUserID(mainUserNameTextField);
-
+            gameController.roundCounterLabel.setText(gameController.setRoundCounter());
             gameController.setQuestionWindow(game.getQuestionIndex(game.getRoundCount()));
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
