@@ -86,18 +86,6 @@
     </questions>
 
     <questions>
-        <questionname>What US state is famous for their juicy peaches?</questionname>
-        <answer>Georgia</answer>
-        <category>geo</category>
-        
-            <optionA>Florida</optionA>
-            <optionB>Georgia</optionB>
-            <optionC>New York</optionC>
-            <optionD>California</optionD>
-
-    </questions>
-
-    <questions>
         <questionname>3 + 2 * 3</questionname>
         <answer>9</answer>
         <category>maths</category>
@@ -296,7 +284,7 @@
         <category>sport</category>
 
         <optionA>60</optionA>
-        <optionB>20</optionB>
+        <optionB>180</optionB>
         <optionC>50</optionC>
         <optionD>100</optionD>
 
