@@ -45,6 +45,8 @@ public class GameController implements Initializable {
     public Label roundCounterLabel;
     @FXML
     public ProgressBar timeBar;
+    @FXML
+    public Button gameStats;
 
 
     public void gameExitAction(ActionEvent actionEvent) throws IOException {
@@ -52,7 +54,8 @@ public class GameController implements Initializable {
     }
 
     public void gameStatsAction(ActionEvent actionEvent) throws IOException {
-        sceneChanger("/fxml/Statistics.fxml", actionEvent);
+        timer.pause();
+        sceneChanger("/fxml/GameOverWindow.fxml", actionEvent);
     }
 
     //Other outsourced Functions
@@ -98,7 +101,13 @@ public class GameController implements Initializable {
         timer.getKeyFrames().add(kF1);
         timer.getKeyFrames().add(kF2);
         timer.playFromStart();
-        timer.setOnFinished(event -> timeElapsed());
+        timer.setOnFinished(event -> {
+            try {
+                timeElapsed();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
     }
 
     public void fifty() {
@@ -154,7 +163,13 @@ public class GameController implements Initializable {
                 new KeyFrame(Duration.seconds(0.25), evt -> button.setVisible(true)));
         timeline.setCycleCount(3);
         timeline.play();
-        timeline.setOnFinished(event -> nextRound());
+        timeline.setOnFinished(event -> {
+            try {
+                nextRound();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
     }
 
     private void labelTransition(Label label) {
@@ -226,6 +241,7 @@ public class GameController implements Initializable {
     }
 
     private void rightAnswer(Button button) {
+        timer.stop();
         setButtonGreen(button);
         log.info("right");
         fadeTransition(button);
@@ -233,20 +249,21 @@ public class GameController implements Initializable {
     }
 
     private void wrongAnswer(Button button) {
+        timer.stop();
         setButtonRed(button);
         log.info("wrong");
         fadeTransition(button);
         game.setWrongAnswerCounter();
     }
 
-    private void timeElapsed(){
+    private void timeElapsed() throws IOException {
         log.info("time elapsed");
         game.setWrongAnswerCounter();
         roundCounterLabel.setText(setRoundCounter());
         nextRound();
     }
 
-    private void nextRound(){
+    private void nextRound() throws IOException {
         game.setNextRound();
         roundCounterLabel.setText(setRoundCounter());
         log.info(game.getRoundCount());
@@ -259,7 +276,7 @@ public class GameController implements Initializable {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            System.exit(0);
+            gameStats.fire();
         }
     }
 

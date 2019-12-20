@@ -125,3 +125,19 @@
 #logo{
     -fx-background-color: none;
 }
+
+.label{
+    -fx-background-color: none;
+}
+
+.default-color0.chart-pie {
+    -fx-pie-color: #00ff00;
+}
+
+.default-color1.chart-pie {
+    -fx-pie-color: #ff0000;
+}
+
+#gameStatsButton{
+    visibility: false;
+}

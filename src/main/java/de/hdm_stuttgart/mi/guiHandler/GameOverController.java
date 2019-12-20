@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.PieChart;
@@ -15,6 +16,7 @@ import javafx.stage.Stage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -43,13 +45,14 @@ public class GameOverController extends Application implements Initializable {
     }
 
     @FXML
-    void gameExitAction(ActionEvent event) {
-
+    void gameExitAction(ActionEvent event) throws IOException {
+        sceneChanger("/fxml/StartWindow.fxml", event);
     }
 
     @FXML
-    void gameStatsAction(ActionEvent event) {
-
+    void gameStatsAction(ActionEvent event) throws IOException {
+        //GameController.timer.playFrom(GameController.timer.getCurrentTime());
+        //sceneChanger("/fxml/InGameWindow.fxml", event);
     }
 
     @Override
@@ -75,8 +78,8 @@ public class GameOverController extends Application implements Initializable {
 
         ObservableList<PieChart.Data> list = FXCollections.observableArrayList();
 
-        PieChart.Data rightAnswers = new PieChart.Data("Right Answers", game.getRightAnswerCounter() + 7);
-        PieChart.Data wrongAnswers = new PieChart.Data("Wrong Answers", game.getWrongAnswerCounter() + 3);
+        PieChart.Data rightAnswers = new PieChart.Data("Right Answers", game.getRightAnswerCounter());
+        PieChart.Data wrongAnswers = new PieChart.Data("Wrong Answers", game.getWrongAnswerCounter());
 
 
         list.addAll(rightAnswers, wrongAnswers);
@@ -85,5 +88,12 @@ public class GameOverController extends Application implements Initializable {
 
     }
 
-
+    //Other outsourced Functions
+    private void sceneChanger(String xmlFIlePath, ActionEvent actionEvent) throws IOException {
+        Parent gameView = FXMLLoader.load(getClass().getResource(xmlFIlePath));
+        Scene gameViewScene = new Scene(gameView);
+        Stage gameStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        gameStage.setScene(gameViewScene);
+        gameStage.show();
+    }
 }
