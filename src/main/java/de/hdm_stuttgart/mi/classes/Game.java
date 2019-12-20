@@ -15,7 +15,8 @@ public class Game implements IGamemode {
     public Game() {
         XMLParser parser = new XMLParser();
         Quiz quiz = parser.createQuestions();
-        questionsIndices = quiz.getQuestionIndices();
+        setQuestionsIndices(quiz);
+
     }
 
     //Class var
@@ -113,7 +114,16 @@ public class Game implements IGamemode {
         return player;
     }
 
+    private void setQuestionsIndices(Quiz quiz) {
+        questionsIndices = quiz.getQuestionIndices();
+    }
 
+    public void setNewGame() {
+        roundCount = 0;
+        wrongAnswerCounter = 0;
+        rightAnswerCounter = 0;
+        setQuestionsIndices(new Quiz());
+    }
 
     /* Interface methods */
 

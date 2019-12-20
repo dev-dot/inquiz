@@ -47,10 +47,11 @@ public class GameOverController extends Application implements Initializable {
     @FXML
     void gameExitAction(ActionEvent event) throws IOException {
         sceneChanger("/fxml/StartWindow.fxml", event);
+        game.setNewGame();
     }
 
     @FXML
-    void gameStatsAction(ActionEvent event) throws IOException {
+    void gameStatsAction(ActionEvent event) {
         //GameController.timer.playFrom(GameController.timer.getCurrentTime());
         //sceneChanger("/fxml/InGameWindow.fxml", event);
     }
