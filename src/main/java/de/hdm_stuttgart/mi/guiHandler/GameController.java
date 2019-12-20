@@ -1,13 +1,7 @@
 package de.hdm_stuttgart.mi.guiHandler;
 
-import de.hdm_stuttgart.mi.classes.AppTest;
-import de.hdm_stuttgart.mi.classes.Game;
-import de.hdm_stuttgart.mi.classes.Quiz;
-import de.hdm_stuttgart.mi.gameModeFactory.Gamemode;
-import de.hdm_stuttgart.mi.interfaces.IGamemode;
 import javafx.animation.*;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -22,11 +16,9 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.concurrent.TimeUnit;
 
 import static de.hdm_stuttgart.mi.guiHandler.MainController.*;
 
@@ -36,7 +28,6 @@ public class GameController implements Initializable {
 
     @FXML
     public Label userID;
-
     @FXML
     public Label questionLabel;
     @FXML
@@ -51,16 +42,6 @@ public class GameController implements Initializable {
     public Label roundCounterLabel;
     @FXML
     public ProgressBar timeBar;
-
-    Button noButton = new Button();
-
-    private int roundCounter = 0;
-
-    private AppTest appTest = new AppTest();
-
-
-
-
 
 
     public void gameExitAction(ActionEvent actionEvent) throws IOException {
@@ -97,54 +78,51 @@ public class GameController implements Initializable {
         buttonB.setText(quiz.getQuestions().get(random).getOptionB());
         buttonC.setText(quiz.getQuestions().get(random).getOptionC());
         buttonD.setText(quiz.getQuestions().get(random).getOptionD());
+        timer.stop();
         setTimer();
     }
 
+    private Timeline timer = new Timeline();
 
     private void setTimer(){
-        int time = 30000; //TODO get Time
-        Timeline timer = new Timeline(
-                new KeyFrame(
-                        Duration.ZERO,
-                        new KeyValue(timeBar.progressProperty(), 0)
-                ),
-                new KeyFrame(
-                        Duration.millis(time),
-                        new KeyValue(timeBar.progressProperty(), 1)
-                )
-        );
-        timer.stop();
+        int time = 30000;
+        timer.getKeyFrames().removeAll();
+        KeyValue kV1 = new KeyValue(timeBar.progressProperty(), 0);
+        KeyValue kV2 = new KeyValue(timeBar.progressProperty(), 1);
+        KeyFrame kF1 = new KeyFrame(Duration.ZERO, kV1);
+        KeyFrame kF2 = new KeyFrame(Duration.millis(time), kV2);
+        timer.getKeyFrames().add(kF1);
+        timer.getKeyFrames().add(kF2);
         timer.playFromStart();
         timer.setOnFinished(event -> {
-           timeElapsed();
+            timeElapsed();
         });
     }
 
-
-    public void fifty(ActionEvent event) {
+    public void fifty() {
         buttonB.setVisible(false);
         buttonC.setVisible(false);
     }
 
-    public void clickButtonA(ActionEvent event) {
+    public void clickButtonA() {
         validateAnswer(buttonA);
         roundCounterLabel.setText(setRoundCounter());
         log.info(game.getRoundCount());
     }
 
-    public void clickButtonB(ActionEvent event) {
+    public void clickButtonB() {
         validateAnswer(buttonB);
         roundCounterLabel.setText(setRoundCounter());
         log.info(game.getRoundCount());
     }
 
-    public void clickButtonC(ActionEvent event) {
+    public void clickButtonC() {
         validateAnswer(buttonC);
         roundCounterLabel.setText(setRoundCounter());
         log.info(game.getRoundCount());
     }
 
-    public void clickButtonD(ActionEvent event) {
+    public void clickButtonD() {
         validateAnswer(buttonD);
         roundCounterLabel.setText(setRoundCounter());
         log.info(game.getRoundCount());
@@ -175,7 +153,7 @@ public class GameController implements Initializable {
         timeline.setCycleCount(3);
         timeline.play();
         timeline.setOnFinished(event -> {
-            nextRound(button);
+            nextRound();
         });
     }
 
@@ -262,15 +240,14 @@ public class GameController implements Initializable {
     private void timeElapsed(){
         log.info("time elapsed");
         roundCounterLabel.setText(setRoundCounter());
-        timeBarTransition(timeBar);
-        nextRound(noButton);
+        nextRound();
     }
 
     private String setRoundCounter() {
         return String.format("%d/10", game.getRoundCount());
     }
 
-    private void nextRound(Button button){
+    private void nextRound(){
         game.setNextRound();
         if (game.getRoundCount() < 10) {
             setQuestionWindow(game.getQuestionIndex(game.getRoundCount()));
