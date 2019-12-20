@@ -9,7 +9,7 @@ import org.apache.logging.log4j.Logger;
 
 public class Game implements IGamemode {
     private final Logger log = LogManager.getLogger(Game.class);
-    private int[] questionsIndices;
+    private static int[] questionsIndices;
 
     /* Constructor */
     public Game() {
@@ -22,6 +22,8 @@ public class Game implements IGamemode {
     private int roundCount;
     private int timeToAnswer;
     private int remainingJoker;
+    private int rightAnswerCounter;
+    private int wrongAnswerCounter;
 
     /* Logger */
 
@@ -63,8 +65,9 @@ public class Game implements IGamemode {
     }
 
     public void setNextRound() {
-        roundCount++;
-
+        if (roundCount < 10) {
+            roundCount++;
+        }
     }
 
     public int getQuestionIndex(int index) {
@@ -87,12 +90,29 @@ public class Game implements IGamemode {
         this.timeToAnswer = timeToAnswer;
     }
 
+    public int getRightAnswerCounter() {
+        return rightAnswerCounter;
+    }
+
+    public void setRightAnswerCounter() {
+        this.rightAnswerCounter++;
+    }
+
+    public int getWrongAnswerCounter() {
+        return wrongAnswerCounter;
+    }
+
+    public void setWrongAnswerCounter() {
+        this.wrongAnswerCounter++;
+    }
+
     Player createNewPlayer(String nickname) {
 
         Player player = new Player(nickname);
         log.info("player: " + player.getId() + " was created");
         return player;
     }
+
 
 
     /* Interface methods */
