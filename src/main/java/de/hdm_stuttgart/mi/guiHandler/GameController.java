@@ -47,10 +47,16 @@ public class GameController implements Initializable {
     public ProgressBar timeBar;
     @FXML
     public Button gameStats;
+    @FXML
+    public Button timeJoker;
+    @FXML
+    public Button skipJoker;
 
 
     public void gameExitAction(ActionEvent actionEvent) throws IOException {
         sceneChanger("/fxml/StartWindow.fxml", actionEvent);
+        game.setNewGame();
+        resetJokers();
     }
 
     public void gameStatsAction(ActionEvent actionEvent) throws IOException {
@@ -276,11 +282,28 @@ public class GameController implements Initializable {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            resetJokers();
             gameStats.fire();
         }
     }
 
     String setRoundCounter() {
         return String.format("%d/10", (game.getRoundCount() + 1));
+    }
+
+    public void clickTimeJoker(ActionEvent event) {
+        setTimer();
+        timeJoker.setVisible(false);
+    }
+
+
+    public void clickSkipJoker(ActionEvent event) throws IOException {
+        nextRound();
+        skipJoker.setVisible(false);
+    }
+
+    private void resetJokers() {
+        timeJoker.setVisible(true);
+        skipJoker.setVisible(true);
     }
 }
