@@ -293,17 +293,17 @@ public class GameController implements Initializable {
 
     public void clickTimeJoker(ActionEvent event) {
         setTimer();
-        timeJoker.setVisible(false);
+        timeJoker.setDisable(true);
     }
 
 
     public void clickSkipJoker(ActionEvent event) throws IOException {
         nextRound();
-        skipJoker.setVisible(false);
+        skipJoker.setDisable(true);
     }
 
     private void resetJokers() {
-        timeJoker.setVisible(true);
-        skipJoker.setVisible(true);
+        timeJoker.setDisable(false);
+        skipJoker.setDisable(false);
     }
 }

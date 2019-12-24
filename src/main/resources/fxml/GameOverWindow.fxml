@@ -95,7 +95,7 @@
             </Label>
             <GridPane>
                 <HBox alignment="CENTER_LEFT" GridPane.columnIndex="0">
-                    <Button onAction="#gameStatsAction" styleClass="menuButton">
+                    <Button onAction="#gameStatsAction" styleClass="menuButton" id="gameStatsButton">
                         <graphic>
                             <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                                 <Image url="@../media/icons/menus/stats/Group 4@3x.png" />

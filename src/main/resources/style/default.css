@@ -106,3 +106,7 @@
     -fx-focus-color: transparent;
     -fx-background-insets: -1.4, 0, 1, 2;
 }
+
+#mainStatsButton{
+    visibility: false;
+}
