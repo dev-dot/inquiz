@@ -93,7 +93,7 @@
             <VBox alignment="CENTER">
                 <Label styleClass="jokerLabel" text="Available Jokers" />
                 <HBox alignment="CENTER">
-                    <Button onAction="#fifty" styleClass="jokerButton">
+                    <Button onAction="#fifty" fx:id="fiftyJoker" styleClass="jokerButton">
                         <graphic>
                             <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                                 <Image url="@../media/icons/joker/5050/Group.png" />
@@ -151,7 +151,7 @@
                <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" onAction="#gameExitAction" styleClass="menuButton">
                    <graphic>
                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                           <Image url="@../media/icons/menus/exit/Group 5@3x.png" />
+                           <Image url="@../media/icons/menus/home/Home@3x.png" />
                        </ImageView>
                    </graphic>
                </Button>

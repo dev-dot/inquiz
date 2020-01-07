@@ -51,6 +51,8 @@ public class GameController implements Initializable {
     public Button timeJoker;
     @FXML
     public Button skipJoker;
+    @FXML
+    public Button fiftyJoker;
 
 
     public void gameExitAction(ActionEvent actionEvent) throws IOException {
@@ -76,7 +78,7 @@ public class GameController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        fiftyJoker.setDisable(true);
     }
 
     void setUserID(TextField label) {
