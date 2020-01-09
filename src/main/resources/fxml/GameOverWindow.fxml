@@ -113,7 +113,7 @@
                     <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" onAction="#gameExitAction" styleClass="menuButton">
                         <graphic>
                             <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                                <Image url="@../media/icons/menus/exit/Group 5@3x.png" />
+                                <Image url="@../media/icons/menus/home/Home@3x.png" />
                             </ImageView>
                         </graphic>
                     </Button>
