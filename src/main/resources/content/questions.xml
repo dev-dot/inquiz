@@ -533,13 +533,13 @@
 
     <questions>
         <questionname>What are the three primary colors?</questionname>
-        <answer>Blue, yellow and red</answer>
+        <answer>Blue, green and red</answer>
         <category>science</category>
 
         <optionA>Blue, yellow and green</optionA>
         <optionB>Green, yellow and red</optionB>
         <optionC>Blue, pink and red</optionC>
-        <optionD>Blue, yellow and red</optionD>
+        <optionD>Blue, green and red</optionD>
 
     </questions>
 

@@ -46,10 +46,13 @@ public class Game implements IGamemode {
         try {
             switch (gamemode){
                 case 0: GamemodeFactory.createGameMode(Gamemodes.LEICHT);
+                    log.info("Gamemode was set to normal");
                     break;
                 case 1: GamemodeFactory.createGameMode(Gamemodes.MITTEL);
+                    log.info("Gamemode was set to speed");
                     break;
                 case 2: GamemodeFactory.createGameMode(Gamemodes.SCHWER);
+                    log.info("Gamemode was set to expert");
                     break;
             }
         } catch (IllegalFactoryArgument illegalFactoryArgument) {
