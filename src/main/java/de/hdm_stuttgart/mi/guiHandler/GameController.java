@@ -14,12 +14,16 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -53,6 +57,22 @@ public class GameController implements Initializable {
     public Button skipJoker;
     @FXML
     public Button fiftyJoker;
+    @FXML
+    public Button gameSoundButton;
+    @FXML
+    public ImageView gameSoundImage;
+
+    public Image soundOffImage;
+    public Image soundOnImage;
+
+    {
+        try {
+            soundOffImage = new Image(getClass().getResource("/media/icons/sound/off/sound_off@3x.png").toURI().toString());
+            soundOnImage = new Image(getClass().getResource("/media/icons/sound/on/sound_on@3x.png").toURI().toString());
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+    }
 
 
     public void gameExitAction(ActionEvent actionEvent) throws IOException {
@@ -79,6 +99,7 @@ public class GameController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         fiftyJoker.setDisable(true);
+        gameSoundImage.setImage(soundOffImage);
     }
 
     void setUserID(TextField label) {
@@ -307,5 +328,14 @@ public class GameController implements Initializable {
     private void resetJokers() {
         timeJoker.setDisable(false);
         skipJoker.setDisable(false);
+    }
+
+    public void gameSoundAction(ActionEvent actionEvent) {
+        if (gameSoundImage.getImage() == soundOnImage){
+            gameSoundImage.setImage(soundOffImage);
+        }
+        else {
+            gameSoundImage.setImage(soundOnImage);
+        }
     }
 }
