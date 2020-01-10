@@ -1,5 +1,6 @@
 package de.hdm_stuttgart.mi.guiHandler;
 
+import de.hdm_stuttgart.mi.classes.Game;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -23,7 +24,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static de.hdm_stuttgart.mi.guiHandler.MainController.*;
+import static de.hdm_stuttgart.mi.guiHandler.MainController.game;
+import static de.hdm_stuttgart.mi.guiHandler.MainController.selectedGameMode;
 
 public class GameController implements Initializable {
 
@@ -83,16 +85,16 @@ public class GameController implements Initializable {
 
     void setUserID(TextField label) {
         userID.setText(label.getText().toUpperCase());
-        quiz = parser.createQuestions();
+
 
     }
 
     void setQuestionWindow(int random) {
-        questionLabel.setText(quiz.getQuestions().get(random).getQuestionname());
-        buttonA.setText(quiz.getQuestions().get(random).getOptionA());
-        buttonB.setText(quiz.getQuestions().get(random).getOptionB());
-        buttonC.setText(quiz.getQuestions().get(random).getOptionC());
-        buttonD.setText(quiz.getQuestions().get(random).getOptionD());
+        questionLabel.setText(Game.quiz.getQuestions().get(random).getQuestionname());
+        buttonA.setText(Game.quiz.getQuestions().get(random).getOptionA());
+        buttonB.setText(Game.quiz.getQuestions().get(random).getOptionB());
+        buttonC.setText(Game.quiz.getQuestions().get(random).getOptionC());
+        buttonD.setText(Game.quiz.getQuestions().get(random).getOptionD());
         timer.stop();
         setTimer();
     }
@@ -199,9 +201,9 @@ public class GameController implements Initializable {
         String buttonString = button.toString().substring(10, 17);
         switch (buttonString) {
             case "buttonA":
-                log.info("selected answer: " + quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getOptionA());
-                log.info("right answer: " + quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getAnswer());
-                if (quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getOptionA().equals(quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getAnswer())) {
+                log.info("selected answer: " + Game.quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getOptionA());
+                log.info("right answer: " + Game.quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getAnswer());
+                if (Game.quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getOptionA().equals(Game.quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getAnswer())) {
                     rightAnswer(buttonA);
                 } else {
                     wrongAnswer(buttonA);
@@ -210,9 +212,9 @@ public class GameController implements Initializable {
                 //resetButtons();
                 break;
             case "buttonB":
-                log.info("selected answer: " + quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getOptionB());
-                log.info("right answer: " + quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getAnswer());
-                if (quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getOptionB().equals(quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getAnswer())) {
+                log.info("selected answer: " + Game.quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getOptionB());
+                log.info("right answer: " + Game.quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getAnswer());
+                if (Game.quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getOptionB().equals(Game.quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getAnswer())) {
                     rightAnswer(buttonB);
                 } else {
                     wrongAnswer(buttonB);
@@ -221,9 +223,9 @@ public class GameController implements Initializable {
                 //resetButtons();
                 break;
             case "buttonC":
-                log.info("selected answer: " + quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getOptionC());
-                log.info("right answer: " + quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getAnswer());
-                if (quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getOptionC().equals(quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getAnswer())) {
+                log.info("selected answer: " + Game.quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getOptionC());
+                log.info("right answer: " + Game.quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getAnswer());
+                if (Game.quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getOptionC().equals(Game.quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getAnswer())) {
                     rightAnswer(buttonC);
                 } else {
                     wrongAnswer(buttonC);
@@ -232,9 +234,9 @@ public class GameController implements Initializable {
                 //resetButtons();
                 break;
             case "buttonD":
-                log.info("selected answer: " + quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getOptionD());
-                log.info("right answer: " + quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getAnswer());
-                if (quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getOptionD().equals(quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getAnswer())) {
+                log.info("selected answer: " + Game.quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getOptionD());
+                log.info("right answer: " + Game.quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getAnswer());
+                if (Game.quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getOptionD().equals(Game.quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getAnswer())) {
                     rightAnswer(buttonD);
                 } else {
                     wrongAnswer(buttonD);
@@ -301,6 +303,7 @@ public class GameController implements Initializable {
 
     public void clickSkipJoker(ActionEvent event) throws IOException {
         nextRound();
+        game.setRightAnswerCounter();
         skipJoker.setDisable(true);
     }
 
