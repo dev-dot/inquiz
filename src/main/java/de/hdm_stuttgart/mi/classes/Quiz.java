@@ -7,6 +7,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.stream.IntStream;
 
 @XmlRootElement
 public class Quiz {
@@ -33,25 +34,16 @@ public class Quiz {
         return questions.size();
     }
 
-    int[] getQuestionIndices (){
+    int[] getQuestionIndices() {
 
         log.info("a quiz indecies array was created");
         Random random = new Random();
-        XMLParser xmlParser = new XMLParser();
-        Quiz quiz = xmlParser.createQuestions();
+        Quiz quiz = Game.getQuiz();
 
-        for(int i=0; i<10; i++){
-            int randomNumber = random.nextInt(quiz.getLength());
-            indices[i] = randomNumber;
-            for (int j = 1 ; j<=i - 1; j++){
-                if (randomNumber == indices[j-1]){
-                    indices[i] = 0;
-                    i--;
-                    break;
-                }
-            }
-        }
-        return indices;
+        return IntStream.iterate(random.nextInt(quiz.getLength()), i -> random.nextInt(quiz.getLength()))
+                .distinct()
+                .limit(10)
+                .toArray();
     }
 }
 
