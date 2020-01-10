@@ -10,11 +10,13 @@ import org.apache.logging.log4j.Logger;
 public class Game implements IGamemode {
     private final Logger log = LogManager.getLogger(Game.class);
     private static int[] questionsIndices;
+    public static Quiz quiz;
+
 
     /* Constructor */
     public Game() {
         XMLParser parser = new XMLParser();
-        Quiz quiz = parser.createQuestions();
+        quiz = parser.createQuestions();
         setQuestionsIndices(quiz);
 
     }
@@ -42,17 +44,21 @@ public class Game implements IGamemode {
 
     /* Getter and Setter methods */
 
+    public static Quiz getQuiz() {
+        return quiz;
+    }
+
     public void setGamemode(int gamemode) {
         try {
-            switch (gamemode){
-                case 0: GamemodeFactory.createGameMode(Gamemodes.LEICHT);
-                    log.info("Gamemode was set to normal");
+            switch (gamemode) {
+                case 0:
+                    GamemodeFactory.createGameMode(Gamemodes.LEICHT);
                     break;
-                case 1: GamemodeFactory.createGameMode(Gamemodes.MITTEL);
-                    log.info("Gamemode was set to speed");
+                case 1:
+                    GamemodeFactory.createGameMode(Gamemodes.MITTEL);
                     break;
-                case 2: GamemodeFactory.createGameMode(Gamemodes.SCHWER);
-                    log.info("Gamemode was set to expert");
+                case 2:
+                    GamemodeFactory.createGameMode(Gamemodes.SCHWER);
                     break;
             }
         } catch (IllegalFactoryArgument illegalFactoryArgument) {
