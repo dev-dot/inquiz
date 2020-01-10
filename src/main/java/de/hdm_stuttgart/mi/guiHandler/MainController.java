@@ -2,8 +2,6 @@ package de.hdm_stuttgart.mi.guiHandler;
 
 import de.hdm_stuttgart.mi.classes.Game;
 import de.hdm_stuttgart.mi.classes.Quiz;
-import de.hdm_stuttgart.mi.classes.Statistic;
-import de.hdm_stuttgart.mi.classes.XMLParser;
 import de.hdm_stuttgart.mi.exceptions.IllegalFactoryArgument;
 import de.hdm_stuttgart.mi.interfaces.IGamemode;
 import javafx.animation.RotateTransition;
@@ -31,7 +29,7 @@ import static de.hdm_stuttgart.mi.gameModeFactory.GamemodeFactory.createGameMode
 public class MainController extends Application {
     static de.hdm_stuttgart.mi.interfaces.IGamemode selectedGameMode;
 
-    static XMLParser parser = new XMLParser();
+   // static XMLParser parser = new XMLParser();
     public static Quiz quiz;
 
 
@@ -187,8 +185,6 @@ public class MainController extends Application {
     private void launchGameWindow(ActionEvent event) {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/InGameWindow.fxml"));
         try {
-            Statistic statistic = new Statistic(mainUserNameTextField.getText());
-            statistic.writeStatistic(statistic);
             Parent root = loader.load();
             GameController gameController = loader.getController();
             gameController.setUserID(mainUserNameTextField);
