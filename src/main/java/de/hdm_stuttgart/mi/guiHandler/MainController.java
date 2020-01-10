@@ -1,6 +1,7 @@
 package de.hdm_stuttgart.mi.guiHandler;
 
 import de.hdm_stuttgart.mi.classes.Game;
+import de.hdm_stuttgart.mi.classes.Music;
 import de.hdm_stuttgart.mi.classes.Quiz;
 import de.hdm_stuttgart.mi.exceptions.IllegalFactoryArgument;
 import de.hdm_stuttgart.mi.interfaces.IGamemode;
@@ -39,7 +40,7 @@ public class MainController extends Application {
 
    // static XMLParser parser = new XMLParser();
     public static Quiz quiz;
-
+    public Thread thread = new Thread(new Music());
 
     public MainController() {
 
@@ -236,6 +237,7 @@ public class MainController extends Application {
     @FXML
     private void launchGameWindow(ActionEvent event) {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/InGameWindow.fxml"));
+        thread.start();
         try {
             Parent root = loader.load();
             GameController gameController = loader.getController();

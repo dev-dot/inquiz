@@ -82,6 +82,14 @@
             <version>1.5.2</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/org.openjfx/javafx-media -->
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-media</artifactId>
+            <version>14-ea+6</version>
+        </dependency>
+
+
     </dependencies>
 
     <build>
