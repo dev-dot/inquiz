@@ -11,6 +11,8 @@ import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -18,8 +20,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -59,6 +67,14 @@ public class MainController extends Application {
     public Label userID;
     @FXML
     public Label gameUserID;
+    @FXML
+    public Button mainGameRulesButton;
+
+    private Stage gameRulesStage = new Stage();
+    private VBox gameRulePane = new VBox();
+    private Text gameRuleText = new Text();
+    private Button gameRuleButton = new Button();
+    private Scene gameRulesScene = new Scene( gameRulePane, 500, 300);
 
     public Label getGameUserID() {
         return gameUserID;
@@ -102,7 +118,7 @@ public class MainController extends Application {
 
     //Event Handler
     @FXML
-    public void mainExitAction(ActionEvent actionEvent) {
+    public void mainExitAction() {
         Runtime.getRuntime().exit(0);
     }
 
@@ -121,6 +137,42 @@ public class MainController extends Application {
     public void mainStartAction(ActionEvent actionEvent) {
         selectGameMode();
         launchGameWindow(actionEvent);
+    }
+
+    public void mainGameRulesAction() {
+        gameRulePane.getChildren().clear();
+        gameRulePane.getChildren().add(gameRuleText);
+        gameRulePane.getChildren().add(gameRuleButton);
+        gameRulePane.setAlignment(Pos.CENTER);
+        gameRuleText.setTextAlignment(TextAlignment.CENTER);
+        gameRuleText.setLineSpacing(10);
+        gameRuleText.setFont(Font.loadFont(getClass().getResourceAsStream("/style/fonts/Source_Code_Pro/SourceCodePro-ExtraLight.ttf"), 14));
+        gameRuleText.setText(
+                "GAMEMODES\n\n" +
+                "Normal:\n" +
+                "3 Jokers and 30 seconds per Question  \n" +
+                "Speed:\n" +
+                "2 Jokers and 20 seconds per Question \n" +
+                "Expert:\n" +
+                "1 Joker and 10 seconds per Question  \n"
+                );
+        gameRuleButton.setText("OK");
+        gameRuleButton.setPrefWidth(30);
+        gameRuleButton.setTextAlignment(TextAlignment.CENTER);
+        gameRuleButton.setPadding(new Insets(4));
+        gameRuleButton.setStyle("-fx-focus-color: transparent; fx-faint-focus-color: transparent; -fx-border-color: black; -fx-border-width: 0.75; -fx-border-radius: 5px; -fx-background-radius: 5px; -fx-background-insets: -1.4, 0, 1, 2; -fx-background-color: #f0f0f0!important;");
+        gameRuleButton.setOnAction(e -> gameRulesStage.close());
+        gameRulesStage.setTitle("Game Rules");
+        gameRulesStage.setScene(gameRulesScene);
+        gameRulesStage.centerOnScreen();
+        gameRulesStage.setResizable(false);
+        if (!(gameRulesStage.getModality() == Modality.APPLICATION_MODAL)){
+            gameRulesStage.initModality(Modality.APPLICATION_MODAL);
+            if (!gameRulesStage.isMaximized()){
+                gameRulesStage.initStyle(StageStyle.UNDECORATED);
+            }
+        }
+        gameRulesStage.show();
     }
 
     //Other outsourced Functions

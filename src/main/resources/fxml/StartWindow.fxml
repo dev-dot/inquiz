@@ -61,14 +61,12 @@
                   <Insets top="20.0" />
                </VBox.margin>
                 </ComboBox>
-                <HBox id="buttonContainer" alignment="CENTER" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                <Button fx:id="mainGameRulesButton" onAction="#mainGameRulesAction" id="mainGameRules" text="game rules" GridPane.rowIndex="4"/>
+                <HBox id="buttonContainer" alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="5">
                     <Button id="startButton" fx:id="mainStartButton" mnemonicParsing="false" onAction="#mainStartAction" text="start game" />
                     <opaqueInsets>
                         <Insets />
                     </opaqueInsets>
-               <VBox.margin>
-                  <Insets top="5.0" />
-               </VBox.margin>
                 </HBox>
             </VBox>
          <columnConstraints>
