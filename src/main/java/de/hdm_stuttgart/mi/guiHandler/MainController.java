@@ -31,6 +31,7 @@ import javafx.util.Duration;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import static de.hdm_stuttgart.mi.gameModeFactory.GamemodeFactory.createGameMode;
@@ -41,6 +42,7 @@ public class MainController extends Application {
     // static XMLParser parser = new XMLParser();
     public static Quiz quiz;
     public static Thread thread = new Thread(new Music());
+
 
     //Logger
     private static final Logger log = LogManager.getLogger(MainController.class);
@@ -94,11 +96,12 @@ public class MainController extends Application {
 
 
     //Setting Stage
-    static void setWindow(Stage primaryStage, Scene scene, Logger log) {
+    static void setWindow(Stage primaryStage, Scene scene, Logger log) throws FileNotFoundException {
 
         scene.widthProperty().addListener((observableValue, oldSceneWidth, newSceneWidth) -> log.debug("Width: " + newSceneWidth));
         scene.heightProperty().addListener((observableValue, oldSceneHeight, newSceneHeight) -> log.debug("Height: " + newSceneHeight));
         primaryStage.setTitle("inquiz");
+        // primaryStage.getIcons().add(new Image("/media/icons/user.png"));
         primaryStage.setMinWidth(650);
         primaryStage.setMinHeight(650);
         primaryStage.setScene(scene);
@@ -110,6 +113,7 @@ public class MainController extends Application {
 
     public static void main(String[] args) {
         launch(args);
+        thread.start();
     }
 
     //Event Handler
@@ -234,7 +238,6 @@ public class MainController extends Application {
     @FXML
     private void launchGameWindow(ActionEvent event) {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/InGameWindow.fxml"));
-        thread.start();
         try {
             Parent root = loader.load();
             GameController gameController = loader.getController();
