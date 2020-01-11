@@ -9,25 +9,19 @@ import java.io.File;
 
 public class Music implements Runnable{
     final Logger log = LogManager.getLogger(Music.class);
-    private static  volatile boolean run = true;
+    public static MediaPlayer mediaPlayer;
     public Music() { }
 
 
-    public void run()
-    {
+    public void run() {
         log.info("Starting Music Thread!");
-        String fileLocation = "src/main/resources/Music/JPB - What I Want [NCS Release].mp3";
+        String fileLocation = "src/main/resources/Music/Hypnotic-Puzzle4.mp3";
         Media hit = new Media(new File(fileLocation).toURI().toString());
-        MediaPlayer mediaPlayer = new MediaPlayer(hit);
-        while(run){
-            mediaPlayer.play();
-        }
+        mediaPlayer = new MediaPlayer(hit);
+        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+        mediaPlayer.setVolume(0.4);
 
 
         log.info("Now playing Music!");
-    }
-
-    public synchronized void doStop (){
-        run = false;
     }
 }

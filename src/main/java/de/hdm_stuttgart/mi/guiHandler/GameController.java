@@ -1,6 +1,7 @@
 package de.hdm_stuttgart.mi.guiHandler;
 
 import de.hdm_stuttgart.mi.classes.Game;
+import de.hdm_stuttgart.mi.classes.Music;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -22,7 +23,6 @@ import javafx.util.Duration;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
@@ -171,11 +171,13 @@ public class GameController implements Initializable {
     }
 
     private void setButtonRed(Button button) {
-        button.setStyle("-fx-background-color: #ff0000");
+        button.setStyle("-fx-background-color: #F24343; -fx-text-fill: black");
+
     }
 
     private void setButtonGreen(Button button) {
-        button.setStyle("-fx-background-color: #00FF00");
+        button.setStyle("-fx-background-color: #59E570; -fx-text-fill: black");
+
     }
 
     private void resetButtons() {
@@ -191,7 +193,7 @@ public class GameController implements Initializable {
 
     private void fadeTransition(Button button) {
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.1), evt -> button.setVisible(false)),
-                new KeyFrame(Duration.seconds(0.25), evt -> button.setVisible(true)));
+                new KeyFrame(Duration.seconds(0.40), evt -> button.setVisible(true)));
         timeline.setCycleCount(3);
         timeline.play();
         timeline.setOnFinished(event -> {
@@ -285,6 +287,7 @@ public class GameController implements Initializable {
         log.info("wrong");
         fadeTransition(button);
         game.setWrongAnswerCounter();
+        showRightAnswer();
     }
 
     private void timeElapsed() throws IOException {
@@ -328,17 +331,41 @@ public class GameController implements Initializable {
         skipJoker.setDisable(true);
     }
 
+    public void showRightAnswer() {
+        String rightAnswer = Game.quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getAnswer();
+
+        if (buttonA.getText().equals(rightAnswer)) {
+            timer.stop();
+            setButtonGreen(buttonA);
+
+        } else if (buttonB.getText().equals(Game.quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getAnswer())) {
+            timer.stop();
+            setButtonGreen(buttonB);
+
+        } else if (buttonC.getText().equals(Game.quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getAnswer())) {
+            timer.stop();
+            setButtonGreen(buttonC);
+
+        } else if (buttonD.getText().equals(Game.quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getAnswer())) {
+            timer.stop();
+            setButtonGreen(buttonD);
+        } else {
+            log.info("no right answer");
+        }
+    }
+
     private void resetJokers() {
         timeJoker.setDisable(false);
         skipJoker.setDisable(false);
     }
 
     public void gameSoundAction(ActionEvent actionEvent) {
-        if (gameSoundImage.getImage() == soundOnImage){
-            gameSoundImage.setImage(soundOffImage);
-        }
-        else {
+        if (gameSoundImage.getImage() == soundOffImage) {
+            Music.mediaPlayer.play();
             gameSoundImage.setImage(soundOnImage);
+        } else {
+            Music.mediaPlayer.pause();
+            gameSoundImage.setImage(soundOffImage);
         }
     }
 }

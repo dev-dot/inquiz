@@ -38,13 +38,9 @@ import static de.hdm_stuttgart.mi.gameModeFactory.GamemodeFactory.createGameMode
 public class MainController extends Application {
     static de.hdm_stuttgart.mi.interfaces.IGamemode selectedGameMode;
 
-   // static XMLParser parser = new XMLParser();
+    // static XMLParser parser = new XMLParser();
     public static Quiz quiz;
-    public Thread thread = new Thread(new Music());
-
-    public MainController() {
-
-    }
+    public static Thread thread = new Thread(new Music());
 
     //Logger
     private static final Logger log = LogManager.getLogger(MainController.class);
@@ -86,8 +82,6 @@ public class MainController extends Application {
     public static Game game = new Game();
 
 
-
-
     //Setting Scene
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -97,6 +91,7 @@ public class MainController extends Application {
         scene.getStylesheets().add(getClass().getResource("/style/default.css").toExternalForm());
         setWindow(primaryStage, scene, log);
     }
+
 
     //Setting Stage
     static void setWindow(Stage primaryStage, Scene scene, Logger log) {
@@ -111,6 +106,8 @@ public class MainController extends Application {
     }
 
     //Starting Stage
+
+
     public static void main(String[] args) {
         launch(args);
     }

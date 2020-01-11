@@ -1,13 +1,14 @@
-.root{
+.root {
     -fx-font-family: "Source Code Pro ExtraLight";
 }
 
-.button{
+.button {
     -fx-background-color: #D9D9D9;
     -fx-text-fill: #000000;
     -fx-border-radius: 10px;
 }
-.button:hover{
+
+.button:hover {
     -fx-text-fill: #000000;
     -fx-background-color: rgba(53, 53, 211, 0.9);
 }
@@ -102,22 +103,24 @@
     -fx-background-color: none;
 }
 
-.answerButton{
+.answerButton {
     -fx-font-size: 18px;
     -fx-border-color: none;
     -fx-border-width: 0.5 0.5 0.5 0.5;
     -fx-background-radius: 10px;
     -fx-font-family: "Helvetica Neue";
+    -fx-text-fill: beige;
     -fx-font-weight: lighter;
     -fx-background-color: rgba(53, 53, 211, 0.7);
 }
 
-#questionLabel{
+#questionLabel {
     -fx-border-color: #3535D3;
     -fx-border-width: 0.5 0.5 0.5 0.5;
     -fx-background-radius: 10px;
     -fx-border-radius: 10px;
     -fx-font-family: "Helvetica Neue";
+    -fx-text-fill: beige;
     -fx-font-weight: lighter;
     -fx-background-color: rgba(53, 53, 211, 0.7);
 }
@@ -131,11 +134,11 @@
 }
 
 .default-color0.chart-pie {
-    -fx-pie-color: #00ff00;
+    -fx-pie-color: #59E570;
 }
 
 .default-color1.chart-pie {
-    -fx-pie-color: #ff0000;
+    -fx-pie-color: #F24343;
 }
 
 #gameStatsButton{
