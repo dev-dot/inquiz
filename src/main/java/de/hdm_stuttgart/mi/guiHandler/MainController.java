@@ -238,6 +238,7 @@ public class MainController extends Application {
     @FXML
     private void launchGameWindow(ActionEvent event) {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/InGameWindow.fxml"));
+        thread.run();
         try {
             Parent root = loader.load();
             GameController gameController = loader.getController();

@@ -26,6 +26,8 @@ import org.apache.logging.log4j.Logger;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.Arrays;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import static de.hdm_stuttgart.mi.guiHandler.MainController.game;
@@ -189,7 +191,12 @@ public class GameController implements Initializable {
         buttonB.setStyle("-fx-background-color: rgba(53, 53, 211, 0.7)");
         buttonC.setStyle("-fx-background-color: rgba(53, 53, 211, 0.7)");
         buttonD.setStyle("-fx-background-color: rgba(53, 53, 211, 0.7)");
+        buttonA.setDisable(false);
+        buttonB.setDisable(false);
+        buttonC.setDisable(false);
+        buttonD.setDisable(false);
     }
+
 
     private void fadeTransition(Button button) {
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.1), evt -> button.setVisible(false)),
@@ -221,48 +228,50 @@ public class GameController implements Initializable {
     }
 
     private void validateAnswer(Button button) {
+        disableButtons(true);
+        String rightAnswer = Game.quiz.getAnswer(game.getRoundCount());
         String buttonString = button.toString().substring(10, 17);
         switch (buttonString) {
             case "buttonA":
-                log.info("selected answer: " + Game.quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getOptionA());
-                log.info("right answer: " + Game.quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getAnswer());
-                if (Game.quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getOptionA().equals(Game.quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getAnswer())) {
-                    rightAnswer(buttonA);
+                log.info("selected answer: " + buttonA.getText());
+                log.info("right answer: " + rightAnswer);
+                if (buttonA.getText().equals(rightAnswer)) {
+                    flashRightAnswer(buttonA);
                 } else {
-                    wrongAnswer(buttonA);
+                    flashWrongAnswer(buttonA);
                 }
 
                 //resetButtons();
                 break;
             case "buttonB":
-                log.info("selected answer: " + Game.quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getOptionB());
-                log.info("right answer: " + Game.quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getAnswer());
-                if (Game.quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getOptionB().equals(Game.quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getAnswer())) {
-                    rightAnswer(buttonB);
+                log.info("selected answer: " + buttonB.getText());
+                log.info("right answer: " + rightAnswer);
+                if (buttonB.getText().equals(rightAnswer)) {
+                    flashRightAnswer(buttonB);
                 } else {
-                    wrongAnswer(buttonB);
+                    flashWrongAnswer(buttonB);
                 }
 
                 //resetButtons();
                 break;
             case "buttonC":
-                log.info("selected answer: " + Game.quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getOptionC());
-                log.info("right answer: " + Game.quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getAnswer());
-                if (Game.quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getOptionC().equals(Game.quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getAnswer())) {
-                    rightAnswer(buttonC);
+                log.info("selected answer: " + buttonC.getText());
+                log.info("right answer: " + rightAnswer);
+                if (buttonC.getText().equals(rightAnswer)) {
+                    flashRightAnswer(buttonC);
                 } else {
-                    wrongAnswer(buttonC);
+                    flashWrongAnswer(buttonC);
                 }
 
                 //resetButtons();
                 break;
             case "buttonD":
-                log.info("selected answer: " + Game.quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getOptionD());
-                log.info("right answer: " + Game.quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getAnswer());
-                if (Game.quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getOptionD().equals(Game.quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getAnswer())) {
-                    rightAnswer(buttonD);
+                log.info("selected answer: " + buttonD.getText());
+                log.info("right answer: " + rightAnswer);
+                if (buttonD.getText().equals(rightAnswer)) {
+                    flashRightAnswer(buttonD);
                 } else {
-                    wrongAnswer(buttonD);
+                    flashWrongAnswer(buttonD);
                 }
 
                 //resetButtons();
@@ -273,7 +282,7 @@ public class GameController implements Initializable {
         }
     }
 
-    private void rightAnswer(Button button) {
+    private void flashRightAnswer(Button button) {
         timer.stop();
         setButtonGreen(button);
         log.info("right");
@@ -281,7 +290,7 @@ public class GameController implements Initializable {
         game.setRightAnswerCounter();
     }
 
-    private void wrongAnswer(Button button) {
+    private void flashWrongAnswer(Button button) {
         timer.stop();
         setButtonRed(button);
         log.info("wrong");
@@ -335,19 +344,15 @@ public class GameController implements Initializable {
         String rightAnswer = Game.quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getAnswer();
 
         if (buttonA.getText().equals(rightAnswer)) {
-            timer.stop();
             setButtonGreen(buttonA);
 
-        } else if (buttonB.getText().equals(Game.quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getAnswer())) {
-            timer.stop();
+        } else if (buttonB.getText().equals(rightAnswer)) {
             setButtonGreen(buttonB);
 
-        } else if (buttonC.getText().equals(Game.quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getAnswer())) {
-            timer.stop();
+        } else if (buttonC.getText().equals(rightAnswer)) {
             setButtonGreen(buttonC);
 
-        } else if (buttonD.getText().equals(Game.quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getAnswer())) {
-            timer.stop();
+        } else if (buttonD.getText().equals(rightAnswer)) {
             setButtonGreen(buttonD);
         } else {
             log.info("no right answer");
@@ -367,5 +372,12 @@ public class GameController implements Initializable {
             Music.mediaPlayer.pause();
             gameSoundImage.setImage(soundOffImage);
         }
+    }
+
+    private void disableButtons(boolean status) {
+        buttonA.setDisable(status);
+        buttonB.setDisable(status);
+        buttonC.setDisable(status);
+        buttonD.setDisable(status);
     }
 }
