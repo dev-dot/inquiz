@@ -1,5 +1,6 @@
 package de.hdm_stuttgart.mi.classes;
 
+import de.hdm_stuttgart.mi.guiHandler.MainController;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -32,6 +33,10 @@ public class Quiz {
 
     int getLength() {
         return questions.size();
+    }
+
+    public String getAnswer(int index) {
+        return Game.quiz.getQuestions().get(MainController.game.getQuestionIndex(index)).getAnswer();
     }
 
     int[] getQuestionIndices() {
