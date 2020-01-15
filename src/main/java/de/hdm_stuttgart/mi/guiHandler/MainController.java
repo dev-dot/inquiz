@@ -119,6 +119,7 @@ public class MainController extends Application {
     //Event Handler
     @FXML
     public void mainExitAction() {
+        thread.interrupt();
         Runtime.getRuntime().exit(0);
     }
 

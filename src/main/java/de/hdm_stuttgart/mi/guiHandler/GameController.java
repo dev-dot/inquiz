@@ -22,16 +22,15 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import java.io.IOException;
-import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 import java.util.ResourceBundle;
+import java.util.concurrent.ThreadLocalRandom;
 
-import static de.hdm_stuttgart.mi.guiHandler.MainController.game;
-import static de.hdm_stuttgart.mi.guiHandler.MainController.selectedGameMode;
+import static de.hdm_stuttgart.mi.guiHandler.MainController.*;
 
 public class GameController implements Initializable {
 
@@ -66,50 +65,18 @@ public class GameController implements Initializable {
     @FXML
     public ImageView gameSoundImage;
 
-    public Image soundOffImage;
-    public Image soundOnImage;
+    private Timeline timer = new Timeline();
+    public Image soundOffImage = new Image(getClass().getResourceAsStream("/media/icons/sound/off/sound_off@3x.png"));
+    public Image soundOnImage = new Image(getClass().getResourceAsStream("/media/icons/sound/on/sound_on@3x.png"));
 
-    {
-        try {
-            soundOffImage = new Image(getClass().getResource("/media/icons/sound/off/sound_off@3x.png").toURI().toString());
-            soundOnImage = new Image(getClass().getResource("/media/icons/sound/on/sound_on@3x.png").toURI().toString());
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-        }
-    }
-
-
-    public void gameExitAction(ActionEvent actionEvent) throws IOException {
-        sceneChanger("/fxml/StartWindow.fxml", actionEvent);
-        game.setNewGame();
-        resetJokers();
-    }
-
-    public void gameStatsAction(ActionEvent actionEvent) throws IOException {
-        timer.pause();
-        sceneChanger("/fxml/GameOverWindow.fxml", actionEvent);
-    }
-
-    //Other outsourced Functions
-    private void sceneChanger(String xmlFIlePath, ActionEvent actionEvent) throws IOException {
-        Parent gameView = FXMLLoader.load(getClass().getResource(xmlFIlePath));
-        Scene gameViewScene = new Scene(gameView);
-        Stage gameStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        gameStage.setScene(gameViewScene);
-        gameStage.show();
-    }
-
-
+    //Initializing Scene
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        fiftyJoker.setDisable(true);
         gameSoundImage.setImage(soundOffImage);
     }
 
     void setUserID(TextField label) {
         userID.setText(label.getText().toUpperCase());
-
-
     }
 
     void setQuestionWindow(int random) {
@@ -121,8 +88,6 @@ public class GameController implements Initializable {
         timer.stop();
         setTimer();
     }
-
-    private Timeline timer = new Timeline();
 
     private void setTimer(){
         int time = selectedGameMode.getRemainingTime();
@@ -143,45 +108,50 @@ public class GameController implements Initializable {
         });
     }
 
-    public void fifty() {
-        buttonB.setVisible(false);
-        buttonC.setVisible(false);
+    //General Click Actions
+    public void gameExitAction(ActionEvent actionEvent) throws IOException {
+        sceneChanger("/fxml/StartWindow.fxml", actionEvent);
+        game.setNewGame();
+        resetJokers();
     }
 
+    public void gameStatsAction(ActionEvent actionEvent) throws IOException {
+        timer.pause();
+        sceneChanger("/fxml/GameOverWindow.fxml", actionEvent);
+    }
+
+    public void gameSoundAction(ActionEvent actionEvent) {
+        if (gameSoundImage.getImage() == soundOffImage) {
+            Music.mediaPlayer.play();
+            gameSoundImage.setImage(soundOnImage);
+        } else {
+            Music.mediaPlayer.pause();
+            gameSoundImage.setImage(soundOffImage);
+        }
+    }
+
+    //Button Click Actions
     public void clickButtonA() {
         validateAnswer(buttonA);
         roundCounterLabel.setText(setRoundCounter());
-
     }
 
     public void clickButtonB() {
         validateAnswer(buttonB);
         roundCounterLabel.setText(setRoundCounter());
-
     }
 
     public void clickButtonC() {
         validateAnswer(buttonC);
         roundCounterLabel.setText(setRoundCounter());
-
     }
 
     public void clickButtonD() {
         validateAnswer(buttonD);
         roundCounterLabel.setText(setRoundCounter());
-
     }
 
-    private void setButtonRed(Button button) {
-        button.setStyle("-fx-background-color: #F24343; -fx-text-fill: black");
-
-    }
-
-    private void setButtonGreen(Button button) {
-        button.setStyle("-fx-background-color: #59E570; -fx-text-fill: black");
-
-    }
-
+    //Button/Answer Methods
     private void resetButtons() {
         buttonA.setVisible(true);
         buttonB.setVisible(true);
@@ -197,9 +167,16 @@ public class GameController implements Initializable {
         buttonD.setDisable(false);
     }
 
+    private void setButtonRed(Button button) {
+        button.setStyle("-fx-background-color: #F24343; -fx-text-fill: black");
+    }
 
-    private void fadeTransition(Button button) {
-        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.1), evt -> button.setVisible(false)),
+    private void setButtonGreen(Button button) {
+        button.setStyle("-fx-background-color: #59E570; -fx-text-fill: black");
+    }
+
+    private void buttonAnimation(Button button) {
+        Timeline timeline = new Timeline(
                 new KeyFrame(Duration.seconds(0.40), evt -> button.setVisible(true)));
         timeline.setCycleCount(3);
         timeline.play();
@@ -210,21 +187,6 @@ public class GameController implements Initializable {
                 e.printStackTrace();
             }
         });
-    }
-
-    private void labelTransition(Label label) {
-        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.1), evt -> label.setVisible(false)),
-                new KeyFrame(Duration.seconds(0.25), evt -> label.setVisible(true)));
-        timeline.setCycleCount(3);
-        timeline.play();
-    }
-
-    private void timeBarTransition(ProgressBar bar) {
-        bar.setProgress(1);
-        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.1), evt -> bar.setVisible(false)),
-                new KeyFrame(Duration.seconds(0.4), evt -> bar.setVisible(true)));
-        timeline.setCycleCount(3);
-        timeline.play();
     }
 
     private void validateAnswer(Button button) {
@@ -286,7 +248,7 @@ public class GameController implements Initializable {
         timer.stop();
         setButtonGreen(button);
         log.info("right");
-        fadeTransition(button);
+        buttonAnimation(button);
         game.setRightAnswerCounter();
     }
 
@@ -294,7 +256,7 @@ public class GameController implements Initializable {
         timer.stop();
         setButtonRed(button);
         log.info("wrong");
-        fadeTransition(button);
+        buttonAnimation(button);
         game.setWrongAnswerCounter();
         showRightAnswer();
     }
@@ -328,18 +290,6 @@ public class GameController implements Initializable {
         return String.format("%d/10", (game.getRoundCount() + 1));
     }
 
-    public void clickTimeJoker(ActionEvent event) {
-        setTimer();
-        timeJoker.setDisable(true);
-    }
-
-
-    public void clickSkipJoker(ActionEvent event) throws IOException {
-        nextRound();
-        game.setRightAnswerCounter();
-        skipJoker.setDisable(true);
-    }
-
     public void showRightAnswer() {
         String rightAnswer = Game.quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getAnswer();
 
@@ -359,25 +309,84 @@ public class GameController implements Initializable {
         }
     }
 
-    private void resetJokers() {
-        timeJoker.setDisable(false);
-        skipJoker.setDisable(false);
-    }
-
-    public void gameSoundAction(ActionEvent actionEvent) {
-        if (gameSoundImage.getImage() == soundOffImage) {
-            Music.mediaPlayer.play();
-            gameSoundImage.setImage(soundOnImage);
-        } else {
-            Music.mediaPlayer.pause();
-            gameSoundImage.setImage(soundOffImage);
-        }
-    }
-
     private void disableButtons(boolean status) {
         buttonA.setDisable(status);
         buttonB.setDisable(status);
         buttonC.setDisable(status);
         buttonD.setDisable(status);
+    }
+
+    //Joker Methods
+    public void fifty() {
+        String rightAnswer = Game.quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getAnswer();
+        List<String> list = Arrays.asList(buttonA.getText(), buttonB.getText(), buttonC.getText(), buttonD.getText());
+        list.stream().parallel().toArray();
+        int random = ThreadLocalRandom.current().nextInt(0,4);
+        int i=0;
+        while (i < 2){
+            System.out.println(random);
+            switch (random){
+                case 0:
+                    if (!list.get(0).equals(rightAnswer)){
+                        log.info("A is wrong and disabled by fifty");
+                        buttonA.setVisible(false);
+                        i++;
+                    }
+                    random++;
+                    break;
+                case 1:
+                    if (!list.get(1).equals(rightAnswer)){
+                        log.info("B is wrong and disabled by fifty");
+                        buttonB.setVisible(false);
+                        i++;
+                    }
+                    random++;
+                    break;
+                case 2:
+                    if (!list.get(2).equals(rightAnswer)){
+                        log.info("C is wrong and disabled by fifty");
+                        buttonC.setVisible(false);
+                        i++;
+                    }
+                    random++;
+                    break;
+                case 3:
+                    if (!list.get(3).equals(rightAnswer)){
+                        log.info("D is wrong and disabled by fifty");
+                        buttonD.setVisible(false);
+                        i++;
+                    }
+                    random = 0;
+                    break;
+                default:
+                    log.info("no wrong answers");
+            }
+        }
+        fiftyJoker.setDisable(true);
+    }
+
+    public void clickTimeJoker(ActionEvent event) {
+        setTimer();
+        timeJoker.setDisable(true);
+    }
+
+    public void clickSkipJoker(ActionEvent event) throws IOException {
+        nextRound();
+        game.setRightAnswerCounter();
+        skipJoker.setDisable(true);
+    }
+
+    private void resetJokers() {
+        timeJoker.setDisable(false);
+        skipJoker.setDisable(false);
+    }
+
+    //Scene Changer Helper Function
+    private void sceneChanger(String xmlFIlePath, ActionEvent actionEvent) throws IOException {
+        Parent gameView = FXMLLoader.load(getClass().getResource(xmlFIlePath));
+        Scene gameViewScene = new Scene(gameView);
+        Stage gameStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        gameStage.setScene(gameViewScene);
+        gameStage.show();
     }
 }
