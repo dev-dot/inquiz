@@ -33,7 +33,7 @@ public class QuizTest {
     }
 
     @Test
-    public void testAllAnswer() {
+    public void testAllAnswers() {
         // Setup
         new Game();
 
