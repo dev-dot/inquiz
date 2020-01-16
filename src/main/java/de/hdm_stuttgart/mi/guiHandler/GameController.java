@@ -3,6 +3,10 @@ package de.hdm_stuttgart.mi.guiHandler;
 import de.hdm_stuttgart.mi.classes.Animations;
 import de.hdm_stuttgart.mi.classes.Game;
 import de.hdm_stuttgart.mi.classes.Music;
+import de.hdm_stuttgart.mi.exceptions.IllegalFactoryArgument;
+import de.hdm_stuttgart.mi.interfaces.IJoker;
+import de.hdm_stuttgart.mi.jokerFactory.FiftyFiftyJoker;
+import de.hdm_stuttgart.mi.jokerFactory.JokerFactory;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
@@ -294,16 +298,22 @@ public class GameController implements Initializable {
         buttonD.setDisable(status);
     }
 
-    public void clickTimeJoker(ActionEvent event) {
-        Game.joker.extraTime(timeJoker, timeBar);
+    public void clickTimeJoker(ActionEvent event) throws IllegalFactoryArgument {
+        //Game.joker.extraTime(timeJoker, timeBar);
+        IJoker joker = JokerFactory.createJoker(IJoker.AvailableJoker.TIME);
+        joker.useJoker();
     }
 
-    public void clickSkipJoker(ActionEvent event) throws IOException {
-        Game.joker.skipQuestion(skipJoker);
+    public void clickSkipJoker(ActionEvent event) throws IOException, IllegalFactoryArgument {
+        //Game.joker.skipQuestion(skipJoker);
+        IJoker joker = JokerFactory.createJoker(IJoker.AvailableJoker.SKIP);
+        joker.useJoker();
     }
 
-    public void clickFiftyJoker(ActionEvent event) {
-        Game.joker.fifty(buttonA, buttonB, buttonC, buttonD, fiftyJoker);
+    public void clickFiftyJoker(ActionEvent event) throws IllegalFactoryArgument {
+        //Game.joker.fifty(buttonA, buttonB, buttonC, buttonD, fiftyJoker);
+        IJoker joker = JokerFactory.createJoker(IJoker.AvailableJoker.FIFTYFIFTY);
+        joker.useJoker();
     }
 
     //Scene Changer Helper Function
@@ -314,6 +324,5 @@ public class GameController implements Initializable {
         gameStage.setScene(gameViewScene);
         gameStage.show();
     }
-
 
 }
