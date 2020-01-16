@@ -208,7 +208,7 @@ public class MainController extends Application {
         String mode = gameModeSelector.getValue().toString();
         switch (mode){
             case "standard":
-                game.setGamemode(0);
+                game.setGameMode(0);
                 try {
                     selectedGameMode = createGameMode(IGamemode.Gamemodes.LEICHT);
                 } catch (IllegalFactoryArgument illegalFactoryArgument) {
@@ -216,7 +216,7 @@ public class MainController extends Application {
                 }
                 break;
             case "speed":
-                game.setGamemode(1);
+                game.setGameMode(1);
                 try {
                     selectedGameMode = createGameMode(IGamemode.Gamemodes.MITTEL);
                 } catch (IllegalFactoryArgument illegalFactoryArgument) {
@@ -224,7 +224,7 @@ public class MainController extends Application {
                 }
                 break;
             case "expert":
-                game.setGamemode(2);
+                game.setGameMode(2);
                 try {
                     selectedGameMode = createGameMode(IGamemode.Gamemodes.SCHWER);
                 } catch (IllegalFactoryArgument illegalFactoryArgument) {
