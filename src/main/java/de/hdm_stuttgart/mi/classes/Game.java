@@ -54,16 +54,20 @@ public class Game implements IGamemode {
             switch (gameMode) {
                 case 0:
                     GamemodeFactory.createGameMode(Gamemodes.LEICHT);
+                    setRemainingJoker(GamemodeFactory.createGameMode(Gamemodes.LEICHT).getJokerCounter());
                     break;
                 case 1:
                     GamemodeFactory.createGameMode(Gamemodes.MITTEL);
+                    setRemainingJoker(GamemodeFactory.createGameMode(Gamemodes.MITTEL).getJokerCounter());
                     break;
                 case 2:
                     GamemodeFactory.createGameMode(Gamemodes.SCHWER);
+                    setRemainingJoker(GamemodeFactory.createGameMode(Gamemodes.SCHWER).getJokerCounter());
                     break;
                 default:
                     throw new IllegalFactoryArgument("Wrong Gamemode!");
             }
+        log.info("RemainingJoker: " + remainingJoker);
     }
 
     public int getRoundCount() {
@@ -134,16 +138,20 @@ public class Game implements IGamemode {
         setQuestionsIndices(new Quiz());
     }
 
+    public void jokerUsedCounter() {
+        remainingJoker--;
+    }
+
     /* Interface methods */
 
     @Override
     public int getJokerCounter() {
-        return 0;
+        return remainingJoker;
     }
 
     @Override
     public int getRemainingTime() {
-        return 0;
+        return timeToAnswer;
     }
 }
 

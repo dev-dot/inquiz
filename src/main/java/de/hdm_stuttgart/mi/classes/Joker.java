@@ -90,4 +90,5 @@ public class Joker {
         skipJoker.setDisable(false);
         fiftyJoker.setDisable(false);
     }
+
 }

@@ -5,7 +5,6 @@ import de.hdm_stuttgart.mi.classes.Game;
 import de.hdm_stuttgart.mi.classes.Music;
 import de.hdm_stuttgart.mi.exceptions.IllegalFactoryArgument;
 import de.hdm_stuttgart.mi.interfaces.IJoker;
-import de.hdm_stuttgart.mi.jokerFactory.FiftyFiftyJoker;
 import de.hdm_stuttgart.mi.jokerFactory.JokerFactory;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -302,18 +301,33 @@ public class GameController implements Initializable {
         //Game.joker.extraTime(timeJoker, timeBar);
         IJoker joker = JokerFactory.createJoker(IJoker.AvailableJoker.TIME);
         joker.useJoker();
+        game.jokerUsedCounter();
+        disableJoker();
     }
 
     public void clickSkipJoker(ActionEvent event) throws IOException, IllegalFactoryArgument {
         //Game.joker.skipQuestion(skipJoker);
         IJoker joker = JokerFactory.createJoker(IJoker.AvailableJoker.SKIP);
         joker.useJoker();
+        game.jokerUsedCounter();
+        disableJoker();
     }
 
     public void clickFiftyJoker(ActionEvent event) throws IllegalFactoryArgument {
         //Game.joker.fifty(buttonA, buttonB, buttonC, buttonD, fiftyJoker);
         IJoker joker = JokerFactory.createJoker(IJoker.AvailableJoker.FIFTYFIFTY);
         joker.useJoker();
+        game.jokerUsedCounter();
+        disableJoker();
+    }
+
+    private void disableJoker() {
+        if (game.getRemainingJoker() == 0) {
+            skipJoker.setDisable(true);
+            fiftyJoker.setDisable(true);
+            timeJoker.setDisable(true);
+        }
+
     }
 
     //Scene Changer Helper Function
