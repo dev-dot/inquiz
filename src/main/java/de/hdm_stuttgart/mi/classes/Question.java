@@ -85,17 +85,4 @@ public class Question {
         this.optionD = optionD;
     }
 
-    void checkQuestion(String selectedOption, String answer) {
-        if (selectedOption.equals(answer)) {
-            log.info("You are right");
-        } else log.info("Sorry Wrong Answer. Right Answer: " + getAnswer());
-    }
-
-    void getAllOptions() {
-        System.out.println("A: " + getOptionA());
-        System.out.println("B: " + getOptionB());
-        System.out.println("C: " + getOptionC());
-        System.out.println("D: " + getOptionD());
-    }
-
 }
