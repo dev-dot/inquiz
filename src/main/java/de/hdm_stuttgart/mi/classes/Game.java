@@ -11,6 +11,7 @@ public class Game implements IGamemode {
     private final Logger log = LogManager.getLogger(Game.class);
     private static int[] questionsIndices;
     public static Quiz quiz;
+    public static Joker joker = new Joker();
 
 
     /* Constructor */
@@ -48,9 +49,9 @@ public class Game implements IGamemode {
         return quiz;
     }
 
-    public void setGamemode(int gamemode) {
+    public void setGameMode(int gameMode) {
         try {
-            switch (gamemode) {
+            switch (gameMode) {
                 case 0:
                     GamemodeFactory.createGameMode(Gamemodes.LEICHT);
                     break;
