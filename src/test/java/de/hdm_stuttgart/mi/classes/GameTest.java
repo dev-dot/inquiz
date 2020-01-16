@@ -21,7 +21,7 @@ public class GameTest {
         // Setup
 
         // Run the test
-        game.setGamemode(0);
+        game.setGameMode(0);
 
         // Verify the results
         Assert.assertEquals(30000, GamemodeFactory.createGameMode(IGamemode.Gamemodes.LEICHT).getRemainingTime());

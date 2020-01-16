@@ -130,13 +130,13 @@ public class MainController extends Application {
     }
 
     @FXML
-    public void mainEnterStartAction(ActionEvent actionEvent) {
+    public void mainEnterStartAction(ActionEvent actionEvent) throws IllegalFactoryArgument {
         selectGameMode();
         launchGameWindow(actionEvent);
     }
 
     @FXML
-    public void mainStartAction(ActionEvent actionEvent) {
+    public void mainStartAction(ActionEvent actionEvent) throws IllegalFactoryArgument {
         selectGameMode();
         launchGameWindow(actionEvent);
     }
@@ -203,33 +203,21 @@ public class MainController extends Application {
         }
     }
 
-    private void selectGameMode(){
+    private void selectGameMode() throws IllegalFactoryArgument {
 
         String mode = gameModeSelector.getValue().toString();
         switch (mode){
             case "standard":
                 game.setGameMode(0);
-                try {
-                    selectedGameMode = createGameMode(IGamemode.Gamemodes.LEICHT);
-                } catch (IllegalFactoryArgument illegalFactoryArgument) {
-                    illegalFactoryArgument.printStackTrace();
-                }
+                selectedGameMode = createGameMode(IGamemode.Gamemodes.LEICHT);
                 break;
             case "speed":
                 game.setGameMode(1);
-                try {
-                    selectedGameMode = createGameMode(IGamemode.Gamemodes.MITTEL);
-                } catch (IllegalFactoryArgument illegalFactoryArgument) {
-                    illegalFactoryArgument.printStackTrace();
-                }
+                selectedGameMode = createGameMode(IGamemode.Gamemodes.MITTEL);
                 break;
             case "expert":
                 game.setGameMode(2);
-                try {
-                    selectedGameMode = createGameMode(IGamemode.Gamemodes.SCHWER);
-                } catch (IllegalFactoryArgument illegalFactoryArgument) {
-                    illegalFactoryArgument.printStackTrace();
-                }
+                selectedGameMode = createGameMode(IGamemode.Gamemodes.SCHWER);
                 break;
             default:
                 log.info("Invalid GameMode");

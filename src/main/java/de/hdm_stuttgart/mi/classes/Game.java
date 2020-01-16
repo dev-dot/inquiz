@@ -49,8 +49,8 @@ public class Game implements IGamemode {
         return quiz;
     }
 
-    public void setGameMode(int gameMode) {
-        try {
+    public void setGameMode(int gameMode) throws IllegalFactoryArgument {
+
             switch (gameMode) {
                 case 0:
                     GamemodeFactory.createGameMode(Gamemodes.LEICHT);
@@ -61,10 +61,9 @@ public class Game implements IGamemode {
                 case 2:
                     GamemodeFactory.createGameMode(Gamemodes.SCHWER);
                     break;
+                default:
+                    throw new IllegalFactoryArgument("Wrong Gamemode!");
             }
-        } catch (IllegalFactoryArgument illegalFactoryArgument) {
-            illegalFactoryArgument.printStackTrace();
-        }
     }
 
     public int getRoundCount() {
