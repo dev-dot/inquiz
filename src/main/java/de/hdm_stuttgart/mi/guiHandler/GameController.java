@@ -1,5 +1,6 @@
 package de.hdm_stuttgart.mi.guiHandler;
 
+import de.hdm_stuttgart.mi.classes.Animations;
 import de.hdm_stuttgart.mi.classes.Game;
 import de.hdm_stuttgart.mi.classes.Music;
 import javafx.animation.KeyFrame;
@@ -69,6 +70,8 @@ public class GameController implements Initializable {
     public Image soundOffImage = new Image(getClass().getResourceAsStream("/media/icons/sound/off/sound_off@3x.png"));
     public Image soundOnImage = new Image(getClass().getResourceAsStream("/media/icons/sound/on/sound_on@3x.png"));
 
+    Animations animations = new Animations();
+
     //Initializing Scene
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -86,26 +89,7 @@ public class GameController implements Initializable {
         buttonC.setText(Game.quiz.getQuestions().get(random).getOptionC());
         buttonD.setText(Game.quiz.getQuestions().get(random).getOptionD());
         timer.stop();
-        setTimer();
-    }
-
-    private void setTimer(){
-        int time = selectedGameMode.getRemainingTime();
-        timer.getKeyFrames().removeAll();
-        KeyValue kV1 = new KeyValue(timeBar.progressProperty(), 0);
-        KeyValue kV2 = new KeyValue(timeBar.progressProperty(), 1);
-        KeyFrame kF1 = new KeyFrame(Duration.ZERO, kV1);
-        KeyFrame kF2 = new KeyFrame(Duration.millis(time), kV2);
-        timer.getKeyFrames().add(kF1);
-        timer.getKeyFrames().add(kF2);
-        timer.playFromStart();
-        timer.setOnFinished(event -> {
-            try {
-                timeElapsed();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        });
+        animations.setTimer(timeBar);
     }
 
     //General Click Actions
@@ -261,7 +245,7 @@ public class GameController implements Initializable {
         showRightAnswer();
     }
 
-    private void timeElapsed() throws IOException {
+    public void timeElapsed() throws IOException {
         log.info("time elapsed");
         game.setWrongAnswerCounter();
         roundCounterLabel.setText(setRoundCounter());
@@ -366,7 +350,7 @@ public class GameController implements Initializable {
     }
 
     public void clickTimeJoker(ActionEvent event) {
-        setTimer();
+        animations.setTimer(timeBar);
         timeJoker.setDisable(true);
     }
 

@@ -37,7 +37,7 @@ import java.io.IOException;
 import static de.hdm_stuttgart.mi.gameModeFactory.GamemodeFactory.createGameMode;
 
 public class MainController extends Application {
-    static de.hdm_stuttgart.mi.interfaces.IGamemode selectedGameMode;
+    public static de.hdm_stuttgart.mi.interfaces.IGamemode selectedGameMode;
 
     // static XMLParser parser = new XMLParser();
     public static Quiz quiz;
@@ -83,6 +83,7 @@ public class MainController extends Application {
 
     public static Game game = new Game();
 
+    public static GameController gameController = new GameController();
 
     //Setting Scene
     @Override
@@ -242,7 +243,7 @@ public class MainController extends Application {
         thread.run();
         try {
             Parent root = loader.load();
-            GameController gameController = loader.getController();
+            gameController = loader.getController();
             gameController.setUserID(mainUserNameTextField);
             gameController.roundCounterLabel.setText(gameController.setRoundCounter());
             gameController.setQuestionWindow(game.getQuestionIndex(game.getRoundCount()));
