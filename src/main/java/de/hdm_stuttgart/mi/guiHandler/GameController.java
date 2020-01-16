@@ -4,7 +4,6 @@ import de.hdm_stuttgart.mi.classes.Animations;
 import de.hdm_stuttgart.mi.classes.Game;
 import de.hdm_stuttgart.mi.classes.Music;
 import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -23,19 +22,17 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
 import java.io.IOException;
 import java.net.URL;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
 import java.util.ResourceBundle;
-import java.util.concurrent.ThreadLocalRandom;
 
-import static de.hdm_stuttgart.mi.guiHandler.MainController.*;
+import static de.hdm_stuttgart.mi.guiHandler.MainController.game;
 
 public class GameController implements Initializable {
 
     private final Logger log = LogManager.getLogger(GameController.class);
+
 
     @FXML
     public Label userID;
@@ -70,7 +67,7 @@ public class GameController implements Initializable {
     public Image soundOffImage = new Image(getClass().getResourceAsStream("/media/icons/sound/off/sound_off@3x.png"));
     public Image soundOnImage = new Image(getClass().getResourceAsStream("/media/icons/sound/on/sound_on@3x.png"));
 
-    Animations animations = new Animations();
+    public Animations animations = new Animations();
 
     //Initializing Scene
     @Override
@@ -96,7 +93,7 @@ public class GameController implements Initializable {
     public void gameExitAction(ActionEvent actionEvent) throws IOException {
         sceneChanger("/fxml/StartWindow.fxml", actionEvent);
         game.setNewGame();
-        resetJokers();
+        Game.joker.reset(timeJoker, skipJoker, fiftyJoker);
     }
 
     public void gameStatsAction(ActionEvent actionEvent) throws IOException {
@@ -145,10 +142,7 @@ public class GameController implements Initializable {
         buttonB.setStyle("-fx-background-color: rgba(53, 53, 211, 0.7)");
         buttonC.setStyle("-fx-background-color: rgba(53, 53, 211, 0.7)");
         buttonD.setStyle("-fx-background-color: rgba(53, 53, 211, 0.7)");
-        buttonA.setDisable(false);
-        buttonB.setDisable(false);
-        buttonC.setDisable(false);
-        buttonD.setDisable(false);
+        disableButtons(false);
     }
 
     private void setButtonRed(Button button) {
@@ -252,7 +246,7 @@ public class GameController implements Initializable {
         nextRound();
     }
 
-    private void nextRound() throws IOException {
+    public void nextRound() throws IOException {
         game.setNextRound();
         roundCounterLabel.setText(setRoundCounter());
         log.info(game.getRoundCount());
@@ -265,7 +259,7 @@ public class GameController implements Initializable {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            resetJokers();
+            Game.joker.reset(timeJoker, skipJoker, fiftyJoker);
             gameStats.fire();
         }
     }
@@ -300,69 +294,16 @@ public class GameController implements Initializable {
         buttonD.setDisable(status);
     }
 
-    //Joker Methods
-    public void fifty() {
-        String rightAnswer = Game.quiz.getQuestions().get(game.getQuestionIndex(game.getRoundCount())).getAnswer();
-        List<String> list = Arrays.asList(buttonA.getText(), buttonB.getText(), buttonC.getText(), buttonD.getText());
-        list.stream().parallel().toArray();
-        int random = ThreadLocalRandom.current().nextInt(0,4);
-        int i=0;
-        while (i < 2){
-            System.out.println(random);
-            switch (random){
-                case 0:
-                    if (!list.get(0).equals(rightAnswer)){
-                        log.info("A is wrong and disabled by fifty");
-                        buttonA.setVisible(false);
-                        i++;
-                    }
-                    random++;
-                    break;
-                case 1:
-                    if (!list.get(1).equals(rightAnswer)){
-                        log.info("B is wrong and disabled by fifty");
-                        buttonB.setVisible(false);
-                        i++;
-                    }
-                    random++;
-                    break;
-                case 2:
-                    if (!list.get(2).equals(rightAnswer)){
-                        log.info("C is wrong and disabled by fifty");
-                        buttonC.setVisible(false);
-                        i++;
-                    }
-                    random++;
-                    break;
-                case 3:
-                    if (!list.get(3).equals(rightAnswer)){
-                        log.info("D is wrong and disabled by fifty");
-                        buttonD.setVisible(false);
-                        i++;
-                    }
-                    random = 0;
-                    break;
-                default:
-                    log.info("no wrong answers");
-            }
-        }
-        fiftyJoker.setDisable(true);
-    }
-
     public void clickTimeJoker(ActionEvent event) {
-        animations.setTimer(timeBar);
-        timeJoker.setDisable(true);
+        Game.joker.extraTime(timeJoker, timeBar);
     }
 
     public void clickSkipJoker(ActionEvent event) throws IOException {
-        nextRound();
-        game.setRightAnswerCounter();
-        skipJoker.setDisable(true);
+        Game.joker.skipQuestion(skipJoker);
     }
 
-    private void resetJokers() {
-        timeJoker.setDisable(false);
-        skipJoker.setDisable(false);
+    public void clickFiftyJoker(ActionEvent event) {
+        Game.joker.fifty(buttonA, buttonB, buttonC, buttonD, fiftyJoker);
     }
 
     //Scene Changer Helper Function
@@ -373,4 +314,6 @@ public class GameController implements Initializable {
         gameStage.setScene(gameViewScene);
         gameStage.show();
     }
+
+
 }
