@@ -93,10 +93,10 @@
             <VBox alignment="CENTER">
                 <Label styleClass="jokerLabel" text="Available Jokers" />
                 <HBox alignment="CENTER">
-                    <Button onAction="#fifty" fx:id="fiftyJoker" styleClass="jokerButton">
+                    <Button onAction="#clickFiftyJoker" fx:id="fiftyJoker" styleClass="jokerButton">
                         <graphic>
                             <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                                <Image url="@../media/icons/joker/5050/Group.png" />
+                                <Image url="@../media/icons/joker/5050/Group.png"/>
                             </ImageView>
                         </graphic>
                     </Button>
