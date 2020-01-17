@@ -71,7 +71,7 @@ public class MainController extends Application {
     private VBox gameRulePane = new VBox();
     private Text gameRuleText = new Text();
     private Button gameRuleButton = new Button();
-    private Scene gameRulesScene = new Scene( gameRulePane, 500, 300);
+    private Scene gameRulesScene = new Scene(gameRulePane, 500, 300);
 
     public Label getGameUserID() {
         return gameUserID;
@@ -81,7 +81,15 @@ public class MainController extends Application {
         this.gameUserID = gameUserID;
     }
 
-    public static Game game = new Game();
+    public static Game game;
+
+    static {
+        try {
+            game = new Game();
+        } catch (IllegalFactoryArgument illegalFactoryArgument) {
+            illegalFactoryArgument.printStackTrace();
+        }
+    }
 
     public static GameController gameController = new GameController();
 

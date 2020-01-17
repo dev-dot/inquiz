@@ -4,6 +4,8 @@ package de.hdm_stuttgart.mi.classes;
 import de.hdm_stuttgart.mi.exceptions.IllegalFactoryArgument;
 import de.hdm_stuttgart.mi.gameModeFactory.GamemodeFactory;
 import de.hdm_stuttgart.mi.interfaces.IGamemode;
+import de.hdm_stuttgart.mi.interfaces.IJoker;
+import de.hdm_stuttgart.mi.jokerFactory.JokerFactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -12,10 +14,13 @@ public class Game implements IGamemode {
     private static int[] questionsIndices;
     public static Quiz quiz;
     public static Joker joker = new Joker();
+    public IJoker fifty = JokerFactory.createJoker(IJoker.AvailableJoker.FIFTYFIFTY);
+    public IJoker extraTime = JokerFactory.createJoker(IJoker.AvailableJoker.TIME);
+    public IJoker skipQuestion = JokerFactory.createJoker(IJoker.AvailableJoker.SKIP);
 
 
     /* Constructor */
-    public Game() {
+    public Game() throws IllegalFactoryArgument {
         XMLParser parser = new XMLParser();
         quiz = parser.createQuestions();
         setQuestionsIndices(quiz);

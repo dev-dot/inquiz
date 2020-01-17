@@ -11,6 +11,9 @@ import static org.junit.Assert.assertTrue;
 public class GameTest {
     Game game = new Game();
 
+    public GameTest() throws IllegalFactoryArgument {
+    }
+
     @Test
     public void testNotNullGameObject() {
         Assert.assertNotNull(game);

@@ -1,6 +1,7 @@
 package de.hdm_stuttgart.mi.classes;
 
 
+import de.hdm_stuttgart.mi.exceptions.IllegalFactoryArgument;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -10,7 +11,7 @@ public class QuizTest {
 
 
     @Test
-    public void testGetAnswer() {
+    public void testGetAnswer() throws IllegalFactoryArgument {
         // Setup
         Game game = new Game();
         for (int i = 0; i < 10; i++) {
@@ -33,7 +34,7 @@ public class QuizTest {
     }
 
     @Test
-    public void testAllAnswers() {
+    public void testAllAnswers() throws IllegalFactoryArgument {
         // Setup
         new Game();
 
@@ -51,13 +52,13 @@ public class QuizTest {
             } else if (Game.quiz.getQuestions().get(i).getOptionD().equals(result)) {
                 Assert.assertTrue(true);
             } else {
-                Assert.fail("No right answer found");
+                Assert.fail("No right answer found, index: " + i);
             }
         }
     }
 
     @Test
-    public void testGetNotNullLength() {
+    public void testGetNotNullLength() throws IllegalFactoryArgument {
         // Setup
         new Game();
         // Run the test
@@ -68,7 +69,7 @@ public class QuizTest {
     }
 
     @Test
-    public void testGetQuestionIndices() {
+    public void testGetQuestionIndices() throws IllegalFactoryArgument {
         // Setup
         new Game();
         // Run the test
