@@ -96,6 +96,14 @@ public class MainController extends Application {
     //Setting Scene
     @Override
     public void start(Stage primaryStage) throws Exception {
+        primaryStage.setOnCloseRequest(evt -> {
+            // prevent window from closing
+            evt.consume();
+
+            // execute own shutdown procedure
+            shutdown(primaryStage);
+        });
+
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/StartWindow.fxml"));
         Scene scene = new Scene(root);
         javafx.scene.text.Font.loadFont(getClass().getResourceAsStream("/style/fonts/Source_Code_Pro/SourceCodePro-ExtraLight.ttf"), 14);
@@ -250,5 +258,14 @@ public class MainController extends Application {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private void shutdown(Stage primaryStage) {
+        // you could also use your logout window / whatever here instead
+        //Alert alert = new Alert(Alert.AlertType.WARNING, "Really close the stage?", ButtonType.YES, ButtonType.NO);
+        // if (alert.showAndWait().orElse(ButtonType.NO) == ButtonType.YES) {
+        // you may need to close other windows or replace this with Platform.exit();
+        primaryStage.close();
+        //   }
     }
 }
