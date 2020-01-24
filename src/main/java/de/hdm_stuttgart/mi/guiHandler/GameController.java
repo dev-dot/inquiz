@@ -98,7 +98,6 @@ public class GameController implements Initializable {
 
     public void gameStatsAction(ActionEvent actionEvent) throws IOException {
         animations.timer.pause();
-        // thread.interrupt();
         sceneChanger("/fxml/GameOverWindow.fxml", actionEvent);
     }
 

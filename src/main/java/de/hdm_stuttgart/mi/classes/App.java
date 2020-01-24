@@ -6,7 +6,8 @@ import javafx.stage.Stage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import static de.hdm_stuttgart.mi.guiHandler.MainController.thread;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadPoolExecutor;
 
 
 public class App extends Application {
@@ -16,9 +17,11 @@ public class App extends Application {
 
 
     public static void main(String[] args) {
-
+        ThreadPoolExecutor executor = (ThreadPoolExecutor) Executors.newFixedThreadPool(2);
+        Music music = new Music();
+        executor.execute(music);
         launch(args);
-        thread.start();
+
     }
 
     @Override

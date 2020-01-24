@@ -70,7 +70,9 @@ public class Game implements IGamemode {
                     setRemainingJoker(GamemodeFactory.createGameMode(Gamemodes.SCHWER).getJokerCounter());
                     break;
                 default:
-                    throw new IllegalFactoryArgument("Wrong Gamemode!");
+                    log.error("invalid game mode");
+                    throw new IllegalFactoryArgument("invalid game mode!");
+
             }
         log.info("RemainingJoker: " + remainingJoker);
     }

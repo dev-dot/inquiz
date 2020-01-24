@@ -130,13 +130,11 @@ public class MainController extends Application {
 
     public static void main(String[] args) {
         launch(args);
-        thread.start();
     }
 
     //Event Handler
     @FXML
     public void mainExitAction() {
-        thread.interrupt();
         Runtime.getRuntime().exit(0);
     }
 
@@ -244,7 +242,6 @@ public class MainController extends Application {
     @FXML
     private void launchGameWindow(ActionEvent event) {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/InGameWindow.fxml"));
-        thread.run();
         try {
             Parent root = loader.load();
             gameController = loader.getController();
@@ -262,10 +259,10 @@ public class MainController extends Application {
 
     private void shutdown(Stage primaryStage) {
         // you could also use your logout window / whatever here instead
-        //Alert alert = new Alert(Alert.AlertType.WARNING, "Really close the stage?", ButtonType.YES, ButtonType.NO);
+        // Alert alert = new Alert(Alert.AlertType.WARNING, "Really close the stage?", ButtonType.YES, ButtonType.NO);
         // if (alert.showAndWait().orElse(ButtonType.NO) == ButtonType.YES) {
         // you may need to close other windows or replace this with Platform.exit();
         primaryStage.close();
-        //   }
+        //  }
     }
 }
