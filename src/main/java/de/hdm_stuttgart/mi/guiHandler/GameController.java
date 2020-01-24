@@ -174,8 +174,8 @@ public class GameController implements Initializable {
         String buttonString = button.toString().substring(10, 17);
         switch (buttonString) {
             case "buttonA":
-                log.info("selected answer: " + buttonA.getText());
-                log.info("right answer: " + rightAnswer);
+                log.debug("selected answer: " + buttonA.getText());
+                log.debug("right answer: " + rightAnswer);
                 if (buttonA.getText().equals(rightAnswer)) {
                     flashRightAnswer(buttonA);
                 } else {
@@ -185,8 +185,8 @@ public class GameController implements Initializable {
                 //resetButtons();
                 break;
             case "buttonB":
-                log.info("selected answer: " + buttonB.getText());
-                log.info("right answer: " + rightAnswer);
+                log.debug("selected answer: " + buttonB.getText());
+                log.debug("right answer: " + rightAnswer);
                 if (buttonB.getText().equals(rightAnswer)) {
                     flashRightAnswer(buttonB);
                 } else {
@@ -196,8 +196,8 @@ public class GameController implements Initializable {
                 //resetButtons();
                 break;
             case "buttonC":
-                log.info("selected answer: " + buttonC.getText());
-                log.info("right answer: " + rightAnswer);
+                log.debug("selected answer: " + buttonC.getText());
+                log.debug("right answer: " + rightAnswer);
                 if (buttonC.getText().equals(rightAnswer)) {
                     flashRightAnswer(buttonC);
                 } else {
@@ -207,8 +207,8 @@ public class GameController implements Initializable {
                 //resetButtons();
                 break;
             case "buttonD":
-                log.info("selected answer: " + buttonD.getText());
-                log.info("right answer: " + rightAnswer);
+                log.debug("selected answer: " + buttonD.getText());
+                log.debug("right answer: " + rightAnswer);
                 if (buttonD.getText().equals(rightAnswer)) {
                     flashRightAnswer(buttonD);
                 } else {
@@ -218,7 +218,7 @@ public class GameController implements Initializable {
                 //resetButtons();
                 break;
             default:
-                log.info("Wrong");
+                log.debug("Wrong");
                 break;
         }
     }
@@ -241,7 +241,7 @@ public class GameController implements Initializable {
     }
 
     public void timeElapsed() throws IOException {
-        log.info("time elapsed");
+        log.debug("time elapsed");
         game.setWrongAnswerCounter();
         roundCounterLabel.setText(setRoundCounter());
         nextRound();
@@ -250,7 +250,7 @@ public class GameController implements Initializable {
     public void nextRound() throws IOException {
         game.setNextRound();
         roundCounterLabel.setText(setRoundCounter());
-        log.info(game.getRoundCount());
+        log.debug(game.getRoundCount());
         if (game.getRoundCount() < 10) {
             setQuestionWindow(game.getQuestionIndex(game.getRoundCount()));
             resetButtons();
@@ -284,7 +284,7 @@ public class GameController implements Initializable {
         } else if (buttonD.getText().equals(rightAnswer)) {
             setButtonGreen(buttonD);
         } else {
-            log.info("no right answer");
+            log.debug("no right answer");
         }
     }
 

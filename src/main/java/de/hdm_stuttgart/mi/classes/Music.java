@@ -19,7 +19,7 @@ public class Music implements Runnable {
 
     public void run() {
         try {
-            log.info("Starting Music Thread!");
+            log.debug("Starting Music Thread!");
             String fileLocation = "src/main/resources/Music/Hypnotic-Puzzle4.mp3";
             Media hit = new Media(new File(fileLocation).toURI().toString());
             mediaPlayer = new MediaPlayer(hit);
