@@ -53,21 +53,17 @@ public class GameOverController extends Application implements Initializable {
     @FXML
     void gameStatsAction(ActionEvent event) {
         //GameController.timer.playFrom(GameController.timer.getCurrentTime());
-        //sceneChanger("/fxml/InGameWindow.fxml", event);
+        //sceneChanger("/fxml/Game.fxml", event);
     }
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/GameOverWindow.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/GameOver.fxml"));
         Scene scene = new Scene(root);
         javafx.scene.text.Font.loadFont(getClass().getResourceAsStream("/style/fonts/Source_Code_Pro/SourceCodePro-ExtraLight.ttf"), 14);
         scene.getStylesheets().add(getClass().getResource("/style/default.css").toExternalForm());
 
         MainController.setWindow(stage, scene, log);
-    }
-
-    public static void main(String[] args) {
-        launch(args);
     }
 
     @Override

@@ -25,9 +25,7 @@ public class StatisticsController extends Application {
         MainController.setWindow(primaryStage, scene, log);
     }
 
-    public static void main(String[] args) {
-        launch(args);
-    }
+
 
     public void gameExitAction(ActionEvent actionEvent) throws IOException {
         Parent gameView = FXMLLoader.load(getClass().getResource("/fxml/StartWindow.fxml"));

@@ -98,7 +98,7 @@ public class GameController implements Initializable {
 
     public void gameStatsAction(ActionEvent actionEvent) throws IOException {
         animations.timer.pause();
-        sceneChanger("/fxml/GameOverWindow.fxml", actionEvent);
+        sceneChanger("/fxml/GameOver.fxml", actionEvent);
     }
 
     public void gameSoundAction(ActionEvent actionEvent) {
@@ -217,7 +217,7 @@ public class GameController implements Initializable {
                 //resetButtons();
                 break;
             default:
-                log.debug("Wrong");
+                log.error("Wrong");
                 break;
         }
     }
@@ -283,7 +283,7 @@ public class GameController implements Initializable {
         } else if (buttonD.getText().equals(rightAnswer)) {
             setButtonGreen(buttonD);
         } else {
-            log.debug("no right answer");
+            log.error("no right answer");
         }
     }
 

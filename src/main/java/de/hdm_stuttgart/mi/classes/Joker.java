@@ -67,7 +67,7 @@ public class Joker {
                     random = 0;
                     break;
                 default:
-                    log.info("no wrong answers");
+                    log.error("no wrong answers");
             }
         }
         fiftyJoker.setDisable(true);
