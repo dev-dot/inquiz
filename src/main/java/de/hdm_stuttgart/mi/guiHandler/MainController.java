@@ -105,7 +105,7 @@ public class MainController extends Application {
             shutdown(primaryStage);
         });
 
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/StartWindow.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/Main.fxml"));
         Scene scene = new Scene(root);
         javafx.scene.text.Font.loadFont(getClass().getResourceAsStream("/style/fonts/Source_Code_Pro/SourceCodePro-ExtraLight.ttf"), 14);
         scene.getStylesheets().add(getClass().getResource("/style/default.css").toExternalForm());

@@ -91,7 +91,7 @@ public class GameController implements Initializable {
 
     //General Click Actions
     public void gameExitAction(ActionEvent actionEvent) throws IOException {
-        sceneChanger("/fxml/StartWindow.fxml", actionEvent);
+        sceneChanger("/fxml/Main.fxml", actionEvent);
         game.setNewGame();
         Game.joker.reset(timeJoker, skipJoker, fiftyJoker);
     }
