@@ -7,7 +7,6 @@ import de.hdm_stuttgart.mi.exceptions.IllegalFactoryArgument;
 import de.hdm_stuttgart.mi.interfaces.IGamemode;
 import javafx.animation.RotateTransition;
 import javafx.application.Application;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -61,8 +60,6 @@ public class MainController extends Application {
     public Button mainExitButton;
     @FXML
     public Label mainUserNameHintLabel;
-    @FXML
-    public Label userID;
     @FXML
     public Label gameUserID;
     @FXML
@@ -136,7 +133,8 @@ public class MainController extends Application {
     //Event Handler
     @FXML
     public void mainExitAction() {
-        Runtime.getRuntime().exit(0);
+        log.info("Exiting Application");
+        System.exit(0);
     }
 
     @FXML
@@ -265,12 +263,5 @@ public class MainController extends Application {
         // you may need to close other windows or replace this with Platform.exit();
         primaryStage.close();
         //  }
-    }
-
-
-    @FXML
-    public void exitApplication(ActionEvent event) {
-
-        Platform.exit();
     }
 }

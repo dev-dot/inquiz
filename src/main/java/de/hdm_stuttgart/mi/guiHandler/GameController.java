@@ -26,6 +26,8 @@ import org.apache.logging.log4j.Logger;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadPoolExecutor;
 
 import static de.hdm_stuttgart.mi.guiHandler.MainController.game;
 
@@ -72,6 +74,9 @@ public class GameController implements Initializable {
     //Initializing Scene
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        //Starting Music Thread
+        Music music = new Music();
+        music.run();
         gameSoundImage.setImage(soundOffImage);
     }
 

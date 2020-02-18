@@ -17,9 +17,6 @@ public class App extends Application {
 
 
     public static void main(String[] args) {
-        ThreadPoolExecutor executor = (ThreadPoolExecutor) Executors.newFixedThreadPool(2);
-        Music music = new Music();
-        executor.execute(music);
         launch(args);
 
     }
