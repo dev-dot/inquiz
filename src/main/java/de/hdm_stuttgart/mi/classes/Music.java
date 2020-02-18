@@ -27,7 +27,7 @@ public class Music implements Runnable {
             mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
             mediaPlayer.setVolume(0.4);
 
-            log.info("Now playing Music!");
+
         } catch (Exception ignored) {
 
         }

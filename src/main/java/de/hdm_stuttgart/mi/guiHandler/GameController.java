@@ -77,6 +77,7 @@ public class GameController implements Initializable {
         //Starting Music Thread
         Music music = new Music();
         music.run();
+        log.info("Started Music Thread");
         gameSoundImage.setImage(soundOffImage);
     }
 
@@ -109,9 +110,11 @@ public class GameController implements Initializable {
     public void gameSoundAction(ActionEvent actionEvent) {
         if (gameSoundImage.getImage() == soundOffImage) {
             Music.mediaPlayer.play();
+            log.info("Now playing Music");
             gameSoundImage.setImage(soundOnImage);
         } else {
             Music.mediaPlayer.pause();
+            log.info("Music muted");
             gameSoundImage.setImage(soundOffImage);
         }
     }
